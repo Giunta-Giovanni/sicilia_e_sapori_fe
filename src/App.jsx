@@ -7,7 +7,7 @@ import DefaultLayout from "./layouts/DefaultLayout.jsx";
 // import Pages
 import AboutPage from "./pages/AboutPage.jsx";
 import HomePage from "./pages/HomePage.jsx";
-import MenuPage from "./pages/MenuPage.jsx";
+import MenuPage from "./pages/menuPage/MenuPage.jsx";
 import NotfoundPage from "./pages/NotfoundPage.jsx";
 import PrivacyPolicyPage from "./pages/PrivacyPolicyPage.jsx";
 
