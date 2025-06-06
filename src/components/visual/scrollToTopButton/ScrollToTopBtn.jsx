@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
-import style from './ScrollToTopBtn.module.css'
-export default function ScrollToTopButton() {
-    const [visible, setVisible] = useState(false);
+import styles from './ScrollToTopBtn.module.css';
 
-    // mostra il bottone dopo che si scrolla un po'
+export default function ScrollToTopButton() {
+    const [isVisible, setIsVisible] = useState(false);
+
     useEffect(() => {
         const handleScroll = () => {
-            setVisible(window.scrollY > 200);
+            setIsVisible(window.scrollY > 200);
         };
 
         window.addEventListener('scroll', handleScroll);
@@ -20,13 +20,11 @@ export default function ScrollToTopButton() {
         });
     };
 
-    if (!visible) return null;
-
     return (
         <button
             onClick={scrollToTop}
-            className={style.button}
-            aria-label="Torna su"
+            aria-label="Scroll to Top"
+            className={`${styles.scrollButton} ${isVisible ? styles.scrollButtonVisible : ''}`}
         >
             ↑
         </button>

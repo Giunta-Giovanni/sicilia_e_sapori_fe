@@ -1,4 +1,4 @@
-.button {
+.scrollButton {
     position: fixed;
     bottom: 20px;
     right: 20px;
@@ -9,4 +9,15 @@
     border: none;
     cursor: pointer;
     z-index: 1000;
+
+    opacity: 0;
+    transform: translateY(20px);
+    /* inizialmente un po’ più in basso */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.scrollButtonVisible {
+    opacity: 1;
+    transform: translateY(0);
+    /* quando visibile: posizione normale */
 }
