@@ -1,0 +1,48 @@
+/* GENERAL RULES */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* font */
+    font-family: "Raleway", serif;
+    font-weight: 300;
+    font-size: 18px;
+
+    /* colours */
+    --primary-brown: #311B04;
+    --secondary-brown: #612D06;
+
+    --primary-white: #F7F1E7;
+    --secondary-white: #FEFDFC;
+
+    --primary-gold: #B8860B;
+}
+
+@media (max-width:576px) {
+    :root {
+        font-size: 16px;
+    }
+}
+
+
+/* da spostare in menu */
+
+.allergene {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 1.2rem;
+    height: 1.2rem;
+
+    border-radius: 999px;
+    border: 1px solid var(--primary-gold);
+
+}
+
+.allergene img {
+    width: 60%;
+}
