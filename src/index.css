@@ -27,22 +27,35 @@
     }
 }
 
-
-/* da spostare in menu */
-
-.allergene {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    width: 1.2rem;
-    height: 1.2rem;
-
-    border-radius: 999px;
-    border: 1px solid var(--primary-gold);
-
+/* <main> */
+main {
+    background-color: var(--primary-white);
+    color: var(--primary-brown);
 }
 
-.allergene img {
-    width: 60%;
+main.inverted {
+    background-color: var(--primary-brown);
+    color: var(--primary-white);
+}
+
+/* <h1>,<h2>,<h3>,<h4>,<h5>,<h6> */
+h1 {
+    font-size: 3rem;
+}
+
+h2 {
+    font-size: 2.45rem;
+    font-weight: 150;
+}
+
+h3 {
+    font-size: 1.95rem;
+}
+
+h4 {
+    font-size: 1.56rem;
+}
+
+h5 {
+    font-size: 1.25rem;
 }
