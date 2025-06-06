@@ -1,0 +1,115 @@
+/* menuJumbo */
+.menuJumbo {
+    display: flex;
+    align-items: center;
+    height: 20rem;
+}
+
+.menuJumbo p {
+    margin: 5rem;
+    text-align: center;
+    line-height: 1.5rem;
+}
+
+@media (max-width:576px) {
+    .menuJumbo p {
+        margin: 2.5rem;
+    }
+}
+
+/* menuSection */
+
+/* introduction */
+.menuSection .introduction {
+    text-align: center;
+}
+
+.menuSection .introduction img {
+    margin: 1rem 0;
+    height: 3rem;
+}
+
+/* menu */
+.menu {
+    display: flex;
+    padding: 0 1rem;
+    border: 0.5px solid var(--primary-brown);
+}
+
+@media (max-width:576px) {
+    .menu {
+        padding: 0;
+        display: block;
+    }
+}
+
+/* navbar */
+.menuSection .navbar {
+    min-width: 250px;
+    /* width: calc(100vw/3); */
+    flex: 0 0 33.33%;
+    /* debug */
+    background-color: red;
+    height: 300px;
+}
+
+@media (max-width:576px) {
+    .menuSection .navbar {
+        width: 100%;
+    }
+}
+
+/* products */
+.menuSection .products {
+    /* width: 100%; */
+    flex: 1;
+    /* debug */
+    background-color: rgb(45, 26, 115);
+    height: 300px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.allergene {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 1.2rem;
+    height: 1.2rem;
+
+    border-radius: 999px;
+    border: 1px solid var(--primary-gold);
+
+}
+
+.allergene img {
+    width: 60%;
+}
