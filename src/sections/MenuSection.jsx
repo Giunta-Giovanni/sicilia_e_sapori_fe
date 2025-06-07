@@ -1,5 +1,8 @@
 //import Assets
-import arrowDown from '../assets/svg/general/arrow-down.svg'
+import arrowDown from '../assets/svg/general/arrow-down.svg';
+import allergensDoc from '../assets/svg/general/doc.svg';
+import plate from '../assets/svg/general/plate.svg';
+import filter from '../assets/svg/general/filter.svg'
 
 export default function MenuSection({ styles }) {
 
@@ -17,9 +20,36 @@ export default function MenuSection({ styles }) {
 
             {/* menu */}
             <section className={styles.menu}>
-                {/* navbar*/}
-                <div className={styles.navbar}>
-                </div>
+                {/* navBar*/}
+                <nav className={styles.navbar}>
+                    {/* pcTitle */}
+                    <h4 className={styles.pcTitle}>Menù</h4>
+                    {/* navBarItems */}
+                    <div className={styles.navbarItems}>
+                        {/* item */}
+                        <div className={`${styles.item} ${styles.navDoc}`}>
+                            <img src={allergensDoc} alt="Allergens document" />
+                            <span>Allergeni</span>
+                        </div>
+                        {/* item, navMenu */}
+                        <div className={`${styles.item} ${styles.navMenu}`}>
+                            <img src={plate} alt="plate" />
+                            <span>Menù</span>
+                        </div>
+                        {/* item */}
+                        <div className={`${styles.item} ${styles.navFilter}`}>
+                            <img src={filter} alt="filter" />
+                            <span>Filtra</span>
+                        </div>
+                    </div>
+                    <ul>
+                        <li>antipasti</li>
+                        <li>pizze gourmet</li>
+                        <li>pizze da napoli</li>
+                        <li>pii</li>
+                        <li>pizze</li>
+                    </ul>
+                </nav>
 
                 {/* products */}
                 <div className={styles.products}></div>
@@ -31,6 +61,6 @@ export default function MenuSection({ styles }) {
             {/* Doughs Section*/}
 
             {/* Products Section */}
-        </section>
+        </section >
     )
 }

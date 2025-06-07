@@ -36,7 +36,7 @@
     border: 0.5px solid var(--primary-brown);
 }
 
-@media (max-width:576px) {
+@media (max-width:768px) {
     .menu {
         padding: 0;
         display: block;
@@ -45,23 +45,117 @@
 
 /* navbar */
 .menuSection .navbar {
-    min-width: 250px;
-    /* width: calc(100vw/3); */
+    min-width: 300px;
     flex: 0 0 33.33%;
+    border-right: 0.5px solid var(--primary-brown);
+    border-left: 0.5px solid var(--primary-brown);
+
+
     /* debug */
-    background-color: red;
     height: 300px;
 }
 
-@media (max-width:576px) {
+@media (max-width:768px) {
     .menuSection .navbar {
         width: 100%;
     }
 }
 
+/* pcTitle */
+.navbar .pcTitle {
+    text-align: center;
+    margin: 1rem 0;
+}
+
+@media (max-width:768px) {
+    .navbar .pcTitle {
+        display: none;
+    }
+}
+
+/* navBarItems */
+.navbarItems {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* gap: 0.5rem; */
+
+    height: 4rem;
+
+    border-top: 0.5px solid var(--primary-brown);
+    border-bottom: 0.5px solid var(--primary-brown);
+}
+
+@media (max-width:768px) {
+    .navbarItems {
+        height: 3rem;
+    }
+}
+
+/* item */
+.navbarItems .item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.2rem;
+    width: 50%;
+    padding: 0 1rem;
+
+    font-size: 1.3rem;
+    font-weight: 150;
+
+    /* debug */
+    /* background-color: green; */
+}
+
+@media (max-width:768px) {
+    .navbarItems .item {
+        width: 33.33%;
+    }
+}
+
+.navbarItems .item img {
+    height: 1.5rem;
+}
+
+
+/* item -> navDoc */
+.navbarItems .navDoc {
+    justify-content: start;
+}
+
+
+@media (max-width:575px) {
+    .navbarItems .navDoc span {
+        display: none;
+    }
+}
+
+/* item -> navMenu */
+.navbarItems .navMenu {
+    display: none;
+}
+
+@media (max-width:768px) {
+    .navbarItems .navMenu {
+        display: flex;
+    }
+}
+
+/* item -> navFilter */
+.navbarItems .navFilter {
+    justify-content: end;
+}
+
+
+@media (max-width:575px) {
+    .navbarItems .navFilter span {
+        display: none;
+    }
+}
+
 /* products */
 .menuSection .products {
-    /* width: 100%; */
     flex: 1;
     /* debug */
     background-color: rgb(45, 26, 115);
@@ -97,7 +191,7 @@
 
 
 
-.allergene {
+.iteme {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -110,6 +204,6 @@
 
 }
 
-.allergene img {
+.iteme img {
     width: 60%;
 }
