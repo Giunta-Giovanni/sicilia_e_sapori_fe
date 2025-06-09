@@ -12,27 +12,25 @@
 
 /* popUp */
 .popUp {
-    max-height: 70vh;
+    max-height: 75vh;
     overflow-y: auto;
-
     text-align: center;
     background-color: var(--primary-white);
     /* border: 0.5px solid var(--primary-brown); */
     z-index: 1001;
 }
 
-
 /* header */
 .popUp .header {
     position: sticky;
     display: flex;
+    justify-content: space-between;
     align-items: center;
     top: 0;
     height: 3rem;
     padding: 1rem;
-
+    padding-right: 1.2rem;
     background-color: var(--primary-white);
-
 }
 
 /* title */
@@ -44,21 +42,14 @@
 .popUp .closeButton {
     width: 2rem;
     height: 2rem;
-    margin-left: auto;
-    padding: 0 1rem;
-
-
-
     cursor: pointer;
     transition: all 0.3s ease-out;
-
     z-index: 1002;
 }
 
 .closeButton::before,
 .closeButton::after {
     position: absolute;
-
     content: '';
     width: 1.5rem;
     height: 0.1rem;
@@ -97,8 +88,6 @@
     margin: 0 1rem;
 }
 
-
-
 .popUp .legend ul {
     display: flex;
     justify-content: center;
@@ -122,6 +111,7 @@
 .popUp .legend li {
     display: flex;
     align-items: center;
+    text-align: left;
     margin: 0.2rem;
 
     /* debug */
@@ -141,7 +131,6 @@
     /* background-color: powderblue; */
 }
 
-
 .popUp .legend li img {
     width: 1.3rem;
     padding: 0.2rem;
@@ -152,7 +141,7 @@
 /* regulation */
 .popUp .regulation {
     line-height: 1.4rem;
-    padding: 1rem;
+    padding: 1.3rem;
     font-size: 0.7rem;
     position: sticky;
     bottom: 0;
