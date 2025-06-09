@@ -73,7 +73,7 @@ export const allergens = [
     {
         key: 'sesame',
         icon: sesame,
-        label: { it: 'Semi di sesamo', en: 'Sesame seeds' }
+        label: { it: 'Sesamo', en: 'Sesame' }
     },
     {
         key: 'sulphites',
@@ -113,7 +113,7 @@ export const allergenLabels = {
         mustard: "Senape",
         nut: "Frutta a guscio",
         peanuts: "Arachidi",
-        sesame: "Semi di sesamo",
+        sesame: "sesamo",
         sulphites: "Solfiti"
     },
     en: {
