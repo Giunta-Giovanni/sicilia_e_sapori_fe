@@ -1,0 +1,198 @@
+/* Header.jsx */
+.headerWrapper {
+    height: 60px;
+    background-color: var(--primary-white);
+    border-bottom: 1px solid var(--primary-brown);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    transition: 0.3s ease;
+}
+
+@media (max-width:576px) {
+    .headerWrapper {
+        padding: 0 20px;
+    }
+}
+
+.headerWrapper.inverted {
+    background-color: var(--primary-brown);
+    border-bottom: 1px solid var(--primary-white);
+}
+
+/* left */
+/* headerLogo */
+.headerLogo {
+    height: 2rem;
+    overflow: hidden;
+}
+
+.headerLogo img {
+    height: 100%;
+    width: 200px;
+}
+
+/* header-hamburgher */
+.hamburger {
+    position: relative;
+    width: 2rem;
+    height: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hamburger span {
+    position: absolute;
+    height: 2.5px;
+    background-color: var(--primary-brown);
+    transition: all 0.3s ease;
+    border-radius: 5px;
+}
+
+.hamburger span:nth-child(1) {
+    top: 0;
+    width: 1.6rem;
+}
+
+.hamburger span:nth-child(2) {
+    top: 50%;
+    transform: translateY(-50%);
+    width: 2rem;
+}
+
+.hamburger span:nth-child(3) {
+    bottom: 0;
+    width: 1.6rem;
+}
+
+.hamburger.open span:nth-child(1) {
+    transform: rotate(45deg);
+    top: 50%;
+}
+
+.hamburger.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+    transform: rotate(-45deg);
+    bottom: auto;
+    top: 50%;
+}
+
+.headerWrapper.inverted .hamburger span {
+    background-color: var(--primary-white);
+}
+
+/* headerMenuHidden */
+.headerMenu {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100vw;
+    height: calc(100vh - 50px);
+    background-color: var(--primary-brown);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    overflow: scroll;
+
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+}
+
+.headerMenu.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* headerMenuSection */
+.headerMenuSection {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.headerMenuSection a {
+    position: relative;
+    margin: 10px 0 10px 0;
+    text-decoration: none;
+    font-size: 2.4rem;
+    color: var(--primary-white);
+    text-align: center;
+}
+
+.hover-animation a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0%;
+    height: 1px;
+    background-color: var(--primary-white);
+    transition: width 0.5s ease, left 0.5s ease;
+}
+
+.hover-animation a:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+/* header-menu-section-secondary */
+.header-menu-section.secondary {
+    flex-direction: row;
+    gap: 30px;
+}
+
+.header-menu-section.secondary a {
+    font-size: 1.2rem;
+    opacity: 0.6;
+    transition: 0.3s ease;
+}
+
+.header-menu-section.secondary a:hover {
+    opacity: 1;
+}
+
+.flag-icon {
+    width: 26px;
+    height: 16px;
+    object-fit: cover;
+    vertical-align: middle;
+    border-radius: 2px;
+}
+
+.social-logo {
+    width: 2rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ROBEEEEE TEST */
+.jumbotron {
+    height: 700px;
+    width: 100%;
+    background-color: var(--primary-white);
+}
+
+.robe-varie {
+    height: 700px;
+    width: 100%;
+    background-color: var(--primary-brown);
+}
