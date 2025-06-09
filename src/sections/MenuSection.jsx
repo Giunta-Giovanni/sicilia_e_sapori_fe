@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 
 // import Components
 import AllergensPopUp from '../components/visual/allergensPopUp/AllergensPopUp';
+import FiltersPopUp from '../components/visual/filtersPopUp/FiltersPopUp';
 
 //import Assets
 import { allergens, allergenIcons, allergenLabels } from '../assets/svg/allergens/allergens';
@@ -132,8 +133,7 @@ export default function MenuSection({ styles }) {
 
 
 
-            {/* allergens pop up -> after move in component */}
-
+            {/* Allergens Pop Up */}
             {isAllergenOpen ?
                 <>
                     {/* overlay */}
@@ -147,9 +147,23 @@ export default function MenuSection({ styles }) {
                         handleClick={handleClick}
                     />
                 </>
-
                 : null
+            }
 
+            {/* Filters PopUp */}
+            {isFilterOpen ?
+                <>
+                    {/* overlay */}
+                    < div className={styles.overlay}></div>
+
+                    {/* AllergensPopUp */}
+                    <FiltersPopUp
+                        isFilterOpen={isFilterOpen}
+                        setIsAllergenOpen={setIsFilterOpen}
+                        handleClick={handleClick}
+                    />
+                </>
+                : null
             }
 
 
