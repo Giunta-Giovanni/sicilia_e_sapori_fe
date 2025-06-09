@@ -1,0 +1,160 @@
+/* popUpWrapper */
+.popUpWrapper {
+    position: fixed;
+    display: flex;
+    align-content: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    z-index: 1000;
+}
+
+/* popUp */
+.popUp {
+    max-height: 70vh;
+    overflow-y: auto;
+
+    text-align: center;
+    background-color: var(--primary-white);
+    /* border: 0.5px solid var(--primary-brown); */
+    z-index: 1001;
+}
+
+
+/* header */
+.popUp .header {
+    position: sticky;
+    display: flex;
+    align-items: center;
+    top: 0;
+    height: 3rem;
+    padding: 1rem;
+
+    background-color: var(--primary-white);
+
+}
+
+/* title */
+.popUp .title {
+    text-transform: capitalize;
+}
+
+/* closeButton */
+.popUp .closeButton {
+    width: 2rem;
+    height: 2rem;
+    margin-left: auto;
+    padding: 0 1rem;
+
+
+
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+
+    z-index: 1002;
+}
+
+.closeButton::before,
+.closeButton::after {
+    position: absolute;
+
+    content: '';
+    width: 1.5rem;
+    height: 0.1rem;
+    border-radius: 1px;
+    background: var(--primary-brown);
+    transition: all 0.3s ease-out;
+}
+
+.closeButton::before {
+    transform: rotate(-45deg);
+}
+
+.closeButton::after {
+    transform: rotate(45deg);
+}
+
+.closeButton:hover::before {
+    transform: rotate(0deg);
+}
+
+.closeButton:hover::after {
+    transform: rotate(0deg);
+}
+
+
+.popUp h6 {
+    position: sticky;
+    top: 3rem;
+    background-color: var(--primary-white);
+    padding: 1rem;
+    font-size: 1.25rem;
+}
+
+/* legend */
+.popUp .legend {
+    margin: 0 1rem;
+}
+
+
+
+.popUp .legend ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1rem;
+
+    /* debug */
+    /* background-color: grey; */
+}
+
+@media (max-width:576px) {
+    .popUp .legend ul {
+        justify-content: start;
+        align-items: center;
+        gap: 0.5rem;
+        margin: 0 auto;
+    }
+}
+
+.popUp .legend li {
+    display: flex;
+    align-items: center;
+    margin: 0.2rem;
+
+    /* debug */
+    /* background-color: powderblue; */
+}
+
+@media (max-width:576px) {
+    .popUp .legend li {
+        margin: 0;
+        width: 45%;
+    }
+}
+
+.popUp .legend li span {
+    margin: 0.3rem;
+    /* debug */
+    /* background-color: powderblue; */
+}
+
+
+.popUp .legend li img {
+    width: 1.3rem;
+    padding: 0.2rem;
+    border: 1px solid var(--primary-gold);
+    border-radius: 50%;
+}
+
+/* regulation */
+.popUp .regulation {
+    line-height: 1.4rem;
+    padding: 1rem;
+    font-size: 0.7rem;
+    position: sticky;
+    bottom: 0;
+    background-color: var(--primary-white);
+}
