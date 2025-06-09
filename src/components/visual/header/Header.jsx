@@ -53,21 +53,21 @@ export default function Header() {
                 {/* headerMenuSectionSecondary */}
                 <section className={`${styles.headerMenuSection} ${styles.secondary}`}>
                     <a href="#italiano">ITALIANO <br />
-                        <Flag code="it" className="flag-icon" />
+                        <Flag code="it" className={styles.flagIcon} />
                     </a>
 
                     <a href="#inglese">INGLESE <br />
-                        <Flag code="gb" className="flag-icon" />
+                        <Flag code="gb" className={styles.flagIcon} />
                     </a>
                 </section>
 
                 {/* headerMenuSection secondary */}
                 <section className={`${styles.headerMenuSection} ${styles.secondary}`}>
                     <a href="#facebook">
-                        <img className="social-logo" src={fbLogoWhite} alt="facebook" />
+                        <img className={styles.socialLogo} src={fbLogoWhite} alt=" facebook" />
                     </a>
                     <a href="#instagram">
-                        <img className="social-logo" src={igLogoWhite} alt="instagram" />
+                        <img className={styles.socialLogo} src={igLogoWhite} alt="instagram" />
                     </a>
                 </section>
 

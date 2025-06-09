@@ -128,7 +128,7 @@
     text-align: center;
 }
 
-.hover-animation a::after {
+.hoverAnimation a::after {
     content: "";
     position: absolute;
     bottom: 0;
@@ -139,28 +139,28 @@
     transition: width 0.5s ease, left 0.5s ease;
 }
 
-.hover-animation a:hover::after {
+.hoverAnimation a:hover::after {
     width: 100%;
     left: 0;
 }
 
 /* header-menu-section-secondary */
-.header-menu-section.secondary {
+.headerMenuSection.secondary {
     flex-direction: row;
     gap: 30px;
 }
 
-.header-menu-section.secondary a {
+.headerMenuSection.secondary a {
     font-size: 1.2rem;
     opacity: 0.6;
     transition: 0.3s ease;
 }
 
-.header-menu-section.secondary a:hover {
+.headerMenuSection.secondary a:hover {
     opacity: 1;
 }
 
-.flag-icon {
+.flagIcon {
     width: 26px;
     height: 16px;
     object-fit: cover;
@@ -168,7 +168,7 @@
     border-radius: 2px;
 }
 
-.social-logo {
+.socialLogo {
     width: 2rem;
 }
 
