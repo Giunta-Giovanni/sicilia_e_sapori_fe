@@ -6,10 +6,12 @@ import AllergensPopUp from '../components/visual/allergensPopUp/AllergensPopUp';
 import FiltersPopUp from '../components/visual/filtersPopUp/FiltersPopUp';
 
 //import Assets
-import { allergens, allergenIcons, allergenLabels } from '../assets/svg/allergens/allergens';
+import { allergens } from '../assets/svg/allergens/allergens';
+import spicy from '../assets/svg/general/pepper.svg';
+import vegetarian from '../assets/svg/general/leaf.svg'
 import allergensDoc from '../assets/svg/general/doc.svg';
 import arrowDown from '../assets/svg/general/arrow-down.svg';
-import filter from '../assets/svg/general/filter.svg';
+import filterIcon from '../assets/svg/general/filter.svg';
 import plate from '../assets/svg/general/plate.svg';
 
 // import Data
@@ -18,6 +20,25 @@ import { categories } from '../data/categories';
 
 export default function MenuSection({ styles }) {
 
+    // Initial Selected Filters
+    const initialSelectedFilters = {
+        celery: true,
+        crustaceans: true,
+        egg: true,
+        fish: true,
+        gluten: true,
+        lupins: true,
+        milk: true,
+        molluscs: true,
+        mustard: true,
+        nut: true,
+        peanuts: true,
+        sesame: true,
+        sulphites: true,
+        spicy: true,
+        vegetarian: true,
+    }
+
     // Allergen pop up state
     const [isAllergenOpen, setIsAllergenOpen] = useState(false)
     // Burgher menù state
@@ -25,8 +46,13 @@ export default function MenuSection({ styles }) {
     // Filter pop up state
     const [isFilterOpen, setIsFilterOpen] = useState(false);
 
+    // Filters state
+    const [selectedFilters, setSelectedFilters] = useState(initialSelectedFilters)
+
     // Current section state
     const [currentSection, setCurrentSection] = useState(null);
+
+
 
     // Change state to Toggle menu
     function handleClick(state, setState) {
@@ -46,7 +72,7 @@ export default function MenuSection({ styles }) {
 
     // add no scroll to body when pop up is open
     useEffect(() => {
-        if (isAllergenOpen) {
+        if (isAllergenOpen || isFilterOpen) {
             document.documentElement?.classList.add('noScroll');
             document.body?.classList.add('noScroll');
         } else {
@@ -54,7 +80,7 @@ export default function MenuSection({ styles }) {
             document.body?.classList.remove('noScroll');
         }
 
-    }, [isAllergenOpen])
+    }, [isAllergenOpen, isFilterOpen])
 
     // RENDER
     return (
@@ -96,7 +122,7 @@ export default function MenuSection({ styles }) {
                         <div className={styles.col}>
                             {/* item, navFilter */}
                             <div className={`${styles.item} ${styles.navFilter}`} onClick={() => handleClick(isFilterOpen, setIsFilterOpen)}>
-                                <img src={filter} alt="filter" />
+                                <img src={filterIcon} alt="filter" />
                                 <span>Filtra</span>
                             </div>
                         </div>
@@ -156,11 +182,16 @@ export default function MenuSection({ styles }) {
                     {/* overlay */}
                     < div className={styles.overlay}></div>
 
-                    {/* AllergensPopUp */}
+                    {/* FiltersPopUp */}
                     <FiltersPopUp
+                        allergens={allergens}
+                        spicy={spicy}
+                        vegetarian={vegetarian}
                         isFilterOpen={isFilterOpen}
-                        setIsAllergenOpen={setIsFilterOpen}
+                        setIsFilterOpen={setIsFilterOpen}
                         handleClick={handleClick}
+                        selectedFilters={selectedFilters}
+                        setSelectedFilters={setSelectedFilters}
                     />
                 </>
                 : null
