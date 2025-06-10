@@ -16,66 +16,79 @@ import sulphites from './sulphites.svg';
 // allergens
 export const allergens = [
     {
+        id: 1,
         key: 'celery',
         icon: celery,
         label: { it: 'Sedano', en: 'Celery' }
     },
     {
+        id: 2,
         key: 'crustaceans',
         icon: crustaceans,
         label: { it: 'Crostacei', en: 'Crustaceans' }
     },
     {
+        id: 3,
         key: 'egg',
         icon: egg,
         label: { it: 'Uova', en: 'Egg' }
     },
     {
+        id: 4,
         key: 'fish',
         icon: fish,
         label: { it: 'Pesce', en: 'Fish' }
     },
     {
+        id: 5,
         key: 'gluten',
         icon: gluten,
         label: { it: 'Glutine', en: 'Gluten' }
     },
     {
+        id: 6,
         key: 'lupins',
         icon: lupins,
         label: { it: 'Lupini', en: 'Lupins' }
     },
     {
+        id: 7,
         key: 'milk',
         icon: milk,
         label: { it: 'Latte', en: 'Milk' }
     },
     {
+        id: 8,
         key: 'molluscs',
         icon: molluscs,
         label: { it: 'Molluschi', en: 'Molluscs' }
     },
     {
+        id: 9,
         key: 'mustard',
         icon: mustard,
         label: { it: 'Senape', en: 'Mustard' }
     },
     {
+        id: 10,
         key: 'nut',
         icon: nut,
-        label: { it: 'Frutta a guscio', en: 'Tree nuts' }
+        label: { it: 'Frutta a Guscio', en: 'Tree Nuts' }
     },
     {
+        id: 11,
         key: 'peanuts',
         icon: peanuts,
         label: { it: 'Arachidi', en: 'Peanuts' }
     },
     {
+        id: 12,
         key: 'sesame',
         icon: sesame,
         label: { it: 'Sesamo', en: 'Sesame' }
     },
     {
+        id: 13,
         key: 'sulphites',
         icon: sulphites,
         label: { it: 'Solfiti', en: 'Sulfites' }
