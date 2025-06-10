@@ -20,6 +20,7 @@ body.noScroll {
     /* colours */
     --primary-brown: #311B04;
     --secondary-brown: #612D06;
+    --terziary-brown: #7A3907;
 
     --primary-white: #F7F1E7;
     --secondary-white: #FEFDFC;
@@ -90,3 +91,12 @@ li a {
 button {
     all: unset;
 }
+
+
+/* input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+} */
