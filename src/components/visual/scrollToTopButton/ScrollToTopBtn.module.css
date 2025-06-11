@@ -3,17 +3,19 @@
     bottom: 20px;
     right: 20px;
     width: 1.5rem;
-    height: 1.5rem;
+    height: 1.3rem;
     background-color: var(--primary-white);
     color: var(--primary-brown);
     border: 1px solid var(--primary-brown);
     border-radius: 2px;
-    z-index: 1000;
-
+    text-align: center;
+    padding-bottom: 0.2rem;
     opacity: 0;
     transform: translateY(20px);
     /* inizialmente un po’ più in basso */
     transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 998;
+
 }
 
 .scrollButtonVisible {
