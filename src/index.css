@@ -26,6 +26,8 @@ body.noScroll {
     --secondary-white: #FEFDFC;
 
     --primary-gold: #B8860B;
+
+    --primary-red: #C0392B;
 }
 
 @media (max-width:576px) {
