@@ -16,27 +16,28 @@ import plate from '../assets/svg/general/plate.svg';
 
 // import Data
 import { categories } from '../data/categories';
+import { displayName } from 'react-world-flags';
 
 
 export default function MenuSection({ styles }) {
 
     // Initial Selected Filters
     const initialSelectedFilters = {
-        celery: true,
-        crustaceans: true,
-        egg: true,
-        fish: true,
-        gluten: true,
-        lupins: true,
-        milk: true,
-        molluscs: true,
-        mustard: true,
-        nut: true,
-        peanuts: true,
-        sesame: true,
-        sulphites: true,
-        spicy: true,
-        vegetarian: true,
+        celery: false,
+        crustaceans: false,
+        egg: false,
+        fish: false,
+        gluten: false,
+        lupins: false,
+        milk: false,
+        molluscs: false,
+        mustard: false,
+        nut: false,
+        peanuts: false,
+        sesame: false,
+        sulphites: false,
+        spicy: false,
+        vegetarian: false,
     }
 
     // Allergen pop up state
@@ -52,8 +53,6 @@ export default function MenuSection({ styles }) {
     // Current section state
     const [currentSection, setCurrentSection] = useState(null);
 
-
-
     // Change state to Toggle menu
     function handleClick(state, setState) {
         // if state is close open it
@@ -65,9 +64,14 @@ export default function MenuSection({ styles }) {
         }
     }
 
-    // 
+    // function to update section
     function updateCurrentSection(name) {
         setCurrentSection(name);
+    }
+
+    function counter(obj) {
+        const count = Object.values(obj).reduce((a, filter) => a + (filter === true ? 1 : 0), 0)
+        return count
     }
 
     // add no scroll to body when pop up is open
@@ -81,7 +85,7 @@ export default function MenuSection({ styles }) {
         }
 
     }, [isAllergenOpen, isFilterOpen])
-
+    console.log(counter(selectedFilters))
     // RENDER
     return (
 
@@ -122,8 +126,21 @@ export default function MenuSection({ styles }) {
                         <div className={styles.col}>
                             {/* item, navFilter */}
                             <div className={`${styles.item} ${styles.navFilter}`} onClick={() => handleClick(isFilterOpen, setIsFilterOpen)}>
-                                <img src={filterIcon} alt="filter" />
+                                <div>
+                                    <img src={filterIcon} alt="filter" />
+                                    <p
+                                        className={styles.counter}
+                                        style={counter(selectedFilters) === 0
+                                            ? { display: 'none' }
+                                            : {}
+                                        }
+                                    >
+                                        {counter(selectedFilters)}
+                                    </p>
+                                </div>
                                 <span>Filtra</span>
+
+                                {/* counter */}
                             </div>
                         </div>
                     </div>
@@ -160,41 +177,43 @@ export default function MenuSection({ styles }) {
 
 
             {/* Allergens Pop Up */}
-            {isAllergenOpen ?
-                <>
-                    {/* overlay */}
-                    < div className={styles.overlay}></div>
+            {
+                isAllergenOpen ?
+                    <>
+                        {/* overlay */}
+                        < div className={styles.overlay}></div>
 
-                    {/* AllergensPopUp */}
-                    <AllergensPopUp
-                        allergens={allergens}
-                        isAllergenOpen={isAllergenOpen}
-                        setIsAllergenOpen={setIsAllergenOpen}
-                        handleClick={handleClick}
-                    />
-                </>
-                : null
+                        {/* AllergensPopUp */}
+                        <AllergensPopUp
+                            allergens={allergens}
+                            isAllergenOpen={isAllergenOpen}
+                            setIsAllergenOpen={setIsAllergenOpen}
+                            handleClick={handleClick}
+                        />
+                    </>
+                    : null
             }
 
             {/* Filters PopUp */}
-            {isFilterOpen ?
-                <>
-                    {/* overlay */}
-                    < div className={styles.overlay}></div>
+            {
+                isFilterOpen ?
+                    <>
+                        {/* overlay */}
+                        < div className={styles.overlay}></div>
 
-                    {/* FiltersPopUp */}
-                    <FiltersPopUp
-                        allergens={allergens}
-                        spicy={spicy}
-                        vegetarian={vegetarian}
-                        isFilterOpen={isFilterOpen}
-                        setIsFilterOpen={setIsFilterOpen}
-                        handleClick={handleClick}
-                        selectedFilters={selectedFilters}
-                        setSelectedFilters={setSelectedFilters}
-                    />
-                </>
-                : null
+                        {/* FiltersPopUp */}
+                        <FiltersPopUp
+                            allergens={allergens}
+                            spicy={spicy}
+                            vegetarian={vegetarian}
+                            isFilterOpen={isFilterOpen}
+                            setIsFilterOpen={setIsFilterOpen}
+                            handleClick={handleClick}
+                            selectedFilters={selectedFilters}
+                            setSelectedFilters={setSelectedFilters}
+                        />
+                    </>
+                    : null
             }
 
 
