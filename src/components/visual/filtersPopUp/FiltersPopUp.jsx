@@ -79,9 +79,9 @@ export default function FiltersPopUp({ isFilterOpen, setIsFilterOpen, handleClic
                                             checked={isChecked(pendingSelectedFilters, allergen.key)}
                                         />
                                         {/* checkmark */}
-                                        <span className={styles.checkmark}></span>
+                                        {/* <span className={styles.checkmark}></span> */}
                                         {/* icon, allergens */}
-                                        <span className={`${styles.icon} ${styles.allergens}`}>
+                                        <span className={`${styles.icon} ${styles.allergens} ${styles.checkmark}`}>
                                             <img src={allergen.icon} alt='' />
                                         </span>
                                         <span>{lang === 'it' ? allergen.label.it : allergen.label.en}</span>
@@ -94,7 +94,7 @@ export default function FiltersPopUp({ isFilterOpen, setIsFilterOpen, handleClic
                     {/* Preferences */}
 
                     {/* filterTitle */}
-                    <h5 className={styles.filterTitle}>{lang === 'it' ? 'Preferenze' : 'Preferences'}</h5>
+                    <h5>{lang === 'it' ? 'Preferenze' : 'Preferences'}</h5>
                     {/* Filters */}
                     <div className={styles.filters}>
                         {/* is spicy?*/}
@@ -106,10 +106,10 @@ export default function FiltersPopUp({ isFilterOpen, setIsFilterOpen, handleClic
                                     onChange={saveCheckedValue}
                                     checked={isChecked(pendingSelectedFilters, 'spicy')}
                                 />
-                                {/* checkmark */}
-                                <span className={styles.checkmark}></span>
+
                                 {/* icon */}
-                                <span className={styles.icon}>
+                                <span className={`${styles.icon} ${styles.checkmark}`}>
+
                                     {/* spicy */}
                                     <img id={styles.spicy} src={spicy} alt="" />
                                 </span>
@@ -125,10 +125,10 @@ export default function FiltersPopUp({ isFilterOpen, setIsFilterOpen, handleClic
                                     onChange={saveCheckedValue}
                                     checked={isChecked(pendingSelectedFilters, 'vegetarian')}
                                 />
-                                {/* checkmark */}
-                                <span className={styles.checkmark}></span>
+
                                 {/* icon */}
-                                <span className={styles.icon}>
+                                <span className={`${styles.icon} ${styles.checkmark}`}>
+
                                     <img src={vegetarian} alt="" />
                                 </span>
                                 <span>{lang === 'it' ? 'Vegetariano' : 'Vegeterian'}</span>
