@@ -1,5 +1,7 @@
 /* Header.jsx */
 .headerWrapper {
+    position: sticky;
+    top: 0;
     height: 60px;
     background-color: var(--primary-white);
     border-bottom: 1px solid var(--primary-brown);
@@ -8,6 +10,7 @@
     justify-content: space-between;
     padding: 0 40px;
     transition: 0.3s ease;
+    z-index: 1100;
 }
 
 @media (max-width:576px) {
@@ -25,7 +28,7 @@
 /* headerLogo */
 .headerLogo {
     height: 2rem;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .headerLogo img {
@@ -95,7 +98,6 @@
     width: 100vw;
     height: calc(100vh - 50px);
     background-color: var(--primary-brown);
-    z-index: 1000;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -104,6 +106,7 @@
     opacity: 0;
     transition: opacity 0.3s ease, transform 0.3s ease;
     pointer-events: none;
+    /* z-index: 1000; */
 }
 
 .headerMenu.open {
@@ -150,13 +153,20 @@
     gap: 30px;
 }
 
-.headerMenuSection.secondary a {
+
+
+.headerMenuSection.secondary a,
+.headerMenuSection.secondary button {
     font-size: 1.2rem;
     opacity: 0.6;
     transition: 0.3s ease;
+    color: var(--primary-white);
+    cursor: pointer;
+    text-align: center;
 }
 
-.headerMenuSection.secondary a:hover {
+.headerMenuSection.secondary a:hover,
+.headerMenuSection.secondary button:hover {
     opacity: 1;
 }
 
@@ -170,29 +180,4 @@
 
 .socialLogo {
     width: 2rem;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* ROBEEEEE TEST */
-.jumbotron {
-    height: 700px;
-    width: 100%;
-    background-color: var(--primary-white);
-}
-
-.robe-varie {
-    height: 700px;
-    width: 100%;
-    background-color: var(--primary-brown);
 }

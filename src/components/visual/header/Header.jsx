@@ -1,5 +1,7 @@
 // import Hooks
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
+import useLang from "../../../hooks/useLang";
 
 // import Styles
 import styles from './Header.module.css';
@@ -15,11 +17,41 @@ import linearLogoWhite from "../../../assets/svg/logo/logo-header-white.svg"
 
 export default function Header() {
 
+    // Save Language
+    const lang = useLang();
+    // Save Location
+    const location = useLocation();
+    // Save Navigation
+    const navigate = useNavigate();
+
+    // switch lang function
+    const switchLang = (targetLang) => {
+        let newPath = location.pathname.replace(/^\/(it|en)/, `/${targetLang}`)
+
+        if (location.pathname === '/') {
+            newPath = targetLang === 'en' ? '/en/' : '/it/';
+        }
+
+        navigate(newPath);
+    }
+
     const [isOpen, setIsOpen] = useState(false);
 
     const toggleMenu = () => {
         setIsOpen(prev => !prev);
     };
+
+    // add no scroll to body when nav is open
+    useEffect(() => {
+        if (isOpen) {
+            document.documentElement?.classList.add('noScroll');
+            document.body?.classList.add('noScroll');
+        } else {
+            document.documentElement?.classList.remove('noScroll');
+            document.body?.classList.remove('noScroll');
+        }
+
+    }, [isOpen])
 
     return (
         <header className={`${styles.headerWrapper} ${isOpen ? styles.inverted : null}`}>
@@ -27,9 +59,9 @@ export default function Header() {
             {/* left */}
             {/* headerLogo */}
             <div className={styles.headerLogo}>
-                <a href="#home">
-                    <img src={!isOpen ? linearLogoBrown : linearLogoWhite} alt="#logo" />
-                </a>
+                <Link to={lang === 'en' ? '/en/' : '/'}>
+                    <img src={!isOpen ? linearLogoBrown : linearLogoWhite} alt="logo" />
+                </Link>
             </div>
 
             {/* right */}
@@ -45,34 +77,42 @@ export default function Header() {
 
                 {/* headerMenuSection */}
                 <section className={`${styles.headerMenuSection} ${styles.hoverAnimation}`}>
-                    <a href="#home">HOME</a>
-                    <a href="#menu">MENÙ</a>
-                    <a href="#contact">CHI SIAMO</a>
+                    <Link to={lang === 'en' ? '/en/' : '/'} onClick={toggleMenu}>HOME</Link>
+                    <Link to={lang === 'en' ? '/en/menu' : '/it/menu'} onClick={toggleMenu}>MENÙ</Link>
+                    <Link to={lang === 'en' ? '/en/about-us' : '/it/chi-siamo'} onClick={toggleMenu}>CHI SIAMO</Link>
                 </section>
 
                 {/* headerMenuSectionSecondary */}
                 <section className={`${styles.headerMenuSection} ${styles.secondary}`}>
-                    <a href="#italiano">ITALIANO <br />
+                    <button
+                        onClick={() => {
+                            switchLang('it');
+                            toggleMenu();
+                        }}>
+                        ITALIANO <br />
                         <Flag code="it" className={styles.flagIcon} />
-                    </a>
+                    </button>
 
-                    <a href="#inglese">INGLESE <br />
+                    <button
+                        onClick={() => {
+                            switchLang('en');
+                            toggleMenu();
+                        }}>
+                        INGLESE <br />
                         <Flag code="gb" className={styles.flagIcon} />
-                    </a>
+                    </button>
                 </section>
 
                 {/* headerMenuSection secondary */}
                 <section className={`${styles.headerMenuSection} ${styles.secondary}`}>
-                    <a href="#facebook">
+                    <a href="https://www.facebook.com/siciliaesaporipozzallo" target="_blank" rel="noopener noreferrer">
                         <img className={styles.socialLogo} src={fbLogoWhite} alt=" facebook" />
                     </a>
-                    <a href="#instagram">
+                    <a href="https://www.instagram.com/siciliaesapori" target="_blank" rel="noopener noreferrer">
                         <img className={styles.socialLogo} src={igLogoWhite} alt="instagram" />
                     </a>
                 </section>
-
             </nav>
-
         </header >
     );
 }
