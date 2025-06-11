@@ -18,14 +18,14 @@ export default function App() {
 
   return (
     <BrowserRouter>
-      <ScrollToTop />
+      {/* <ScrollToTop /> */}
       <Routes>
 
         {/* it Routes */}
         <Route path="/it" element={<DefaultLayout />}>
           <Route index element={<HomePage />} />
           <Route path="menu" element={<MenuPage />} />
-          <Route path="about-us" element={<AboutPage />} />
+          <Route path="chi-siamo" element={<AboutPage />} />
           <Route path="privacy-policy" element={<PrivacyPolicyPage />} />
           <Route path="*" element={<NotfoundPage />} />
         </Route>
