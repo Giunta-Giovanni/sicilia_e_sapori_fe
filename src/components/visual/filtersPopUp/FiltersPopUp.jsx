@@ -63,7 +63,6 @@ export default function FiltersPopUp({ isFilterOpen, setIsFilterOpen, handleClic
                     </div>
 
                     {/* Allergens */}
-
                     {/* filterTitle */}
                     <h5 className={styles.filterTitle}>{lang === 'it' ? 'Allergeni' : 'Allergens'}</h5>
                     {/* allergenFilters */}
@@ -78,10 +77,8 @@ export default function FiltersPopUp({ isFilterOpen, setIsFilterOpen, handleClic
                                             onChange={saveCheckedValue}
                                             checked={isChecked(pendingSelectedFilters, allergen.key)}
                                         />
-                                        {/* checkmark */}
-                                        {/* <span className={styles.checkmark}></span> */}
-                                        {/* icon, allergens */}
-                                        <span className={`${styles.icon} ${styles.allergens} ${styles.checkmark}`}>
+                                        {/* icon, checkmark */}
+                                        <span className={`${styles.icon} ${styles.checkmark}`}>
                                             <img src={allergen.icon} alt='' />
                                         </span>
                                         <span>{lang === 'it' ? allergen.label.it : allergen.label.en}</span>
