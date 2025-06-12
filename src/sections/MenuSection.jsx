@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import useLang from '../hooks/useLang';
 
 // import Components
+import Products from '../pages/products/Products';
 import AllergensPopUp from '../components/visual/allergensPopUp/AllergensPopUp';
 import FiltersPopUp from '../components/visual/filtersPopUp/FiltersPopUp';
 
@@ -102,78 +103,78 @@ export default function MenuSection({ styles }) {
 
             {/* menu */}
             <section className={styles.menu}>
-                {/* navBar*/}
-                <nav className={styles.navbar}>
-                    {/* pcTitle */}
-                    <h4 className={styles.pcTitle}>Menù</h4>
-                    {/* navBarItems */}
-                    <div className={styles.navbarItems}>
-                        {/* col */}
-                        <div className={styles.col}>
-                            {/* item, navDoc */}
-                            <div className={`${styles.item} ${styles.navDoc} ${styles.hoverUnderlineAnimation}`} onClick={() => handleClick(isAllergenOpen, setIsAllergenOpen)}>
-                                <img src={allergensDoc} alt="Allergens document" />
-                                <span>{lang === 'it' ? 'Allergeni' : 'Allergens'}</span>
-                            </div>
-                        </div>
-                        {/* col */}
-                        <div className={styles.col} >
-                            {/*item, navMenu */}
-                            <div className={`${styles.item} ${styles.navMenu}`} onClick={() => handleClick(isMenuOpen, setIsMenuOpen)}>
-                                <img src={plate} alt="plate" />
-                                <span>Menù</span>
-                            </div>
-                        </div>
-                        {/* col */}
-                        <div className={styles.col}>
-                            {/* item, navFilter */}
-                            <div className={`${styles.item} ${styles.navFilter} ${styles.hoverUnderlineAnimation}`} onClick={() => handleClick(isFilterOpen, setIsFilterOpen)}>
-                                <div>
-                                    <img src={filterIcon} alt="filter" />
-                                    <p
-                                        className={styles.counter}
-                                        style={counter(selectedFilters) === 0
-                                            ? { display: 'none' }
-                                            : {}
-                                        }
-                                    >
-                                        {counter(selectedFilters)}
-                                    </p>
+                {/* boxNavbar */}
+                <div className={styles.boxNavbar}>
+                    {/* navBar*/}
+                    <nav className={styles.navbar}>
+                        {/* pcTitle */}
+                        <h4 className={styles.pcTitle}>Menù</h4>
+                        {/* navBarItems */}
+                        <div className={styles.navbarItems}>
+                            {/* col */}
+                            <div className={styles.col}>
+                                {/* item, navDoc */}
+                                <div className={`${styles.item} ${styles.navDoc} ${styles.hoverUnderlineAnimation}`} onClick={() => handleClick(isAllergenOpen, setIsAllergenOpen)}>
+                                    <img src={allergensDoc} alt="Allergens document" />
+                                    <span>{lang === 'it' ? 'Allergeni' : 'Allergens'}</span>
                                 </div>
-                                <span> {lang === 'it' ? 'Filtra' : 'Filter'}</span>
+                            </div>
+                            {/* col */}
+                            <div className={styles.col} >
+                                {/*item, navMenu */}
+                                <div className={`${styles.item} ${styles.navMenu}`} onClick={() => handleClick(isMenuOpen, setIsMenuOpen)}>
+                                    <img src={plate} alt="plate" />
+                                    <span>Menù</span>
+                                </div>
+                            </div>
+                            {/* col */}
+                            <div className={styles.col}>
+                                {/* item, navFilter */}
+                                <div className={`${styles.item} ${styles.navFilter} ${styles.hoverUnderlineAnimation}`} onClick={() => handleClick(isFilterOpen, setIsFilterOpen)}>
+                                    <div>
+                                        <img src={filterIcon} alt="filter" />
+                                        <p
+                                            className={styles.counter}
+                                            style={counter(selectedFilters) === 0
+                                                ? { display: 'none' }
+                                                : {}
+                                            }
+                                        >
+                                            {counter(selectedFilters)}
+                                        </p>
+                                    </div>
+                                    <span> {lang === 'it' ? 'Filtra' : 'Filter'}</span>
 
-                                {/* counter */}
+                                    {/* counter */}
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    {/* boxNavList */}
-                    <div className={`${styles.boxNavList} ${isMenuOpen ? styles.isOpen : ''}`}>
-                        {/* navList */}
-                        <ul className={`${styles.navList} ${isMenuOpen ? styles.isOpen : ''}`}>
-                            {categories.map(category =>
-                                <li
-                                    key={category.id}
-                                    onClick={() => updateCurrentSection(category.name_it)}
-                                >
-                                    {lang === 'it' ? category.name_it : category.name_en}
-                                </li>
-                            )}
-                        </ul>
-                    </div>
+                        {/* boxNavList */}
+                        <div className={`${styles.boxNavList} ${isMenuOpen ? styles.isOpen : ''}`}>
+                            {/* navList */}
+                            <ul className={`${styles.navList} ${isMenuOpen ? styles.isOpen : ''}`}>
+                                {categories.map(category =>
+                                    <li
+                                        key={category.id}
+                                        onClick={() => updateCurrentSection(category.name_it)}
+                                    >
+                                        {lang === 'it' ? category.name_it : category.name_en}
+                                    </li>
+                                )}
+                            </ul>
+                        </div>
 
-                </nav>
+                    </nav>
+                </div>
+
 
                 {/* products */}
-                <div className={styles.products}></div>
-                {/* Doughs Section*/}
-
-                {/* Products Section */}
-
+                <Products
+                    lang={lang}
+                />
 
             </section >
-
-
 
 
 
@@ -220,9 +221,6 @@ export default function MenuSection({ styles }) {
                     </>
                     : null
             }
-
-
-
         </section >
     )
 }
