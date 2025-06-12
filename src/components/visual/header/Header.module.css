@@ -92,7 +92,7 @@
 
 /* headerMenuHidden */
 .headerMenu {
-    position: fixed;
+    position: absolute;
     top: 60px;
     left: 0;
     width: 100vw;
@@ -106,7 +106,6 @@
     opacity: 0;
     transition: opacity 0.3s ease, transform 0.3s ease;
     pointer-events: none;
-    /* z-index: 1000; */
 }
 
 .headerMenu.open {

@@ -31,7 +31,6 @@ export default function Header() {
         if (location.pathname === '/') {
             newPath = targetLang === 'en' ? '/en/' : '/it/';
         }
-
         navigate(newPath);
     }
 
@@ -43,19 +42,18 @@ export default function Header() {
 
     // add no scroll to body when nav is open
     useEffect(() => {
-        if (isOpen) {
-            document.documentElement?.classList.add('noScroll');
-            document.body?.classList.add('noScroll');
-        } else {
-            document.documentElement?.classList.remove('noScroll');
-            document.body?.classList.remove('noScroll');
-        }
+        const wrapper = document.getElementById("pageWrapper");
+        if (!wrapper) return;
 
-    }, [isOpen])
+        if (isOpen) {
+            wrapper.classList.add("noScroll");
+        } else {
+            wrapper.classList.remove("noScroll");
+        }
+    }, [isOpen]);
 
     return (
         <header className={`${styles.headerWrapper} ${isOpen ? styles.inverted : null}`}>
-
             {/* left */}
             {/* headerLogo */}
             <div className={styles.headerLogo}>
