@@ -1,0 +1,92 @@
+.boxProducts {
+    flex: 1;
+    margin: 0 0 1rem 1rem;
+    padding: 0;
+    /* debug */
+    /* background-color: rgb(45, 26, 115); */
+}
+
+@media (max-width:768px) {
+    .boxProducts {
+        margin: 0 auto;
+    }
+}
+
+.boxProducts h4 {
+    text-align: center;
+    padding: 1rem;
+
+    /* debug */
+    /* background-color: red; */
+}
+
+/* doughs */
+.boxProducts .dough {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    color: var(--primary-white);
+    text-align: center;
+    padding: 0 2rem;
+    min-height: 25rem;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border-bottom: 0.5px solid var(--primary-brown);
+
+    /* debug */
+    /* background-color: plum; */
+}
+
+@media (max-width:768px) {
+    .boxProducts .dough {
+        min-height: 20rem;
+    }
+}
+
+/* traditional */
+.boxProducts .dough#traditional {
+    background-image: url(../../../public/doughts/impasto_tradizionale.png);
+
+}
+
+/* wholeWheat */
+.boxProducts .dough#wholeWheat {
+    background-image: url(../../../public/doughts/impasto_integrale.png);
+}
+
+/* glutenFree */
+.boxProducts .dough#glutenFree {
+    background-image: url(../../../public/doughts/impasto_gluten_free.png);
+}
+
+/* rustic */
+.boxProducts .dough#rustic {
+    background-image: url(../../../public/doughts/impasto_rustico.png);
+}
+
+/* crispy */
+.boxProducts .dough#crispy {
+    background-image: url(../../../public/doughts/impasto_scrocchiarella.png);
+}
+
+.boxProducts .dough h5 {
+    font-size: 2rem;
+    font-weight: 700;
+    padding-bottom: 1rem;
+}
+
+/* price */
+.boxProducts .dough .price {
+    padding-top: 1.5rem;
+    font-size: 1.2rem;
+}
+
+/* products */
+.boxProducts .products {
+
+    /* debug */
+    background-color: coral;
+    height: 1000px;
+}
