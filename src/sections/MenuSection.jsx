@@ -1,5 +1,6 @@
 // import Hooks
 import { useState, useEffect } from 'react';
+import useLang from '../hooks/useLang';
 
 // import Components
 import AllergensPopUp from '../components/visual/allergensPopUp/AllergensPopUp';
@@ -20,6 +21,9 @@ import { displayName } from 'react-world-flags';
 
 
 export default function MenuSection({ styles }) {
+
+    // save lang
+    const lang = useLang()
 
     // Initial Selected Filters
     const initialSelectedFilters = {
@@ -109,9 +113,9 @@ export default function MenuSection({ styles }) {
                         {/* col */}
                         <div className={styles.col}>
                             {/* item, navDoc */}
-                            <div className={`${styles.item} ${styles.navDoc}`} onClick={() => handleClick(isAllergenOpen, setIsAllergenOpen)}>
+                            <div className={`${styles.item} ${styles.navDoc} ${styles.hoverUnderlineAnimation}`} onClick={() => handleClick(isAllergenOpen, setIsAllergenOpen)}>
                                 <img src={allergensDoc} alt="Allergens document" />
-                                <span>Allergeni</span>
+                                <span>{lang === 'it' ? 'Allergeni' : 'Allergens'}</span>
                             </div>
                         </div>
                         {/* col */}
@@ -125,7 +129,7 @@ export default function MenuSection({ styles }) {
                         {/* col */}
                         <div className={styles.col}>
                             {/* item, navFilter */}
-                            <div className={`${styles.item} ${styles.navFilter}`} onClick={() => handleClick(isFilterOpen, setIsFilterOpen)}>
+                            <div className={`${styles.item} ${styles.navFilter} ${styles.hoverUnderlineAnimation}`} onClick={() => handleClick(isFilterOpen, setIsFilterOpen)}>
                                 <div>
                                     <img src={filterIcon} alt="filter" />
                                     <p
@@ -138,7 +142,7 @@ export default function MenuSection({ styles }) {
                                         {counter(selectedFilters)}
                                     </p>
                                 </div>
-                                <span>Filtra</span>
+                                <span> {lang === 'it' ? 'Filtra' : 'Filter'}</span>
 
                                 {/* counter */}
                             </div>
@@ -154,7 +158,7 @@ export default function MenuSection({ styles }) {
                                     key={category.id}
                                     onClick={() => updateCurrentSection(category.name)}
                                 >
-                                    {category.name}
+                                    {lang === 'it' ? category.name_it : category.name_en}
                                 </li>
                             )}
                         </ul>
@@ -164,14 +168,17 @@ export default function MenuSection({ styles }) {
 
                 {/* products */}
                 <div className={styles.products}></div>
+                {/* Doughs Section*/}
+
+                {/* Products Section */}
+
+
             </section >
 
 
 
 
-            {/* Doughs Section*/}
 
-            {/* Products Section */}
 
 
 
