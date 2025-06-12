@@ -10,7 +10,7 @@ export default function DefaultLayout() {
     console.log(location.pathname)
     // RENDER
     return (
-        <>
+        <div id="pageWrapper">
             <Header />
             <main className={
                 location.pathname == "/it/about-us" || location.pathname == "/en/about-us"
@@ -22,6 +22,7 @@ export default function DefaultLayout() {
             <ScrollToTopButton />
 
             {/* <Footer /> */}
-        </>
+        </div>
+
     )
 }

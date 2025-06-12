@@ -28,6 +28,18 @@ body.noScroll {
     --primary-gold: #B8860B;
 
     --primary-red: #C0392B;
+
+    /* background */
+    background-color: var(--primary-white);
+
+    /* scrollbar */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* scrollbar */
+:root::-webkit-scrollbar {
+    display: none;
 }
 
 @media (max-width:576px) {
@@ -46,6 +58,11 @@ main {
 main.inverted {
     background-color: var(--primary-brown);
     color: var(--primary-white);
+}
+
+#pageWrapper.noScroll {
+    height: 100vh;
+    overflow: hidden;
 }
 
 /* <h1>,<h2>,<h3>,<h4>,<h5>,<h6> */
