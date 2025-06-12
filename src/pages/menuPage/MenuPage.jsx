@@ -18,8 +18,6 @@ export default function MenuPage() {
 
             {/* menuSection */}
             <MenuSection styles={styles} />
-
-
         </>
     )
 }
