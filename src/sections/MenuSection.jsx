@@ -19,6 +19,9 @@ import plate from '../assets/svg/general/plate.svg';
 import { categories } from '../data/categories';
 import { displayName } from 'react-world-flags';
 
+// import Utilities
+import counter from '../utilities/counter';
+
 
 export default function MenuSection({ styles }) {
 
@@ -71,11 +74,6 @@ export default function MenuSection({ styles }) {
     // function to update section
     function updateCurrentSection(name) {
         setCurrentSection(name);
-    }
-
-    function counter(obj) {
-        const count = Object.values(obj).reduce((a, filter) => a + (filter === true ? 1 : 0), 0)
-        return count
     }
 
     // add no scroll to body when pop up is open
@@ -156,7 +154,7 @@ export default function MenuSection({ styles }) {
                             {categories.map(category =>
                                 <li
                                     key={category.id}
-                                    onClick={() => updateCurrentSection(category.name)}
+                                    onClick={() => updateCurrentSection(category.name_it)}
                                 >
                                     {lang === 'it' ? category.name_it : category.name_en}
                                 </li>
