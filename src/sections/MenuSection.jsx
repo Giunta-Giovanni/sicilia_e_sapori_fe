@@ -171,7 +171,10 @@ export default function MenuSection({ styles }) {
 
                 {/* products */}
                 <Products
+                    allergens={allergens}
                     lang={lang}
+                    spicy={spicy}
+                    vegetarian={vegetarian}
                 />
 
             </section >

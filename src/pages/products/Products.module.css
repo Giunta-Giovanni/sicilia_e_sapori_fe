@@ -84,9 +84,110 @@
 }
 
 /* products */
-.boxProducts .products {
 
-    /* debug */
-    background-color: coral;
-    height: 1000px;
+@media (max-width:768px) {
+    .boxProducts .products {
+        margin: 0 1rem;
+    }
+}
+
+/* .boxProducts .product { */
+/* debug */
+/* background-color: coral; */
+/* height: 1000px; */
+/* } */
+/* product -> title */
+.products .product {
+    margin: 2rem 0;
+}
+
+.products h5 {
+    text-align: center;
+}
+
+.products .title {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.products .title h6 {
+    font-size: 1.25rem;
+    font-weight: 350;
+}
+
+.products .title img {
+    width: 1.3rem;
+}
+
+.products .title img#spicy {
+    transform: rotateZ(35deg);
+}
+
+/* product -> description */
+.products .description {
+    width: 80%;
+    font-weight: 150;
+}
+
+/* product -> alcoholVolume */
+.products .alcoholVolume {
+    font-weight: 150;
+    margin-top: 0.3rem;
+}
+
+/* product -> allergens */
+.products .allergens {
+    margin-top: 0.5rem;
+    display: flex;
+    gap: 0.3rem;
+}
+
+.products .allergens span {
+    display: flex;
+    width: 1.3rem;
+    height: 1.3rem;
+    border: 1px solid var(--primary-gold);
+    border-radius: 50%;
+    padding: 0.2rem;
+}
+
+.products .allergens span img {
+    width: 100%;
+}
+
+/* product -> productPrice */
+.products .productPrice {
+    margin-top: 0.5rem;
+    font-weight: 350;
+    display: flex;
+    align-items: center;
+}
+
+.productPrice :nth-child(2) {
+    flex-grow: 1;
+    height: 0.07rem;
+    border-bottom: 0.07rem dotted var(--primary-brown);
+    position: relative;
+    bottom: -0.35rem;
+    margin: 0 0.2rem;
+    /* background-color: rgb(136, 0, 255); */
+}
+
+.products .subtitle {
+    display: flex;
+    align-items: center;
+}
+
+.products .subtitle span {
+    flex-grow: 1;
+    height: 0.07rem;
+    border-bottom: 0.07rem dotted var(--primary-brown);
+    position: relative;
+    /* background-color: rgb(136, 0, 255); */
+}
+
+.products .subtitle h5 {
+    padding: 0 2rem;
+    /* background-color: rgb(136, 0, 255); */
 }
