@@ -1,7 +1,7 @@
 const categories = [
     { id: "1", name_it: "Impasti", name_en: "Doughs" },
     { id: "2", name_it: "Pizze Gourmet", name_en: "Gourmet Pizzas" },
-    { id: "3", name_it: "Pizza Baciata", name_en: "Stuffed Pizza" },
+    { id: "3", name_it: "Pizze Baciate", name_en: "Stuffed Pizza" },
     { id: "4", name_it: "Pizze da Napoli", name_en: "Pizzas from Naples" },
     { id: "5", name_it: "Pizze", name_en: "Pizzas" },
     { id: "7", name_it: "Calzoni", name_en: "Calzones" },
