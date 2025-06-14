@@ -16,16 +16,28 @@ import sulphites from './sulphites.svg';
 // allergens
 export const allergens = [
     {
-        id: 1,
-        key: 'celery',
-        icon: celery,
-        label: { it: 'Sedano', en: 'Celery' }
+        id: 5,
+        key: 'gluten',
+        icon: gluten,
+        label: { it: 'Glutine', en: 'Gluten' }
     },
     {
-        id: 2,
-        key: 'crustaceans',
-        icon: crustaceans,
-        label: { it: 'Crostacei', en: 'Crustaceans' }
+        id: 11,
+        key: 'peanuts',
+        icon: peanuts,
+        label: { it: 'Arachidi', en: 'Peanuts' }
+    },
+    {
+        id: 10,
+        key: 'nut',
+        icon: nut,
+        label: { it: 'Frutta a Guscio', en: 'Tree Nuts' }
+    },
+    {
+        id: 7,
+        key: 'milk',
+        icon: milk,
+        label: { it: 'Latte', en: 'Milk' }
     },
     {
         id: 3,
@@ -40,22 +52,10 @@ export const allergens = [
         label: { it: 'Pesce', en: 'Fish' }
     },
     {
-        id: 5,
-        key: 'gluten',
-        icon: gluten,
-        label: { it: 'Glutine', en: 'Gluten' }
-    },
-    {
-        id: 6,
-        key: 'lupins',
-        icon: lupins,
-        label: { it: 'Lupini', en: 'Lupins' }
-    },
-    {
-        id: 7,
-        key: 'milk',
-        icon: milk,
-        label: { it: 'Latte', en: 'Milk' }
+        id: 2,
+        key: 'crustaceans',
+        icon: crustaceans,
+        label: { it: 'Crostacei', en: 'Crustaceans' }
     },
     {
         id: 8,
@@ -70,18 +70,6 @@ export const allergens = [
         label: { it: 'Senape', en: 'Mustard' }
     },
     {
-        id: 10,
-        key: 'nut',
-        icon: nut,
-        label: { it: 'Frutta a Guscio', en: 'Tree Nuts' }
-    },
-    {
-        id: 11,
-        key: 'peanuts',
-        icon: peanuts,
-        label: { it: 'Arachidi', en: 'Peanuts' }
-    },
-    {
         id: 12,
         key: 'sesame',
         icon: sesame,
@@ -92,6 +80,18 @@ export const allergens = [
         key: 'sulphites',
         icon: sulphites,
         label: { it: 'Solfiti', en: 'Sulfites' }
+    },
+    {
+        id: 1,
+        key: 'celery',
+        icon: celery,
+        label: { it: 'Sedano', en: 'Celery' }
+    },
+    {
+        id: 6,
+        key: 'lupins',
+        icon: lupins,
+        label: { it: 'Lupini', en: 'Lupins' }
     }
 ];
 
