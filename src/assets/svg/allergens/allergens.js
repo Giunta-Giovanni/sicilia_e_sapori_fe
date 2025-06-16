@@ -95,58 +95,6 @@ export const allergens = [
     }
 ];
 
-// Icons
-export const allergenIcons = {
-    celery,
-    crustaceans,
-    egg,
-    fish,
-    gluten,
-    lupins,
-    milk,
-    molluscs,
-    mustard,
-    nut,
-    peanuts,
-    sesame,
-    sulphites
-}
-
-// Labels
-export const allergenLabels = {
-    it: {
-        celery: "Sedano",
-        crustaceans: "Crostacei",
-        egg: "Uova",
-        fish: "Pesce",
-        gluten: "Glutine",
-        lupins: "Lupini",
-        milk: "Latte",
-        molluscs: "Molluschi",
-        mustard: "Senape",
-        nut: "Frutta a guscio",
-        peanuts: "Arachidi",
-        sesame: "sesamo",
-        sulphites: "Solfiti"
-    },
-    en: {
-        celery: "Celery",
-        crustaceans: "Crustaceans",
-        egg: "Egg",
-        fish: "Fish",
-        gluten: "Gluten",
-        lupins: "Lupins",
-        milk: "Milk",
-        molluscs: "Molluscs",
-        mustard: "Mustard",
-        nut: "Tree nuts",
-        peanuts: "Peanuts",
-        sesame: "Sesame seeds",
-        sulphites: "Sulfites"
-    }
-}
-
-
 // Lable use example
 // const lang = 'it'; // o 'en'
 // const label = allergenLabels[lang][allergenKey];
