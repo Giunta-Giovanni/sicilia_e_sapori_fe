@@ -1,24 +1,13 @@
 // import Hooks
-import { useState, useEffect } from 'react';
-import useLang from '../hooks/useLang';
+import { useState, useEffect, useContext, useRef } from 'react';
+
+// import Context
+import MenuContext from '../context/MenuContext';
 
 // import Components
-import Products from '../pages/products/Products';
+import Products from '../components/visual/products/Products';
 import AllergensPopUp from '../components/visual/allergensPopUp/AllergensPopUp';
 import FiltersPopUp from '../components/visual/filtersPopUp/FiltersPopUp';
-
-//import Assets
-import { allergens } from '../assets/svg/allergens/allergens';
-import spicy from '../assets/svg/general/pepper.svg';
-import vegetarian from '../assets/svg/general/leaf.svg'
-import allergensDoc from '../assets/svg/general/doc.svg';
-import arrowDown from '../assets/svg/general/arrow-down.svg';
-import filterIcon from '../assets/svg/general/filter.svg';
-import plate from '../assets/svg/general/plate.svg';
-
-// import Data
-import { categories } from '../data/categories';
-import { displayName } from 'react-world-flags';
 
 // import Utilities
 import counter from '../utilities/counter';
@@ -26,8 +15,7 @@ import counter from '../utilities/counter';
 
 export default function MenuSection({ styles }) {
 
-    // save lang
-    const lang = useLang()
+    const { arrowDown, allergensDoc, plate, filterIcon, allergens, productCategories, SlowScrollTo, isMobile, lang, sections } = useContext(MenuContext);
 
     // Initial Selected Filters
     const initialSelectedFilters = {
@@ -88,7 +76,8 @@ export default function MenuSection({ styles }) {
         }
 
     }, [isAllergenOpen, isFilterOpen])
-    console.log(counter(selectedFilters))
+    // console.log(counter(selectedFilters))
+
     // RENDER
     return (
 
@@ -154,12 +143,17 @@ export default function MenuSection({ styles }) {
                         <div className={`${styles.boxNavList} ${isMenuOpen ? styles.isOpen : ''}`}>
                             {/* navList */}
                             <ul className={`${styles.navList} ${isMenuOpen ? styles.isOpen : ''}`}>
-                                {categories.map(category =>
+                                <li
+                                    onClick={() => { updateCurrentSection('impasti'), SlowScrollTo(sections.doughs, 1200, isMobile ? -100 : -50) }}
+                                >
+                                    {lang === 'it' ? 'Impasti' : 'Doughts'}
+                                </li>
+                                {productCategories.map(category =>
                                     <li
                                         key={category.id}
-                                        onClick={() => updateCurrentSection(category.name_it)}
+                                        onClick={() => { updateCurrentSection(category.title), SlowScrollTo(category.ref, 1200, isMobile ? -100 : -50) }}
                                     >
-                                        {lang === 'it' ? category.name_it : category.name_en}
+                                        {lang === 'it' ? category.title : category.title}
                                     </li>
                                 )}
                             </ul>
@@ -170,20 +164,10 @@ export default function MenuSection({ styles }) {
 
 
                 {/* products */}
-                <Products
-                    allergens={allergens}
-                    lang={lang}
-                    spicy={spicy}
-                    vegetarian={vegetarian}
+                <Products lang={lang}
                 />
 
             </section >
-
-
-
-
-
-
 
             {/* Allergens Pop Up */}
             {
@@ -194,7 +178,7 @@ export default function MenuSection({ styles }) {
 
                         {/* AllergensPopUp */}
                         <AllergensPopUp
-                            allergens={allergens}
+                            allergens={allergens} s
                             isAllergenOpen={isAllergenOpen}
                             setIsAllergenOpen={setIsAllergenOpen}
                             handleClick={handleClick}
@@ -212,9 +196,6 @@ export default function MenuSection({ styles }) {
 
                         {/* FiltersPopUp */}
                         <FiltersPopUp
-                            allergens={allergens}
-                            spicy={spicy}
-                            vegetarian={vegetarian}
                             isFilterOpen={isFilterOpen}
                             setIsFilterOpen={setIsFilterOpen}
                             handleClick={handleClick}
