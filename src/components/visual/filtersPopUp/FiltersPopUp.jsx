@@ -2,10 +2,17 @@
 import { useState } from 'react';
 import useLang from '../../../hooks/useLang';
 
+// import context
+import { useContext } from 'react';
+import MenuContext from '../../../context/MenuContext';
+
 // import styles
 import styles from './FiltersPopUp.module.css';
 
-export default function FiltersPopUp({ isFilterOpen, setIsFilterOpen, handleClick, selectedFilters, setSelectedFilters, allergens, spicy, vegetarian }) {
+export default function FiltersPopUp({ isFilterOpen, setIsFilterOpen, handleClick, selectedFilters, setSelectedFilters }) {
+
+    // context
+    const { allergens, spicy, vegetarian } = useContext(MenuContext)
 
     // pendingSelectedFilters state
     const [pendingSelectedFilters, setPendingSelectedFilters] = useState(selectedFilters);

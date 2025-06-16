@@ -1,9 +1,17 @@
 // import hooks
 import useLang from '../../../hooks/useLang';
+
+// import context
+import { useContext } from 'react';
+import MenuContext from '../../../context/MenuContext';
+
 // import Style
 import styles from './AllergensPopUp.module.css'
 
-export default function AllergenPopUp({ allergens, isAllergenOpen, setIsAllergenOpen, handleClick }) {
+export default function AllergenPopUp({ isAllergenOpen, setIsAllergenOpen, handleClick }) {
+
+    // context
+    const { allergens } = useContext(MenuContext)
 
     // save lang
     const lang = useLang()
