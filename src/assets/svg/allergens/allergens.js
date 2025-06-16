@@ -94,7 +94,3 @@ export const allergens = [
         label: { it: 'Lupini', en: 'Lupins' }
     }
 ];
-
-// Lable use example
-// const lang = 'it'; // o 'en'
-// const label = allergenLabels[lang][allergenKey];
