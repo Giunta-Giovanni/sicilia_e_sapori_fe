@@ -50,6 +50,8 @@
     flex: 0 0 33.33%;
     border-right: 0.5px solid var(--primary-brown);
     border-left: 0.5px solid var(--primary-brown);
+    z-index: 1000;
+
 }
 
 /* navbar */
