@@ -1,4 +1,9 @@
-export default function ProductCard({ lang, product, styles, spicy, vegetarian, allergens }) {
+import { icons } from "../../../assets/svg/general/icons";
+
+export default function ProductCard({ lang, product, styles, allergens }) {
+
+    const { spicy, vegetarian } = icons;
+
     const formatSize = (size) => {
         const sizeNumber = Number(size);
         if (isNaN(sizeNumber)) return null;
