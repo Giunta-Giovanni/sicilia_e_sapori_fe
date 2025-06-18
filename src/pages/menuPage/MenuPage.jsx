@@ -33,6 +33,41 @@ import styles from "./MenuPage.module.css";
 
 export default function MenuPage() {
 
+    // save lang
+    const lang = useLang();
+
+    // Dinamic viewport State
+    const [isMobile, setIsMobile] = useState(false);
+    const [isTablet, setIsTablet] = useState(false);
+
+    // save dinamic viewport
+    const setActualViewPort = (setViewPort, min, max) => {
+        const ActualViewPort = window.innerWidth >= min && window.innerWidth <= max;
+        setViewPort(ActualViewPort);
+    }
+
+    useEffect(() => {
+        const handleResize = () => {
+            // check window dimension
+            console.log("check window dimension!", window.innerWidth);
+            setActualViewPort(setIsMobile, 0, 567);
+            setActualViewPort(setIsTablet, 568, 768);
+        };
+
+        // inizialize Dinamic view port
+        handleResize();
+
+        // listen windows change dimension and update every time dinamic viewport
+        window.addEventListener('resize', handleResize);
+
+        // clean state when view port change
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
+    // console.log('viewport Mobile? ' + isMobile);
+    // console.log('viewport Tablet? ' + isTablet);
+
+
     // products state 
     const [products, setProducts] = useState([]);
 
@@ -41,12 +76,6 @@ export default function MenuPage() {
         axios.get('http://127.0.0.1:8000/api/products')
             .then(res => setProducts(res.data.data))
             .catch(err => console.log(err))
-
-    // save lang
-    const lang = useLang();
-
-    // save dinamic viewport
-    const isMobile = window.innerWidth < 768;
 
     const sections = {
         doughs: useRef(null),
@@ -85,7 +114,7 @@ export default function MenuPage() {
         products: categorizedProducts[category.key] ?? [],
         ref: category.key ? sections[category.key] : undefined
     }));
-    console.log('questi sono i productCategories completi', productCategories)
+    // console.log('questi sono i productCategories completi', productCategories)
 
     useEffect(() => {
         fetchProducts()
@@ -97,17 +126,16 @@ export default function MenuPage() {
                 value={{
                     SlowScrollTo,
                     isMobile,
+                    isTablet,
                     sections,
-                    // categories,
+                    productCategories,
                     allergens,
                     spicy,
                     vegetarian,
                     allergensDoc,
                     arrowDown,
                     filterIcon,
-                    plate,
-                    productCategories
-
+                    plate
                 }}>
 
                 {/* menuJumbo */}
