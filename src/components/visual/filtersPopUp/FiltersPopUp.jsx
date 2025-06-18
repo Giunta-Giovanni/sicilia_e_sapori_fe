@@ -9,10 +9,16 @@ import MenuContext from '../../../context/MenuContext';
 // import styles
 import styles from './FiltersPopUp.module.css';
 
-export default function FiltersPopUp({ isFilterOpen, setIsFilterOpen, handleClick, selectedFilters, setSelectedFilters }) {
+// import assets
+import { icons } from '../../../assets/svg/general/icons';
+
+export default function FiltersPopUp({ isFilterOpen, setIsFilterOpen, selectedFilters, setSelectedFilters }) {
 
     // context
-    const { allergens, spicy, vegetarian } = useContext(MenuContext)
+    const { allergens, handleClick } = useContext(MenuContext)
+
+    // icons
+    const { spicy, vegetarian } = icons
 
     // pendingSelectedFilters state
     const [pendingSelectedFilters, setPendingSelectedFilters] = useState(selectedFilters);

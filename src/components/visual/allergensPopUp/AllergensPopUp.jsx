@@ -8,10 +8,10 @@ import MenuContext from '../../../context/MenuContext';
 // import Style
 import styles from './AllergensPopUp.module.css'
 
-export default function AllergenPopUp({ isAllergenOpen, setIsAllergenOpen, handleClick }) {
+export default function AllergenPopUp({ isAllergenOpen, setIsAllergenOpen }) {
 
     // context
-    const { allergens } = useContext(MenuContext)
+    const { allergens, handleClick } = useContext(MenuContext)
 
     // save lang
     const lang = useLang()
