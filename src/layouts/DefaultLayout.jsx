@@ -7,7 +7,6 @@ export default function DefaultLayout() {
 
     const location = useLocation()
 
-    console.log(location.pathname)
     // RENDER
     return (
         <div id="pageWrapper">
