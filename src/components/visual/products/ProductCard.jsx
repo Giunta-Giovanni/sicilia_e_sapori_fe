@@ -34,7 +34,6 @@ export default function ProductCard({ lang, product, styles, spicy, vegetarian, 
                         )}
                     </>
                     : null}
-
             </div>
 
             {/* description */}
