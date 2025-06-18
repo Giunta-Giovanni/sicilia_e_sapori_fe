@@ -46,27 +46,34 @@ export default function MenuSection({ styles }) {
 
     // Allergen pop up state
     const [isAllergenOpen, setIsAllergenOpen] = useState(false)
+
     // Burgher menù state
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    // hasMenuInteracted state
+    const [hasMenuInteracted, setHasMenuInteracted] = useState(false)
+
     // Filter pop up state
     const [isFilterOpen, setIsFilterOpen] = useState(false);
 
     // Filters state
     const [selectedFilters, setSelectedFilters] = useState(initialSelectedFilters)
 
+
+
     // Current section state
     const [currentSection, setCurrentSection] = useState(null);
 
     // Change state to Toggle menu
-    function handleClick(state, setState) {
-        // if state is close open it
-        if (!state) {
-            setState(true);
-            // if state is open close it
-        } else {
-            setState(false);
-        }
+    function handleClick(state, setState, setHasInteracted = null) {
+        // save user first interaction (optional)
+        if (setHasInteracted) setHasInteracted(true);
+        // change state
+        setState(!state);
     }
+    // console.log('firts menu interaction: ' + hasMenuInteracted)
+    // console.log('is menu Open: ' + isMenuOpen)
+
 
     // function to update section
     function updateCurrentSection(name) {
@@ -108,7 +115,8 @@ export default function MenuSection({ styles }) {
                         <h4 className={styles.pcTitle}>Menù</h4>
                         {/* navBarItems */}
                         <div className={styles.navbarItems}>
-                            {/* col */}
+
+                            {/* col -> allergen*/}
                             <div className={styles.col}>
                                 {/* item, navDoc */}
                                 <div className={`${styles.item} ${styles.navDoc} ${styles.hoverUnderlineAnimation}`} onClick={() => handleClick(isAllergenOpen, setIsAllergenOpen)}>
@@ -116,15 +124,17 @@ export default function MenuSection({ styles }) {
                                     <span>{lang === 'it' ? 'Allergeni' : 'Allergens'}</span>
                                 </div>
                             </div>
-                            {/* col */}
+
+                            {/* col -> menu */}
                             <div className={styles.col} >
                                 {/*item, navMenu */}
-                                <div className={`${styles.item} ${styles.navMenu}`} onClick={() => handleClick(isMenuOpen, setIsMenuOpen)}>
+                                <div className={`${styles.item} ${styles.navMenu}`} onClick={() => handleClick(isMenuOpen, setIsMenuOpen, setHasMenuInteracted)}>
                                     <img src={plate} alt="plate" />
                                     <span>Menù</span>
                                 </div>
                             </div>
-                            {/* col */}
+
+                            {/* col -> filter*/}
                             <div className={styles.col}>
                                 {/* item, navFilter */}
                                 <div className={`${styles.item} ${styles.navFilter} ${styles.hoverUnderlineAnimation}`} onClick={() => handleClick(isFilterOpen, setIsFilterOpen)}>
@@ -150,7 +160,7 @@ export default function MenuSection({ styles }) {
                         {/* boxNavList */}
                         <div className={`${styles.boxNavList} ${isMenuOpen ? styles.isOpen : ''}`}>
                             {/* navList */}
-                            <ul className={`${styles.navList} ${isMenuOpen ? styles.isOpen : ''}`}>
+                            <ul className={`${styles.navList} ${isMenuOpen ? styles.isOpen : ''} ${!isMenuOpen && hasMenuInteracted ? styles.isClosed : ''}`}>
                                 {navCategories.map(category =>
                                     <li
                                         key={category.id}
