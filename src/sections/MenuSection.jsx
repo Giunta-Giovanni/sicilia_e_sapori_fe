@@ -1,29 +1,25 @@
 // import Hooks
-import { useState, useEffect, useContext, useRef } from 'react';
+import { useState, useEffect, useContext } from 'react';
 
 // import Context
 import MenuContext from '../context/MenuContext';
 
 // import Components
+import NavMenu from '../components/visual/navMenu/NavMenu';
 import Products from '../components/visual/products/Products';
 import AllergensPopUp from '../components/visual/allergensPopUp/AllergensPopUp';
 import FiltersPopUp from '../components/visual/filtersPopUp/FiltersPopUp';
 
-// import Utilities
-import counter from '../utilities/counter';
-
+// import assets
+import { icons } from '../assets/svg/general/icons';
 
 export default function MenuSection({ styles }) {
 
-    const { arrowDown, allergensDoc, plate, filterIcon, allergens, productCategories, SlowScrollTo, isMobile, isTablet, lang, sections } = useContext(MenuContext);
+    // Menu context
+    const { allergens, lang } = useContext(MenuContext);
 
-    const navCategories = [{
-        id: 25,
-        title: lang === 'it' ? 'Impasti' : 'Doughts',
-        subtitle: undefined,
-        ref: sections.doughs ? sections.doughs : undefined
-    }, ...productCategories];
-
+    // Icons
+    const { arrowDown } = icons;
 
     // Initial Selected Filters
     const initialSelectedFilters = {
@@ -42,43 +38,22 @@ export default function MenuSection({ styles }) {
         sulphites: false,
         spicy: false,
         vegetarian: false,
-    }
+    };
 
     // Allergen pop up state
-    const [isAllergenOpen, setIsAllergenOpen] = useState(false)
+    const [isAllergenOpen, setIsAllergenOpen] = useState(false);
 
     // Burgher menù state
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     // hasMenuInteracted state
-    const [hasMenuInteracted, setHasMenuInteracted] = useState(false)
+    const [hasMenuInteracted, setHasMenuInteracted] = useState(false);
 
     // Filter pop up state
     const [isFilterOpen, setIsFilterOpen] = useState(false);
 
     // Filters state
-    const [selectedFilters, setSelectedFilters] = useState(initialSelectedFilters)
-
-
-
-    // Current section state
-    const [currentSection, setCurrentSection] = useState(null);
-
-    // Change state to Toggle menu
-    function handleClick(state, setState, setHasInteracted = null) {
-        // save user first interaction (optional)
-        if (setHasInteracted) setHasInteracted(true);
-        // change state
-        setState(!state);
-    }
-    // console.log('firts menu interaction: ' + hasMenuInteracted)
-    // console.log('is menu Open: ' + isMenuOpen)
-
-
-    // function to update section
-    function updateCurrentSection(name) {
-        setCurrentSection(name);
-    }
+    const [selectedFilters, setSelectedFilters] = useState(initialSelectedFilters);
 
     // add no scroll to body when pop up is open
     useEffect(() => {
@@ -107,77 +82,17 @@ export default function MenuSection({ styles }) {
 
             {/* menu */}
             <section className={styles.menu}>
-                {/* boxNavbar */}
-                <div className={styles.boxNavbar}>
-                    {/* navBar*/}
-                    <nav className={styles.navbar}>
-                        {/* pcTitle */}
-                        <h4 className={styles.pcTitle}>Menù</h4>
-                        {/* navBarItems */}
-                        <div className={styles.navbarItems}>
-
-                            {/* col -> allergen*/}
-                            <div className={styles.col}>
-                                {/* item, navDoc */}
-                                <div className={`${styles.item} ${styles.navDoc} ${styles.hoverUnderlineAnimation}`} onClick={() => handleClick(isAllergenOpen, setIsAllergenOpen)}>
-                                    <img src={allergensDoc} alt="Allergens document" />
-                                    <span>{lang === 'it' ? 'Allergeni' : 'Allergens'}</span>
-                                </div>
-                            </div>
-
-                            {/* col -> menu */}
-                            <div className={styles.col} >
-                                {/*item, navMenu */}
-                                <div className={`${styles.item} ${styles.navMenu}`} onClick={() => handleClick(isMenuOpen, setIsMenuOpen, setHasMenuInteracted)}>
-                                    <img src={plate} alt="plate" />
-                                    <span>Menù</span>
-                                </div>
-                            </div>
-
-                            {/* col -> filter*/}
-                            <div className={styles.col}>
-                                {/* item, navFilter */}
-                                <div className={`${styles.item} ${styles.navFilter} ${styles.hoverUnderlineAnimation}`} onClick={() => handleClick(isFilterOpen, setIsFilterOpen)}>
-                                    <div>
-                                        <img src={filterIcon} alt="filter" />
-                                        <p
-                                            className={styles.counter}
-                                            style={counter(selectedFilters) === 0
-                                                ? { display: 'none' }
-                                                : {}
-                                            }
-                                        >
-                                            {counter(selectedFilters)}
-                                        </p>
-                                    </div>
-                                    <span> {lang === 'it' ? 'Filtra' : 'Filter'}</span>
-
-                                    {/* counter */}
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* boxNavList */}
-                        <div className={`${styles.boxNavList} ${isMenuOpen ? styles.isOpen : ''}`}>
-                            {/* navList */}
-                            <ul className={`${styles.navList} ${isMenuOpen ? styles.isOpen : ''} ${!isMenuOpen && hasMenuInteracted ? styles.isClosed : ''}`}>
-                                {navCategories.map(category =>
-                                    <li
-                                        key={category.id}
-                                        onClick={() => {
-                                            if (isMobile || isTablet) handleClick(isMenuOpen, setIsMenuOpen);
-                                            updateCurrentSection(category.title);
-                                            SlowScrollTo(category.ref, 1200, (isMobile ? -600 : isTablet ? -650 : -50));
-                                        }}
-                                    >
-                                        {lang === 'it' ? category.title : category.title}
-                                    </li>
-                                )}
-                            </ul>
-                        </div>
-
-                    </nav>
-                </div>
+                <NavMenu
+                    isMenuOpen={isMenuOpen}
+                    setIsMenuOpen={setIsMenuOpen}
+                    hasMenuInteracted={hasMenuInteracted}
+                    setHasMenuInteracted={setHasMenuInteracted}
+                    isAllergenOpen={isAllergenOpen}
+                    setIsAllergenOpen={setIsAllergenOpen}
+                    isFilterOpen={isFilterOpen}
+                    setIsFilterOpen={setIsFilterOpen}
+                    selectedFilters={selectedFilters}
+                />
 
 
                 {/* products */}
@@ -195,10 +110,9 @@ export default function MenuSection({ styles }) {
 
                         {/* AllergensPopUp */}
                         <AllergensPopUp
-                            allergens={allergens} s
+                            allergens={allergens}
                             isAllergenOpen={isAllergenOpen}
                             setIsAllergenOpen={setIsAllergenOpen}
-                            handleClick={handleClick}
                         />
                     </>
                     : null
@@ -215,7 +129,6 @@ export default function MenuSection({ styles }) {
                         <FiltersPopUp
                             isFilterOpen={isFilterOpen}
                             setIsFilterOpen={setIsFilterOpen}
-                            handleClick={handleClick}
                             selectedFilters={selectedFilters}
                             setSelectedFilters={setSelectedFilters}
                         />
