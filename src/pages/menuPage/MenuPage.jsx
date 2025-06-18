@@ -19,17 +19,9 @@ import { categories } from '../../data/categories';
 
 // import Assets
 import { allergens } from '../../assets/svg/allergens/allergens';
-import spicy from '../../assets/svg/general/pepper.svg';
-import vegetarian from '../../assets/svg/general/leaf.svg'
-import allergensDoc from '../../assets/svg/general/doc.svg';
-import arrowDown from '../../assets/svg/general/arrow-down.svg';
-import filterIcon from '../../assets/svg/general/filter.svg';
-import plate from '../../assets/svg/general/plate.svg';
 
 // import Styles
 import styles from "./MenuPage.module.css";
-
-
 
 export default function MenuPage() {
 
@@ -46,6 +38,7 @@ export default function MenuPage() {
         setViewPort(ActualViewPort);
     }
 
+    // dinamic save dinamic vieport
     useEffect(() => {
         const handleResize = () => {
             // check window dimension
@@ -63,10 +56,8 @@ export default function MenuPage() {
         // clean state when view port change
         return () => window.removeEventListener("resize", handleResize);
     }, []);
-
     // console.log('viewport Mobile? ' + isMobile);
     // console.log('viewport Tablet? ' + isTablet);
-
 
     // products state 
     const [products, setProducts] = useState([]);
@@ -116,26 +107,30 @@ export default function MenuPage() {
     }));
     // console.log('questi sono i productCategories completi', productCategories)
 
+    // Change state to Toggle menu
+    function handleClick(state, setState, setHasInteracted = null) {
+        // save user first interaction (optional)
+        if (setHasInteracted) setHasInteracted(true);
+        // change state
+        setState(!state);
+    }
+
     useEffect(() => {
-        fetchProducts()
+        fetchProducts();
     }, []);
+
     // RENDER
     return (
         <>
             <MenuContext
                 value={{
                     SlowScrollTo,
+                    handleClick,
                     isMobile,
                     isTablet,
                     sections,
                     productCategories,
                     allergens,
-                    spicy,
-                    vegetarian,
-                    allergensDoc,
-                    arrowDown,
-                    filterIcon,
-                    plate
                 }}>
 
                 {/* menuJumbo */}
