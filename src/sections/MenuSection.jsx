@@ -15,7 +15,15 @@ import counter from '../utilities/counter';
 
 export default function MenuSection({ styles }) {
 
-    const { arrowDown, allergensDoc, plate, filterIcon, allergens, productCategories, SlowScrollTo, isMobile, lang, sections } = useContext(MenuContext);
+    const { arrowDown, allergensDoc, plate, filterIcon, allergens, productCategories, SlowScrollTo, isMobile, isTablet, lang, sections } = useContext(MenuContext);
+
+    const navCategories = [{
+        id: 25,
+        title: lang === 'it' ? 'Impasti' : 'Doughts',
+        subtitle: undefined,
+        ref: sections.doughs ? sections.doughs : undefined
+    }, ...productCategories];
+
 
     // Initial Selected Filters
     const initialSelectedFilters = {
@@ -143,15 +151,14 @@ export default function MenuSection({ styles }) {
                         <div className={`${styles.boxNavList} ${isMenuOpen ? styles.isOpen : ''}`}>
                             {/* navList */}
                             <ul className={`${styles.navList} ${isMenuOpen ? styles.isOpen : ''}`}>
-                                <li
-                                    onClick={() => { updateCurrentSection('impasti'), SlowScrollTo(sections.doughs, 1200, isMobile ? -100 : -50) }}
-                                >
-                                    {lang === 'it' ? 'Impasti' : 'Doughts'}
-                                </li>
-                                {productCategories.map(category =>
+                                {navCategories.map(category =>
                                     <li
                                         key={category.id}
-                                        onClick={() => { updateCurrentSection(category.title), SlowScrollTo(category.ref, 1200, isMobile ? -100 : -50) }}
+                                        onClick={() => {
+                                            if (isMobile || isTablet) handleClick(isMenuOpen, setIsMenuOpen);
+                                            updateCurrentSection(category.title);
+                                            SlowScrollTo(category.ref, 1200, (isMobile ? -600 : isTablet ? -650 : -50));
+                                        }}
                                     >
                                         {lang === 'it' ? category.title : category.title}
                                     </li>
