@@ -2,6 +2,7 @@
 import { useRef, useState, useEffect, useMemo } from "react";
 import useLang from '../../hooks/useLang';
 import useMenuSections from "../../hooks/useMenuSections";
+import { useViewport } from "../../hooks/useViewport";
 
 // import Context
 import MenuContext from "../../context/MenuContext";
@@ -31,44 +32,16 @@ export default function MenuPage() {
     // save sections
     const sections = useMenuSections();
 
-    // Dinamic viewport State
-    const [isMobile, setIsMobile] = useState(false);
-    const [isTablet, setIsTablet] = useState(false);
+    // save Dinamic ViewPort
+    const { isMobile, isTablet } = useViewport()
+    // console.log('viewport Mobile? ' + isMobile);
+    // console.log('viewport Tablet? ' + isTablet);
 
     // products state 
     const [products, setProducts] = useState([]);
 
     // dinamic section in scroll
     const [currentSection, setCurrentSection] = useState('');
-
-    // save dinamic viewport
-    const setActualViewPort = (setViewPort, min, max) => {
-        const ActualViewPort = window.innerWidth >= min && window.innerWidth <= max;
-        setViewPort(ActualViewPort);
-    }
-
-    // dinamic save dinamic vieport
-    useEffect(() => {
-        const handleResize = () => {
-            // check window dimension
-            // console.log("check window dimension!", window.innerWidth);
-            setActualViewPort(setIsMobile, 0, 567);
-            setActualViewPort(setIsTablet, 568, 768);
-        };
-
-        // inizialize Dinamic view port
-        handleResize();
-
-        // listen windows change dimension and update every time dinamic viewport
-        window.addEventListener('resize', handleResize);
-
-        // clean state when view port change
-        return () => window.removeEventListener("resize", handleResize);
-    }, []);
-    // console.log('viewport Mobile? ' + isMobile);
-    // console.log('viewport Tablet? ' + isTablet);
-
-
 
     // fetch products data
     const fetchProducts = () =>
