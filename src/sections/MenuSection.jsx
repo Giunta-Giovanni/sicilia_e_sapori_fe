@@ -55,6 +55,7 @@ export default function MenuSection({ styles }) {
     // Filters state
     const [selectedFilters, setSelectedFilters] = useState(initialSelectedFilters);
 
+
     // add no scroll to body when pop up is open
     useEffect(() => {
         if (isAllergenOpen || isFilterOpen) {
@@ -96,7 +97,8 @@ export default function MenuSection({ styles }) {
 
 
                 {/* products */}
-                <Products lang={lang}
+                <Products
+                    selectedFilters={selectedFilters}
                 />
 
             </section >
