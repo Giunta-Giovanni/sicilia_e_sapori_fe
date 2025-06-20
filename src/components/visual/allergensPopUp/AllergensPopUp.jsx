@@ -38,6 +38,7 @@ export default function AllergenPopUp({ isAllergenOpen, setIsAllergenOpen }) {
                         </button>
                     </div>
 
+
                     <h6>{lang === 'it' ? 'LEGENDA' : 'LEGEND'}</h6>
                     {/* legend */}
                     <div className={styles.legend}>

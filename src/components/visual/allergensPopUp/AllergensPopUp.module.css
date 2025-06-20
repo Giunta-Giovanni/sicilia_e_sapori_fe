@@ -2,7 +2,6 @@
 .popUpWrapper {
     position: fixed;
     display: flex;
-    align-content: center;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -13,7 +12,7 @@
 /* popUp */
 .popUp {
     max-height: 75vh;
-    overflow-y: auto;
+    /* overflow-y: auto; */
     text-align: center;
     background-color: var(--primary-white);
     z-index: 1001;
@@ -21,16 +20,17 @@
 
 /* header */
 .popUp .header {
-    position: sticky;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    top: 0;
     height: 3rem;
     padding: 1rem;
     padding-right: 1.2rem;
     background-color: var(--primary-white);
     z-index: 1001;
+
+    /* debug */
+    /* background-color: red; */
 }
 
 /* title */
@@ -75,20 +75,24 @@
 }
 
 
-
-
 /* h6 legend*/
 .popUp h6 {
-    position: sticky;
-    top: 3rem;
     background-color: var(--primary-white);
     padding: 1rem;
     font-size: 1.25rem;
+
+    /* debug */
+    /* background-color: purple; */
 }
 
 /* legend */
 .popUp .legend {
     margin: 0 1rem;
+    overflow-y: scroll;
+
+    /* debug */
+    max-height: calc(75vh - 16rem);
+    /* background-color: purple; */
 }
 
 .popUp .legend ul {
@@ -146,7 +150,8 @@
     line-height: 1.4rem;
     padding: 1.3rem;
     font-size: 0.7rem;
-    position: sticky;
-    bottom: 0;
     background-color: var(--primary-white);
+    height: 7rem;
+    /* debug */
+    /* background-color: green; */
 }

@@ -75,75 +75,80 @@ export default function FiltersPopUp({ isFilterOpen, setIsFilterOpen, selectedFi
                         </button>
                     </div>
 
-                    {/* Allergens */}
-                    {/* filterTitle */}
-                    <h5 className={styles.filterTitle}>{lang === 'it' ? 'Allergeni' : 'Allergens'}</h5>
-                    {/* allergenFilters */}
-                    <div className={styles.filters}>
-                        {filteredAllergens.map(allergen => {
-                            return (
-                                < div key={allergen.key} className={styles.filter} >
-                                    <label>
-                                        <input
-                                            type="checkbox"
-                                            name={allergen.key}
-                                            onChange={saveCheckedValue}
-                                            checked={isChecked(pendingSelectedFilters, allergen.key)}
-                                        />
-                                        {/* icon, checkmark */}
-                                        <span className={`${styles.icon} ${styles.checkmark}`}>
-                                            <img src={allergen.icon} alt='' />
-                                        </span>
-                                        <span>{lang === 'it' ? allergen.label.it : allergen.label.en}</span>
-                                    </label>
-                                </div>
-                            )
-                        })}
-                    </div>
-
-                    {/* Preferences */}
-
-                    {/* filterTitle */}
-                    <h5>{lang === 'it' ? 'Preferenze' : 'Preferences'}</h5>
-                    {/* Filters */}
-                    <div className={styles.filters}>
-                        {/* is spicy?*/}
-                        <div className={styles.filter} >
-                            <label>
-                                <input
-                                    type="checkbox"
-                                    name='spicy'
-                                    onChange={saveCheckedValue}
-                                    checked={isChecked(pendingSelectedFilters, 'spicy')}
-                                />
-
-                                {/* icon */}
-                                <span className={`${styles.icon} ${styles.checkmark}`}>
-
-                                    {/* spicy */}
-                                    <img id={styles.spicy} src={spicy} alt="" />
-                                </span>
-                                <span>{lang === 'it' ? `Piccante` : 'Spicy'}</span>
-                            </label>
+                    {/* bodyPopup */}
+                    <div className={styles.bodyPopUp}>
+                        {/* Allergens */}
+                        {/* filterTitle */}
+                        <h5 className={styles.filterTitle}>{lang === 'it' ? 'Allergeni' : 'Allergens'}</h5>
+                        {/* allergenFilters */}
+                        <div className={styles.filters}>
+                            {filteredAllergens.map(allergen => {
+                                return (
+                                    < div key={allergen.key} className={styles.filter} >
+                                        <label>
+                                            <input
+                                                type="checkbox"
+                                                name={allergen.key}
+                                                onChange={saveCheckedValue}
+                                                checked={isChecked(pendingSelectedFilters, allergen.key)}
+                                            />
+                                            {/* icon, checkmark */}
+                                            <span className={`${styles.icon} ${styles.checkmark}`}>
+                                                <img src={allergen.icon} alt='' />
+                                            </span>
+                                            <span>{lang === 'it' ? allergen.label.it : allergen.label.en}</span>
+                                        </label>
+                                    </div>
+                                )
+                            })}
                         </div>
-                        {/* is vegetarian? */}
-                        <div className={styles.filter} >
-                            <label>
-                                <input
-                                    type="checkbox"
-                                    name='vegetarian'
-                                    onChange={saveCheckedValue}
-                                    checked={isChecked(pendingSelectedFilters, 'vegetarian')}
-                                />
 
-                                {/* icon */}
-                                <span className={`${styles.icon} ${styles.checkmark}`}>
+                        {/* Preferences */}
 
-                                    <img src={vegetarian} alt="" />
-                                </span>
-                                <span>{lang === 'it' ? 'Vegetariano' : 'Vegeterian'}</span>
-                            </label>
+                        {/* filterTitle */}
+                        <h5>{lang === 'it' ? 'Preferenze' : 'Preferences'}</h5>
+                        {/* Filters */}
+                        <div className={styles.filters}>
+                            {/* is spicy?*/}
+                            <div className={styles.filter} >
+                                <label>
+                                    <input
+                                        type="checkbox"
+                                        name='spicy'
+                                        onChange={saveCheckedValue}
+                                        checked={isChecked(pendingSelectedFilters, 'spicy')}
+                                    />
+
+                                    {/* icon */}
+                                    <span className={`${styles.icon} ${styles.checkmark}`}>
+
+                                        {/* spicy */}
+                                        <img id={styles.spicy} src={spicy} alt="" />
+                                    </span>
+                                    <span>{lang === 'it' ? `Piccante` : 'Spicy'}</span>
+                                </label>
+                            </div>
+                            {/* is vegetarian? */}
+                            <div className={styles.filter} >
+                                <label>
+                                    <input
+                                        type="checkbox"
+                                        name='vegetarian'
+                                        onChange={saveCheckedValue}
+                                        checked={isChecked(pendingSelectedFilters, 'vegetarian')}
+                                    />
+
+                                    {/* icon */}
+                                    <span className={`${styles.icon} ${styles.checkmark}`}>
+
+                                        <img src={vegetarian} alt="" />
+                                    </span>
+                                    <span>{lang === 'it' ? 'Vegetariano' : 'Vegeterian'}</span>
+                                </label>
+                            </div>
                         </div>
+
+
                     </div>
 
                     {/* filtersApplyBtn */}
@@ -157,6 +162,7 @@ export default function FiltersPopUp({ isFilterOpen, setIsFilterOpen, selectedFi
                             Applica
                         </button>
                     </div>
+
                 </div>
             </div >
         </>

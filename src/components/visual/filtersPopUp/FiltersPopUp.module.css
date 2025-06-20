@@ -12,12 +12,11 @@
 
 /* popUp */
 .popUp {
-    max-height: 75vh;
-    overflow-y: auto;
     text-align: center;
     background-color: var(--primary-white);
     z-index: 1001;
-
+    overflow: hidden;
+    max-height: 75vh;
     /* debug */
     /* width: 100%; */
     /* height: 500px; */
@@ -78,18 +77,18 @@
     transform: rotate(0deg);
 }
 
+.popUp .bodyPopUp {
+    max-height: 50vh;
+    overflow-y: scroll;
+}
+
 /* filterTitle */
 .popUp h5 {
     font-weight: 150;
     padding: 0.5rem;
 }
 
-.filterTitle {
-    position: sticky;
-    top: 3rem;
-    background-color: var(--primary-white);
-    z-index: 1000;
-}
+
 
 
 /* filters */
