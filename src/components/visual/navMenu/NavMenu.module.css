@@ -167,6 +167,9 @@
 .navbar .boxNavList {
     padding: 1rem;
     border-bottom: 0.5px solid var(--primary-brown);
+    overflow-y: auto;
+    max-height: 73vh;
+    scrollbar-width: thin;
 }
 
 @media (max-width:768px) {
@@ -230,11 +233,38 @@
     line-height: 1rem;
     margin: 1rem 0;
     cursor: pointer;
-
     /* debug */
     /* background-color: peru; */
 }
 
+.navbar .navList li::before {
+    opacity: 0;
+}
+
+.navbar .navList li.active {
+    font-weight: 500;
+    display: flex;
+    text-align: center;
+}
+
+.navbar .navList li.active::before {
+    content: '\25B6';
+    font-size: 0.5rem;
+    padding-right: 0.2rem;
+    opacity: 1;
+}
+
+@media (max-width:768px) {
+    .navbar .navList li.active {
+        justify-content: center;
+    }
+
+    .navbar .navList li.active::before {
+        content: '';
+        padding-right: 0;
+    }
+}
+
 .navbar .navList li:hover {
-    opacity: 0.7;
+    font-weight: 500;
 }

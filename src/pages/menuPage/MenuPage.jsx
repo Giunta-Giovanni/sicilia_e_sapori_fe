@@ -1,6 +1,7 @@
 // import Hooks
 import { useRef, useState, useEffect, useMemo } from "react";
 import useLang from '../../hooks/useLang';
+import useMenuSections from "../../hooks/useMenuSections";
 
 // import Context
 import MenuContext from "../../context/MenuContext";
@@ -24,13 +25,21 @@ import { allergens } from '../../assets/svg/allergens/allergens';
 import styles from "./MenuPage.module.css";
 
 export default function MenuPage() {
-
     // save lang
     const lang = useLang();
+
+    // save sections
+    const sections = useMenuSections();
 
     // Dinamic viewport State
     const [isMobile, setIsMobile] = useState(false);
     const [isTablet, setIsTablet] = useState(false);
+
+    // products state 
+    const [products, setProducts] = useState([]);
+
+    // dinamic section in scroll
+    const [currentSection, setCurrentSection] = useState('');
 
     // save dinamic viewport
     const setActualViewPort = (setViewPort, min, max) => {
@@ -42,7 +51,7 @@ export default function MenuPage() {
     useEffect(() => {
         const handleResize = () => {
             // check window dimension
-            console.log("check window dimension!", window.innerWidth);
+            // console.log("check window dimension!", window.innerWidth);
             setActualViewPort(setIsMobile, 0, 567);
             setActualViewPort(setIsTablet, 568, 768);
         };
@@ -59,31 +68,13 @@ export default function MenuPage() {
     // console.log('viewport Mobile? ' + isMobile);
     // console.log('viewport Tablet? ' + isTablet);
 
-    // products state 
-    const [products, setProducts] = useState([]);
+
 
     // fetch products data
     const fetchProducts = () =>
         axios.get('http://127.0.0.1:8000/api/products')
             .then(res => setProducts(res.data.data))
             .catch(err => console.log(err))
-
-    const sections = {
-        doughs: useRef(null),
-        gourmet: useRef(null),
-        stuffed: useRef(null),
-        naples: useRef(null),
-        pizzas: useRef(null),
-        calzones: useRef(null),
-        scaccioni: useRef(null),
-        sandwiches: useRef(null),
-        dishes: useRef(null),
-        friedFood: useRef(null),
-        desserts: useRef(null),
-        beers: useRef(null),
-        wines: useRef(null),
-        softDrinks: useRef(null),
-    };
 
     // save product in specific categories
     const categorizedProducts = useMemo(() => {
@@ -100,12 +91,21 @@ export default function MenuPage() {
     // create product categories array for rendendering
     const productCategories = categories.map(category => ({
         id: category.id,
+        key: category.key,
         title: lang === 'it' ? category.title_it : category.title_en,
         subtitle: lang === 'it' ? category.subtitle_it : category.subtitle_en,
         products: categorizedProducts[category.key] ?? [],
         ref: category.key ? sections[category.key] : undefined
     }));
     // console.log('questi sono i productCategories completi', productCategories)
+
+    const navCategories = [{
+        id: 0,
+        key: 'doughts',
+        title: lang === 'it' ? 'Impasti' : 'Doughts',
+        subtitle: undefined,
+        ref: sections.doughs ? sections.doughs : undefined
+    }, ...productCategories];
 
     // Change state to Toggle menu
     function handleClick(state, setState, setHasInteracted = null) {
@@ -114,6 +114,44 @@ export default function MenuPage() {
         // change state
         setState(!state);
     }
+
+
+    useEffect(() => {
+        const handleScroll = () => {
+            // save dinamic scroll positions
+            const scrollPosition = window.scrollY + (isTablet || isMobile ? 60 : 100);
+
+            // save temporary current
+            let current = '';
+
+            // loop through navCategories from last to first
+            for (let i = navCategories.length - 1; i >= 0; i--) {
+                const category = navCategories[i];
+                const ref = category.ref;
+
+                // skip if ref is missing or not yet attached
+                if (!ref?.current) continue;
+
+                // get top offset of the section
+                const offSetTop = ref.current.offsetTop;
+
+                // if scroll is below the section's top, it's the current one
+                if (scrollPosition >= offSetTop) {
+                    // store the active section key
+                    current = category.key;
+                    // exit loop once found
+                    break;
+                }
+            }
+
+            setCurrentSection(current);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, [navCategories, isMobile, isTablet]);
+
 
     useEffect(() => {
         fetchProducts();
@@ -130,7 +168,10 @@ export default function MenuPage() {
                     isTablet,
                     sections,
                     productCategories,
+                    navCategories,
                     allergens,
+                    currentSection,
+                    lang
                 }}>
 
                 {/* menuJumbo */}

@@ -1,5 +1,5 @@
 // import Hooks
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 
 // import Context
 import MenuContext from '../../../context/MenuContext';
@@ -16,19 +16,13 @@ import styles from './NavMenu.module.css';
 
 export default function NavMenu({ isMenuOpen, setIsMenuOpen, hasMenuInteracted, setHasMenuInteracted, isFilterOpen, setIsFilterOpen, isAllergenOpen, setIsAllergenOpen, selectedFilters }) {
 
-    const { isMobile, isTablet, productCategories, SlowScrollTo, lang, sections, handleClick } = useContext(MenuContext);
+    const { isMobile, isTablet, navCategories, SlowScrollTo, lang, handleClick, currentSection } = useContext(MenuContext);
 
     const { allergensDoc, plate, filterIcon } = icons
 
-    const navCategories = [{
-        id: 25,
-        title: lang === 'it' ? 'Impasti' : 'Doughts',
-        subtitle: undefined,
-        ref: sections.doughs ? sections.doughs : undefined
-    }, ...productCategories];
-
-    // console.log('firts menu interaction: ' + hasMenuInteracted)
-    // console.log('is menu Open: ' + isMenuOpen)
+    useEffect(() => {
+        console.log('currentSection changed:', currentSection);
+    }, [currentSection]);
 
     // RENDER
     return (
@@ -93,6 +87,7 @@ export default function NavMenu({ isMenuOpen, setIsMenuOpen, hasMenuInteracted, 
                         {navCategories.map(category =>
                             <li
                                 key={category.id}
+                                className={currentSection === category.key ? styles.active : ''}
                                 onClick={() => {
                                     if (isMobile || isTablet) handleClick(isMenuOpen, setIsMenuOpen);
                                     SlowScrollTo(category.ref, 1200, (isMobile ? -600 : isTablet ? -650 : -50));

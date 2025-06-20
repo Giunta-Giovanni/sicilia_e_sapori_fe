@@ -15,8 +15,8 @@ const categories = [
     { id: 12, key: 'desserts', title_it: 'Dolci', title_en: 'Desserts' },
     { id: 14, key: 'beers', title_it: 'Birre', title_en: 'Beers' },
     { id: 15, key: 'wines', title_it: 'Vini', title_en: 'Wines', subtitle_it: 'Vini Rossi', subtitle_en: 'Red Wines' },
-    { id: 16, key: 'WhiteWines', title_it: null, title_en: null, subtitle_it: 'Vini Bianchi', subtitle_en: 'White Wines' },
-    { id: 17, key: 'SparklingWines', title_it: null, title_en: null, subtitle_it: 'Vini Frizzanti', subtitle_en: 'Sparkling Wines' },
+    { id: 16, key: 'whiteWines', title_it: null, title_en: null, subtitle_it: 'Vini Bianchi', subtitle_en: 'White Wines' },
+    { id: 17, key: 'sparklingWines', title_it: null, title_en: null, subtitle_it: 'Vini Frizzanti', subtitle_en: 'Sparkling Wines' },
     { id: 18, key: 'softDrinks', title_it: 'Soft Drinks', title_en: 'Soft Drinks' },
 ];
 

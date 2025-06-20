@@ -8,16 +8,17 @@ import styles from './Products.module.css';
 // import Visual Components
 import ProductCard from './ProductCard';
 
-export default function Products({ lang }) {
+export default function Products({ selectedFilters }) {
 
-    const { sections, spicy, vegetarian, allergens, productCategories } = useContext(MenuContext);
+    // context
+    const { sections, spicy, vegetarian, allergens, productCategories, lang } = useContext(MenuContext);
 
     // RENDER
     return (
         < div className={styles.boxProducts} >
             {/* doughs */}
-            <section className={styles.doughs}>
-                <h4 ref={sections.doughs ? sections.doughs : undefined}>{lang === 'it' ? 'I nostri impasti' : 'Our dough selection'}</h4>
+            <section ref={sections.doughs ? sections.doughs : undefined} className={styles.doughs}>
+                <h4>{lang === 'it' ? 'I nostri impasti' : 'Our dough selection'}</h4>
 
                 {/* traditional */}
                 <div className={styles.dough} id={styles.traditional}>
@@ -100,11 +101,13 @@ export default function Products({ lang }) {
 
             {/* products */}
             {productCategories.map(productCategory => {
-                const { title, subtitle, products, ref } = productCategory;
+                const { id, title, subtitle, products, ref } = productCategory;
                 return (
-                    <section className={styles.products}>
-                        {title && <h4 ref={ref ? ref : undefined}>{title}</h4>}
+                    // products
+                    <section key={id} className={styles.products} ref={ref ? ref : undefined}>
+                        {title && <h4>{title}</h4>}
                         {subtitle &&
+                            // subtitle
                             <div className={styles.subtitle}>
                                 <span></span>
                                 <h5>{subtitle}</h5>
@@ -119,6 +122,7 @@ export default function Products({ lang }) {
                                 spicy={spicy}
                                 vegetarian={vegetarian}
                                 allergens={allergens}
+                                selectedFilters={selectedFilters}
                                 lang={lang}
                             />
                         ))}
