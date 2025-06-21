@@ -1,8 +1,10 @@
 // import Hooks
-import { useRef, useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo } from "react";
 import useLang from '../../hooks/useLang';
 import useMenuSections from "../../hooks/useMenuSections";
 import { useViewport } from "../../hooks/useViewport";
+import { useScrollSpy } from "../../hooks/useActiveSection";
+import { handleClick } from "../../utils/ui";
 
 // import Context
 import MenuContext from "../../context/MenuContext";
@@ -15,6 +17,7 @@ import MenuSection from "../../sections/MenuSection"
 
 // import Components
 import SlowScrollTo from "../../components/technical/SlowScrollTo";
+import Loader from "../../components/visual/loader/Loader";
 
 // import Data
 import { categories } from '../../data/categories';
@@ -37,17 +40,28 @@ export default function MenuPage() {
     // console.log('viewport Mobile? ' + isMobile);
     // console.log('viewport Tablet? ' + isTablet);
 
+    // loader state
+    const [isLoading, setIsLoading] = useState(true);
+    const [isReady, setIsReady] = useState(false);
+
     // products state 
     const [products, setProducts] = useState([]);
 
-    // dinamic section in scroll
-    const [currentSection, setCurrentSection] = useState('');
-
     // fetch products data
-    const fetchProducts = () =>
+    const fetchProducts = () => {
+        // start Loader
+        setIsLoading(true);
+
         axios.get('http://127.0.0.1:8000/api/products')
-            .then(res => setProducts(res.data.data))
+            .then(res => {
+                setProducts(res.data.data);
+            })
             .catch(err => console.log(err))
+            .finally(() => {
+                setTimeout(() => { setIsLoading(false) }, 500);
+                setIsReady(true);
+            });
+    };
 
     // save product in specific categories
     const categorizedProducts = useMemo(() => {
@@ -72,6 +86,7 @@ export default function MenuPage() {
     }));
     // console.log('questi sono i productCategories completi', productCategories)
 
+    // add dought categories
     const navCategories = [{
         id: 0,
         key: 'doughts',
@@ -80,55 +95,23 @@ export default function MenuPage() {
         ref: sections.doughs ? sections.doughs : undefined
     }, ...productCategories];
 
-    // Change state to Toggle menu
-    function handleClick(state, setState, setHasInteracted = null) {
-        // save user first interaction (optional)
-        if (setHasInteracted) setHasInteracted(true);
-        // change state
-        setState(!state);
-    }
-
-
-    useEffect(() => {
-        const handleScroll = () => {
-            // save dinamic scroll positions
-            const scrollPosition = window.scrollY + (isTablet || isMobile ? 60 : 100);
-
-            // save temporary current
-            let current = '';
-
-            // loop through navCategories from last to first
-            for (let i = navCategories.length - 1; i >= 0; i--) {
-                const category = navCategories[i];
-                const ref = category.ref;
-
-                // skip if ref is missing or not yet attached
-                if (!ref?.current) continue;
-
-                // get top offset of the section
-                const offSetTop = ref.current.offsetTop;
-
-                // if scroll is below the section's top, it's the current one
-                if (scrollPosition >= offSetTop) {
-                    // store the active section key
-                    current = category.key;
-                    // exit loop once found
-                    break;
-                }
-            }
-
-            setCurrentSection(current);
-        };
-
-        window.addEventListener('scroll', handleScroll);
-
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, [navCategories, isMobile, isTablet]);
-
-
     useEffect(() => {
         fetchProducts();
+        setIsReady(false);
     }, []);
+
+    useEffect(() => {
+        if (isLoading) {
+            console.log('sta caricando la pagina');
+        } else {
+            console.log('la pagina ha completato il caricamento')
+        }
+    }, [isLoading]);
+
+    // save offset for scrollSpy
+    const offset = isTablet || isMobile ? 60 : 100;
+    // save dinamic current section
+    const currentSection = useScrollSpy(navCategories, offset);
 
     // RENDER
     return (
@@ -147,15 +130,24 @@ export default function MenuPage() {
                     lang
                 }}>
 
-                {/* menuJumbo */}
-                <section className={styles.menuJumbo}>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem obcaecati nihil similique, iusto tempore, nisi temporibus pariatur vel ad maxime, accusamus non neque consectetur? Aliquam porro inventore sit fugit voluptatibus?
-                    </p>
-                </section>
+                {isLoading ? (
+                    <Loader isLoading={isLoading} isReady={isReady} />
+                ) : (
+                    <>
+                        {/* menuJumbo */}
+                        < section className={styles.menuJumbo}>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem obcaecati nihil similique, iusto tempore, nisi temporibus pariatur vel ad maxime, accusamus non neque consectetur? Aliquam porro inventore sit fugit voluptatibus?
+                            </p>
+                        </section>
 
-                {/* menuSection */}
-                <MenuSection styles={styles} />
+                        {/* menuSection */}
+                        <MenuSection styles={styles} />
+                    </>
+
+                )}
+
+
             </MenuContext >
         </>
     )

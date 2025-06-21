@@ -15,9 +15,6 @@ import { icons } from '../assets/svg/general/icons';
 
 export default function MenuSection({ styles }) {
 
-    // Menu context
-    const { allergens, lang } = useContext(MenuContext);
-
     // Icons
     const { arrowDown } = icons;
 
@@ -95,7 +92,6 @@ export default function MenuSection({ styles }) {
                     selectedFilters={selectedFilters}
                 />
 
-
                 {/* products */}
                 <Products
                     selectedFilters={selectedFilters}
@@ -112,7 +108,6 @@ export default function MenuSection({ styles }) {
 
                         {/* AllergensPopUp */}
                         <AllergensPopUp
-                            allergens={allergens}
                             isAllergenOpen={isAllergenOpen}
                             setIsAllergenOpen={setIsAllergenOpen}
                         />
