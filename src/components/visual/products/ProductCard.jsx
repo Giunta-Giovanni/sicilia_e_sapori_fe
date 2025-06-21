@@ -1,3 +1,8 @@
+// import Utilities
+import { shouldDisableProduct } from "../../../utils/filters";
+import { formatSize } from "../../../utils/format";
+
+// import Icons
 import { icons } from "../../../assets/svg/general/icons";
 
 export default function ProductCard({ lang, product, styles, allergens, selectedFilters }) {
@@ -5,51 +10,17 @@ export default function ProductCard({ lang, product, styles, allergens, selected
     // save icons
     const { spicy, vegetarian } = icons;
 
-    // create function for format size in litre or centilitre
-    const formatSize = (size) => {
-        const sizeNumber = Number(size);
-        if (isNaN(sizeNumber)) return null;
-
-        return sizeNumber >= 100
-            ? `${sizeNumber / 100} lt`
-            : `${sizeNumber} cl`;
-    };
+    // save state on filtered product
+    const isDisabled = shouldDisableProduct(product, selectedFilters);
 
     // save size
     let primarySize = formatSize(product.primary_size);
     let secondarySize = formatSize(product.secondary_size);
 
-
-
-
-    //create function for return true key in array
-    function trovaChiaviTrue(obj) {
-        return Object.keys(obj).filter(key => obj[key] === true);
-    }
-
-    // save readed filters
-    const filters = trovaChiaviTrue(selectedFilters);
-
-    let filterMatch = false;
-
-    // if product contains allergens, spicy or vegetarian matching
-    const hasMatchingAllergen = product.allergens?.some(allergen => filters.includes(allergen));
-    const isSpicyMatch = filters.includes("spicy") && product.is_spicy;
-    const isVegetarianMatch = filters.includes("vegetarian") && product.is_vegetarian;
-
-    // if product have one of the above match or more return filterMatch true
-    if (hasMatchingAllergen || isSpicyMatch || isVegetarianMatch) {
-        filterMatch = hasMatchingAllergen || isSpicyMatch || isVegetarianMatch;
-    }
-
-    console.log(`il prodotto ${product.name_it} deve essere disabilitato? ${filterMatch}`);
-
-
-
-
+    // RENDER
     return (
         //product
-        <div key={product.id} className={`${styles.product} ${filterMatch ? styles.disabled : undefined}`} >
+        <div key={product.id} className={`${styles.product} ${isDisabled ? styles.disabled : undefined}`} >
             {/* title */}
             < div className={styles.title} >
                 <h6>{lang === 'it' ? product.name_it : product.name_en}</h6>

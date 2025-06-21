@@ -1,11 +1,11 @@
 // import Hooks
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 
 // import Context
 import MenuContext from '../../../context/MenuContext';
 
-// import Utilities
-import counter from '../../../utilities/counter';
+// import Utils
+import { counter } from '../../../utils/counter';
 
 // import Assets
 import { icons } from '../../../assets/svg/general/icons';
@@ -16,13 +16,11 @@ import styles from './NavMenu.module.css';
 
 export default function NavMenu({ isMenuOpen, setIsMenuOpen, hasMenuInteracted, setHasMenuInteracted, isFilterOpen, setIsFilterOpen, isAllergenOpen, setIsAllergenOpen, selectedFilters }) {
 
+    // save context
     const { isMobile, isTablet, navCategories, SlowScrollTo, lang, handleClick, currentSection } = useContext(MenuContext);
 
-    const { allergensDoc, plate, filterIcon } = icons
-
-    useEffect(() => {
-        console.log('currentSection changed:', currentSection);
-    }, [currentSection]);
+    // save icons
+    const { allergensDoc, plate, filterIcon } = icons;
 
     // RENDER
     return (
