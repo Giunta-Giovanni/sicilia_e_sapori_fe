@@ -1,0 +1,71 @@
+/* loader */
+.loader {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 1s ease, transform 1s ease;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.loader img {
+    width: 40%;
+    animation: flameFlicker 5s infinite ease-in-out;
+    transform-origin: center center;
+}
+
+@media (max-width:768px) {
+    .loader img {
+        width: 70%;
+    }
+}
+
+@media (max-width:576px) {
+    .loader img {
+        width: 90%;
+    }
+}
+
+.fadeOut {
+    opacity: 0;
+    transform: translateY(-3rem);
+    pointer-events: none;
+}
+
+@keyframes flameFlicker {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    15% {
+        opacity: 0.85;
+        transform: scale(1.005);
+    }
+
+    30% {
+        opacity: 0.9;
+        transform: scale(0.995);
+    }
+
+    45% {
+        opacity: 0.75;
+        transform: scale(1.005);
+    }
+
+    60% {
+        opacity: 0.88;
+        transform: scale(1);
+    }
+
+    75% {
+        opacity: 0.95;
+        transform: scale(1.005);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
