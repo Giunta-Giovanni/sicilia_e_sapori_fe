@@ -1,6 +1,9 @@
 // import Hooks
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
 
+// import context
+import GlobalContextProvider from "./context/GlobalContextProvider.jsx";
+
 // import Layout
 import DefaultLayout from "./layouts/DefaultLayout.jsx";
 
@@ -19,29 +22,34 @@ export default function App() {
   return (
     <BrowserRouter>
       {/* <ScrollToTop /> */}
-      <Routes>
+      <GlobalContextProvider>
 
-        {/* it Routes */}
-        <Route path="/it" element={<DefaultLayout />}>
-          <Route index element={<HomePage />} />
-          <Route path="menu" element={<MenuPage />} />
-          <Route path="chi-siamo" element={<AboutPage />} />
-          <Route path="privacy-policy" element={<PrivacyPolicyPage />} />
-          <Route path="*" element={<NotfoundPage />} />
-        </Route>
+        <Routes>
 
-        {/* en Routes */}
-        <Route path="/en" element={<DefaultLayout />}>
-          <Route index element={<HomePage />} />
-          <Route path="menu" element={<MenuPage />} />
-          <Route path="about-us" element={<AboutPage />} />
-          <Route path="privacy-policy" element={<PrivacyPolicyPage />} />
-          <Route path="*" element={<NotfoundPage />} />
-        </Route>
+          {/* it Routes */}
+          <Route path="/it" element={<DefaultLayout />}>
+            <Route index element={<HomePage />} />
+            <Route path="menu" element={<MenuPage />} />
+            <Route path="chi-siamo" element={<AboutPage />} />
+            <Route path="privacy-policy" element={<PrivacyPolicyPage />} />
+            <Route path="*" element={<NotfoundPage />} />
+          </Route>
 
-        <Route path="*" element={<Navigate to="/it" />} />
+          {/* en Routes */}
+          <Route path="/en" element={<DefaultLayout />}>
+            <Route index element={<HomePage />} />
+            <Route path="menu" element={<MenuPage />} />
+            <Route path="about-us" element={<AboutPage />} />
+            <Route path="privacy-policy" element={<PrivacyPolicyPage />} />
+            <Route path="*" element={<NotfoundPage />} />
+          </Route>
 
-      </Routes>
+          <Route path="*" element={<Navigate to="/it" />} />
+
+        </Routes>
+      </GlobalContextProvider >
+
     </BrowserRouter>
+
   )
 };
