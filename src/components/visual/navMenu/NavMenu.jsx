@@ -2,6 +2,7 @@
 import { useContext } from 'react';
 
 // import Context
+import GlobalContext from '../../../context/GlobalContext';
 import MenuContext from '../../../context/MenuContext';
 
 // import Utils
@@ -17,7 +18,8 @@ import styles from './NavMenu.module.css';
 export default function NavMenu({ isMenuOpen, setIsMenuOpen, hasMenuInteracted, setHasMenuInteracted, isFilterOpen, setIsFilterOpen, isAllergenOpen, setIsAllergenOpen, selectedFilters }) {
 
     // save context
-    const { isMobile, isTablet, navCategories, SlowScrollTo, lang, handleClick, currentSection } = useContext(MenuContext);
+    const { handleClick, SlowScrollTo, lang, isMobile, isTablet } = useContext(GlobalContext);
+    const { navCategories, currentSection } = useContext(MenuContext);
 
     // save icons
     const { allergensDoc, plate, filterIcon } = icons;

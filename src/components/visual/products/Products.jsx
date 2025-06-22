@@ -1,5 +1,8 @@
-// import Context
+// import hooks
 import { useContext } from 'react';
+
+// import Context
+import GlobalContext from '../../../context/GlobalContext';
 import MenuContext from '../../../context/MenuContext';
 
 // import styles
@@ -11,7 +14,8 @@ import ProductCard from './ProductCard';
 export default function Products({ selectedFilters }) {
 
     // context
-    const { sections, spicy, vegetarian, allergens, productCategories, lang } = useContext(MenuContext);
+    const { lang } = useContext(GlobalContext);
+    const { productCategories, sections, allergens } = useContext(MenuContext);
 
     // RENDER
     return (
@@ -119,8 +123,6 @@ export default function Products({ selectedFilters }) {
                                 key={product.id}
                                 product={product}
                                 styles={styles}
-                                spicy={spicy}
-                                vegetarian={vegetarian}
                                 allergens={allergens}
                                 selectedFilters={selectedFilters}
                                 lang={lang}

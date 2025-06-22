@@ -1,23 +1,16 @@
 // import Hooks
-import { useState, useEffect, useMemo } from "react";
+import { useMemo, useContext } from "react";
 import useLang from '../../hooks/useLang';
 import useMenuSections from "../../hooks/useMenuSections";
 import { useViewport } from "../../hooks/useViewport";
 import { useScrollSpy } from "../../hooks/useActiveSection";
-import { handleClick } from "../../utils/ui";
+import GlobalContext from "../../context/GlobalContext";
 
 // import Context
 import MenuContext from "../../context/MenuContext";
 
-// import Axios
-import axios from 'axios';
-
 // import Sections
 import MenuSection from "../../sections/MenuSection"
-
-// import Components
-import SlowScrollTo from "../../components/technical/SlowScrollTo";
-import Loader from "../../components/visual/loader/Loader";
 
 // import Data
 import { categories } from '../../data/categories';
@@ -40,28 +33,7 @@ export default function MenuPage() {
     // console.log('viewport Mobile? ' + isMobile);
     // console.log('viewport Tablet? ' + isTablet);
 
-    // loader state
-    const [isLoading, setIsLoading] = useState(true);
-    const [isReady, setIsReady] = useState(false);
-
-    // products state 
-    const [products, setProducts] = useState([]);
-
-    // fetch products data
-    const fetchProducts = () => {
-        // start Loader
-        setIsLoading(true);
-
-        axios.get('http://127.0.0.1:8000/api/products')
-            .then(res => {
-                setProducts(res.data.data);
-            })
-            .catch(err => console.log(err))
-            .finally(() => {
-                setTimeout(() => { setIsLoading(false) }, 500);
-                setIsReady(true);
-            });
-    };
+    const { products } = useContext(GlobalContext);
 
     // save product in specific categories
     const categorizedProducts = useMemo(() => {
@@ -95,19 +67,6 @@ export default function MenuPage() {
         ref: sections.doughs ? sections.doughs : undefined
     }, ...productCategories];
 
-    useEffect(() => {
-        fetchProducts();
-        setIsReady(false);
-    }, []);
-
-    useEffect(() => {
-        if (isLoading) {
-            console.log('sta caricando la pagina');
-        } else {
-            console.log('la pagina ha completato il caricamento')
-        }
-    }, [isLoading]);
-
     // save offset for scrollSpy
     const offset = isTablet || isMobile ? 60 : 100;
     // save dinamic current section
@@ -118,35 +77,26 @@ export default function MenuPage() {
         <>
             <MenuContext
                 value={{
-                    SlowScrollTo,
-                    handleClick,
-                    isMobile,
-                    isTablet,
                     sections,
                     productCategories,
+
                     navCategories,
-                    allergens,
                     currentSection,
-                    lang
+
+                    allergens,
                 }}>
 
-                {isLoading ? (
-                    <Loader isLoading={isLoading} isReady={isReady} />
-                ) : (
-                    <>
-                        {/* menuJumbo */}
-                        < section className={styles.menuJumbo}>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem obcaecati nihil similique, iusto tempore, nisi temporibus pariatur vel ad maxime, accusamus non neque consectetur? Aliquam porro inventore sit fugit voluptatibus?
-                            </p>
-                        </section>
+                <>
+                    {/* menuJumbo */}
+                    <section className={styles.menuJumbo}>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem obcaecati nihil similique, iusto tempore, nisi temporibus pariatur vel ad maxime, accusamus non neque consectetur? Aliquam porro inventore sit fugit voluptatibus?
+                        </p>
+                    </section>
 
-                        {/* menuSection */}
-                        <MenuSection styles={styles} />
-                    </>
-
-                )}
-
+                    {/* menuSection */}
+                    <MenuSection styles={styles} />
+                </>
 
             </MenuContext >
         </>
