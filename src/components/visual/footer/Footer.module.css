@@ -1,0 +1,121 @@
+footer {
+    background-color: var(--primary-brown);
+    color: var(--primary-white);
+    text-align: center;
+
+    /* debug */
+    /* height: 500px; */
+}
+
+footer a {
+    color: var(--primary-white);
+}
+
+footer.inverted {
+    background-color: var(--primary-white);
+    color: var(--primary-brown);
+}
+
+footer.inverted a {
+    color: var(--primary-brown);
+}
+
+/* container */
+.container {
+    width: 90%;
+    margin: 0 auto;
+
+    /* debug */
+    /* background-color: blue; */
+}
+
+
+/* logo */
+.container .logo {
+    width: 85%;
+}
+
+@media (max-width:576px) {
+    .container .logo {
+        width: 100%;
+    }
+}
+
+/* channels */
+.review .channels {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+
+    margin: 1rem 0;
+
+    /* debug */
+    /* background-color: blueviolet; */
+}
+
+.review .channels a {
+    height: 3rem;
+    /* debug */
+    /* background-color: green; */
+}
+
+.channels a img {
+    height: 100%;
+}
+
+
+.social {
+    padding: 1rem;
+
+    /* debug */
+    /* background-color: green; */
+}
+
+.social h5 {
+    margin-bottom: 1rem;
+}
+
+.social .channels {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+
+    /* debug */
+    /* background-color: red; */
+}
+
+@media (max-width:768px) {
+    .social .channels {
+        display: block;
+        /* debug */
+        /* background-color: red; */
+    }
+}
+
+.channels a {
+    text-decoration: underline;
+    font-size: 1.5rem;
+    transition: opacity 0.3s ease;
+}
+
+.channels a:hover {
+    opacity: 0.6;
+}
+
+@media (max-width:768px) {
+
+    .channels a {
+        display: block;
+        margin: 0.5rem;
+    }
+}
+
+/* pIva */
+.pIva {
+    margin-top: 4rem;
+    margin-bottom: 1rem;
+}
+
+.madeBy {
+    padding-bottom: 2rem;
+}

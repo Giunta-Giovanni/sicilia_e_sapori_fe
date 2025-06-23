@@ -31,11 +31,7 @@ export default function DefaultLayout() {
                 </>
             )}
 
-            <Footer className={
-                location.pathname == "/it/about-us" || location.pathname == "/en/about-us"
-                    ? 'inverted'
-                    : ''
-            } />
+            <Footer />
         </div>
 
     )
