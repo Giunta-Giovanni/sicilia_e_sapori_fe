@@ -2,9 +2,16 @@ footer {
     background-color: var(--primary-brown);
     color: var(--primary-white);
     text-align: center;
+    padding: 0 40px;
 
     /* debug */
     /* height: 500px; */
+}
+
+@media (max-width:576px) {
+    footer {
+        padding: 0 20px;
+    }
 }
 
 footer a {
@@ -20,93 +27,53 @@ footer.inverted a {
     color: var(--primary-brown);
 }
 
-/* container */
-.container {
-    width: 90%;
-    margin: 0 auto;
-
-    /* debug */
-    /* background-color: blue; */
-}
-
-
 /* logo */
-.container .logo {
-    width: 85%;
-}
-
-@media (max-width:576px) {
-    .container .logo {
-        width: 100%;
-    }
+.logo {
+    max-width: 500px;
 }
 
 /* channels */
-.review .channels {
+.channels {
     display: flex;
-    justify-content: center;
-    gap: 2rem;
-
     margin: 1rem 0;
+    gap: 2rem;
 
     /* debug */
     /* background-color: blueviolet; */
 }
 
-.review .channels a {
-    height: 3rem;
-    /* debug */
-    /* background-color: green; */
-}
-
-.channels a img {
-    height: 100%;
-}
-
-
-.social {
-    padding: 1rem;
-
-    /* debug */
-    /* background-color: green; */
-}
-
-.social h5 {
-    margin-bottom: 1rem;
-}
-
-.social .channels {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-
-    /* debug */
-    /* background-color: red; */
-}
-
-@media (max-width:768px) {
-    .social .channels {
-        display: block;
-        /* debug */
-        /* background-color: red; */
-    }
-}
-
 .channels a {
+    display: flex;
+    width: 50%;
     text-decoration: underline;
     font-size: 1.5rem;
     transition: opacity 0.3s ease;
+}
+
+.channels a:nth-child(1) {
+    justify-content: end;
+    /* background-color: red; */
 }
 
 .channels a:hover {
     opacity: 0.6;
 }
 
+.channels a img {
+    height: 3rem;
+}
+
 @media (max-width:768px) {
 
-    .channels a {
+    /* socials = channels */
+    .socials.channels {
         display: block;
-        margin: 0.5rem;
+    }
+
+    .socials.channels a {
+        display: block;
+        width: 100%;
+        margin: 0.5rem 0;
     }
 }
 
@@ -116,6 +83,7 @@ footer.inverted a {
     margin-bottom: 1rem;
 }
 
+/* madeBy */
 .madeBy {
     padding-bottom: 2rem;
 }
