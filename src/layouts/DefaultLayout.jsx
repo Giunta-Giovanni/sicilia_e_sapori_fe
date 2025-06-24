@@ -12,26 +12,23 @@ export default function DefaultLayout() {
 
     const { isLoading, isReady } = useContext(GlobalContext);
 
+    const aboutUs = location.pathname == "/it/chi-siamo" || location.pathname == "/en/about-us"
     // RENDER
     return (
         <div id="pageWrapper">
-            <Header />
             {isLoading ? (
                 <Loader isLoading={isLoading} isReady={isReady} />
             ) : (
                 <>
-                    <main className={
-                        location.pathname == "/it/about-us" || location.pathname == "/en/about-us"
-                            ? 'inverted'
-                            : ''
-                    }>
+                    <Header />
+                    <main className={aboutUs ? 'inverted' : ''}>
                         <Outlet />
                     </main >
                     <ScrollToTopButton />
+                    <Footer />
                 </>
             )}
 
-            <Footer />
         </div>
 
     )
