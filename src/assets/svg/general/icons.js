@@ -1,6 +1,7 @@
 // import svg
 import allergensDoc from './doc.svg';
-import arrowDown from './arrow-down.svg';
+import arrowDownBrown from './arrow-down-brown.svg';
+import arrowDownWhite from './arrow-down-white.svg';
 import delivery from './delivery.svg';
 import facebookBrown from './facebook-brown.svg';
 import facebookWhite from './facebook-white.svg';
@@ -22,7 +23,8 @@ import vegetarian from './leaf.svg';
 // export object
 export const icons = {
     allergensDoc,
-    arrowDown,
+    arrowDownBrown,
+    arrowDownWhite,
     delivery,
     facebookBrown,
     facebookWhite,
