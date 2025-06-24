@@ -84,7 +84,7 @@ export default function Header() {
             {/* headerLogo */}
             <div className={styles.headerLogo}>
                 <Link to={lang === 'en' ? '/en/' : '/'}>
-                    <img src={!isOpen && !aboutUs ? linearLogoBrown : linearLogoWhite} alt="logo" />
+                    <img src={isOpen || aboutUs || (home && !scrolled) ? linearLogoWhite : linearLogoBrown} alt="logo" />
                 </Link>
             </div>
 
