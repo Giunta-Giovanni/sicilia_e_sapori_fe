@@ -1,0 +1,19 @@
+video {
+    position: relative;
+    top: -60px;
+    /* se ti serve spostare verso l’alto */
+    width: 100%;
+    height: auto;
+    /* adatta l’altezza alla proporzione */
+    /* display: block; */
+    object-fit: cover;
+}
+
+
+
+@media (max-width: 768px) {
+    video {
+        width: 100%;
+        height: 100vh;
+    }
+}
