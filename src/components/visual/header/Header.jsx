@@ -18,7 +18,7 @@ import linearLogoWhite from "../../../assets/svg/logo/logo-header-white.svg"
 
 export default function Header() {
 
-    // Save Icons
+    // Save
     const { facebookWhite, instagramWhite } = icons;
     // Save Language
     const lang = useLang();
@@ -28,10 +28,11 @@ export default function Header() {
     const navigate = useNavigate();
 
     // save location
-    const aboutUs = location.pathname == "/it/about-us" || location.pathname == "/en/about-us";
-    const home = location.pathname == "/it/" || location.pathname == "/en/";
+    const aboutUs = location.pathname == "/it/chi-siamo" || location.pathname == "/en/about-us";
+    const home = location.pathname == "/it" || location.pathname == "/en";
 
 
+    console.log(home)
 
     // switch lang function
     const switchLang = (targetLang) => {
@@ -73,7 +74,12 @@ export default function Header() {
     }, [])
 
     return (
-        <header className={`${styles.headerWrapper} ${isOpen ? styles.inverted : null} ${home && scrolled ? styles.scroll : null} ${aboutUs ? styles.inverted : null}`}>
+        <header className={`
+        ${styles.headerWrapper} 
+        ${isOpen || aboutUs ? styles.inverted : null} 
+        ${home ? styles.noScroll : null} 
+        ${home && scrolled ? styles.scroll : null}
+         `}>
             {/* left */}
             {/* headerLogo */}
             <div className={styles.headerLogo}>
