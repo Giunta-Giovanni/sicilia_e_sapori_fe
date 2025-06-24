@@ -1,19 +1,59 @@
-video {
+/* hero */
+.hero {
     position: relative;
     top: -60px;
-    /* se ti serve spostare verso l’alto */
+}
+
+.hero video {
     width: 100%;
-    height: auto;
-    /* adatta l’altezza alla proporzione */
-    /* display: block; */
+    height: 100vh;
     object-fit: cover;
 }
 
+/* textBox */
+.hero .textBox {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    /* debug */
+    /* background-color: red; */
+}
 
+.textBox p {
+    color: var(--primary-white);
+    font-size: 1.5rem;
+    line-height: 2rem;
+    text-align: center;
+    text-transform: uppercase;
+}
 
-@media (max-width: 768px) {
-    video {
-        width: 100%;
-        height: 100vh;
+.hero .arrowBox {
+    position: absolute;
+    bottom: 4%;
+    left: 50%;
+    transform: translate(-50%, -5%);
+    animation: moveUpDown 3s infinite;
+    /* debug */
+    /* background-color: red; */
+}
+
+.arrowBox img {
+    height: 5rem;
+
+}
+
+@keyframes moveUpDown {
+    0% {
+        bottom: 4%;
+    }
+
+    50% {
+        bottom: 0%;
+    }
+
+    100% {
+        bottom: 4%;
     }
 }
