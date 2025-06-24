@@ -65,11 +65,11 @@ export default function GlobalContextProvider({ children }) {
     // RENDER
     return (
         <GlobalContext.Provider value={{
+            handleClick,
             SlowScrollTo,
             isMobile,
             isTablet,
             lang,
-
             isLoading,
             setIsLoading,
 

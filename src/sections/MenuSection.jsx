@@ -16,7 +16,7 @@ import { icons } from '../assets/svg/general/icons';
 export default function MenuSection({ styles }) {
 
     // Icons
-    const { arrowDown } = icons;
+    const { arrowDownBrown } = icons;
 
     // Initial Selected Filters
     const initialSelectedFilters = {
@@ -75,7 +75,7 @@ export default function MenuSection({ styles }) {
             {/* introduction */}
             <div className={styles.introduction}>
                 <h2>MENÚ</h2>
-                <img src={arrowDown} alt="arrow down" />
+                <img src={arrowDownBrown} alt="arrow down" />
             </div>
 
             {/* menu */}
