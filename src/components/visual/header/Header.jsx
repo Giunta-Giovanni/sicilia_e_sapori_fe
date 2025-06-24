@@ -9,20 +9,29 @@ import styles from './Header.module.css';
 // import Flag
 import Flag from 'react-world-flags';
 
+//import assets
+import { icons } from '../../../assets/svg/general/icons';
+
 // Assets
-import fbLogoWhite from "../../../assets/svg/general/facebook-white.svg";
-import igLogoWhite from "../../../assets/svg/general/instagram-white.svg";
 import linearLogoBrown from "../../../assets/svg/logo/logo-header-brown.svg"
 import linearLogoWhite from "../../../assets/svg/logo/logo-header-white.svg"
 
 export default function Header() {
 
+    // Save Icons
+    const { facebookWhite, instagramWhite } = icons;
     // Save Language
     const lang = useLang();
     // Save Location
     const location = useLocation();
     // Save Navigation
     const navigate = useNavigate();
+
+    // save location
+    const aboutUs = location.pathname == "/it/about-us" || location.pathname == "/en/about-us";
+    const home = location.pathname == "/it/" || location.pathname == "/en/";
+
+
 
     // switch lang function
     const switchLang = (targetLang) => {
@@ -52,13 +61,24 @@ export default function Header() {
         }
     }, [isOpen]);
 
+    // find scroll more then 60px and add background
+    const [scrolled, setScrolled] = useState(false);
+    useEffect(() => {
+        const handleScroll = () => {
+            let isScrolled = window.scrollY > 60;
+            setScrolled(isScrolled);
+        }
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, [])
+
     return (
-        <header className={`${styles.headerWrapper} ${isOpen ? styles.inverted : null}`}>
+        <header className={`${styles.headerWrapper} ${isOpen ? styles.inverted : null} ${home && scrolled ? styles.scroll : null} ${aboutUs ? styles.inverted : null}`}>
             {/* left */}
             {/* headerLogo */}
             <div className={styles.headerLogo}>
                 <Link to={lang === 'en' ? '/en/' : '/'}>
-                    <img src={!isOpen ? linearLogoBrown : linearLogoWhite} alt="logo" />
+                    <img src={!isOpen && !aboutUs ? linearLogoBrown : linearLogoWhite} alt="logo" />
                 </Link>
             </div>
 
@@ -104,10 +124,10 @@ export default function Header() {
                 {/* headerMenuSection secondary */}
                 <section className={`${styles.headerMenuSection} ${styles.secondary}`}>
                     <a href="https://www.facebook.com/siciliaesaporipozzallo" target="_blank" rel="noopener noreferrer">
-                        <img className={styles.socialLogo} src={fbLogoWhite} alt=" facebook" />
+                        <img className={styles.socialLogo} src={facebookWhite} alt=" facebook" />
                     </a>
                     <a href="https://www.instagram.com/siciliaesapori" target="_blank" rel="noopener noreferrer">
-                        <img className={styles.socialLogo} src={igLogoWhite} alt="instagram" />
+                        <img className={styles.socialLogo} src={instagramWhite} alt="instagram" />
                     </a>
                 </section>
             </nav>
