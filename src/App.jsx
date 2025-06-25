@@ -8,7 +8,7 @@ import GlobalContextProvider from "./context/GlobalContextProvider.jsx";
 import DefaultLayout from "./layouts/DefaultLayout.jsx";
 
 // import Pages
-import AboutPage from "./pages/AboutPage.jsx";
+import AboutPage from "./pages/aboutPage/AboutPage.jsx";
 import HomePage from "./pages/homePage/HomePage.jsx";
 import MenuPage from "./pages/menuPage/MenuPage.jsx";
 import NotfoundPage from "./pages/NotfoundPage.jsx";

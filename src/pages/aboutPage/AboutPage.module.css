@@ -1,0 +1,38 @@
+/* jumbotron-header */
+.jumbotronHeader {
+    display: flex;
+    justify-content: center;
+    padding: 40px 0;
+
+    /* debug */
+    /* background-color: aqua; */
+}
+
+.jumbotronHeader h2,
+.jumbotronHeader h3 {
+    text-align: center;
+}
+
+.sx,
+.dx {
+    margin: 30px;
+}
+
+@media (max-width: 768px) {
+    .jumbotronHeader {
+        flex-wrap: wrap;
+    }
+
+    .sx {
+        order: 2;
+    }
+
+    .center {
+        order: 1;
+        width: 100%;
+    }
+
+    .dx {
+        order: 3;
+    }
+}
