@@ -28,12 +28,12 @@ export default function Products({ selectedFilters }) {
                 <div className={styles.dough} id={styles.traditional}>
                     <h5>
                         {lang === 'it'
-                            ? 'Tradizionale a lunga lievitazione'
+                            ? 'Tradizionale a lunga maturazione'
                             : 'Traditional long-fermented dough'}
                     </h5>
                     <p>
                         {lang === 'it'
-                            ? 'Impastato con lievito madre e lasciato riposare per 36 ore'
+                            ? 'Tutti i nostri impasti sono fatti con lievito madre a lunga maturazione'
                             : 'Made with sourdough starter and rested for 36 hours'}
                     </p>
                 </div>
@@ -47,7 +47,7 @@ export default function Products({ selectedFilters }) {
                     </h5>
                     <p>
                         {lang === 'it'
-                            ? 'Un impasto ricco di fibre, realizzato con farine integrali e varietà autoctone siciliane. Sano, profumato e deciso.'
+                            ? ''
                             : 'A fibre-rich dough made with whole wheat flour and native Sicilian grain varieties. Wholesome, aromatic, and bold.'}
                     </p>
                     <p className={styles.price}>
@@ -60,11 +60,11 @@ export default function Products({ selectedFilters }) {
                     <h5>{lang === 'it' ? 'Senza glutine' : 'Gluten-free'}</h5>
                     <p>
                         {lang === 'it'
-                            ? 'Preparato con cura per garantire leggerezza e gusto, ideale per chi segue una dieta gluten free. Naturalmente buono.'
+                            ? ''
                             : 'Carefully crafted to ensure lightness and flavour — ideal for those following a gluten-free diet. Naturally delicious.'}
                     </p>
                     <p className={styles.price}>
-                        {lang === 'it' ? 'Supplemento: 2.00€' : 'Extra: 2.00€'}
+                        {lang === 'it' ? 'Supplemento: 3.50€' : 'Extra: 3.50€'}
                     </p>
                 </div>
 
@@ -77,7 +77,7 @@ export default function Products({ selectedFilters }) {
                     </h5>
                     <p>
                         {lang === 'it'
-                            ? 'Un impasto dal carattere deciso, arricchito con un mix di cereali per un gusto intenso e una consistenza più corposa.'
+                            ? ''
                             : 'A bold, flavourful dough enriched with a blend of grains for a hearty taste and rustic texture.'}
                     </p>
                     <p className={styles.price}>
@@ -94,7 +94,7 @@ export default function Products({ selectedFilters }) {
                     </h5>
                     <p>
                         {lang === 'it'
-                            ? 'Sottile, dorato e irresistibilmente croccante. Un impasto pensato per chi ama la pizza leggera ma ricca di gusto.'
+                            ? 'La nostra Scrocchiarella preparata per voi in monoporzione'
                             : 'Thin, golden, and irresistibly crunchy. Perfect for those who love a light yet flavourful pizza.'}
                     </p>
                     <p className={styles.price}>

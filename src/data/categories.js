@@ -1,12 +1,12 @@
 // create categorie for next rendering
 const categories = [
     { id: 1, key: 'gourmet', title_it: 'Pizze Gourmet', title_en: 'Gourmet Pizzas' },
-    { id: 2, key: 'stuffed', title_it: 'Pizze Baciate', title_en: 'Stuffed Pizzas' },
+    { id: 2, key: 'stuffed', title_it: 'Pizze Baciate Impasto Scrocchiarella', title_en: 'Kissed Pizzas Crunchy Dough' },
     { id: 3, key: 'naples', title_it: 'Pizze da Napoli', title_en: 'Pizzas from Naples' },
-    { id: 4, key: 'pizzas', title_it: 'Pizze', title_en: 'Pizzas', subtitle_it: 'Pizze Rosse', subtitle_en: 'Red Pizzas' },
-    { id: 5, key: 'whitePizzas', title_it: null, title_en: null, subtitle_it: 'Pizze Bianche', subtitle_en: 'White Pizzas' },
-    { id: 6, key: 'seaPizzas', title_it: null, title_en: null, subtitle_it: 'Pizze al Pesce', subtitle_en: 'Sea Food Pizzas' },
-    { id: 19, key: 'buffaloPizzas', title_it: null, title_en: null, subtitle_it: 'Pizze con Mozzarella di Bufala', subtitle_en: 'Pizzas with Buffalo Cheese' },
+    { id: 4, key: 'redPizzas', title_it: 'Pizze Rosse', title_en: 'Red Pizzas', subtitle_it: null, subtitle_en: null },
+    { id: 5, key: 'whitePizzas', title_it: 'Pizze Bianche', title_en: 'White Pizzas', subtitle_it: null, subtitle_en: null },
+    { id: 6, key: 'seaPizzas', title_it: 'Pizze al Pesce', title_en: 'Sea Food Pizzas', subtitle_it: null, subtitle_en: null },
+    { id: 19, key: 'buffaloPizzas', title_it: 'Pizze con Mozzarella di Bufala', title_en: 'Pizzas with Buffalo Cheese', subtitle_it: null, subtitle_en: null },
     { id: 7, key: 'calzones', title_it: 'Calzoni', title_en: 'Calzones', subtitle_it: null, subtitle_en: null },
     { id: 8, key: 'scaccioni', title_it: 'Scaccioni', title_en: 'Scaccioni' },
     { id: 9, key: 'sandwiches', title_it: 'Panini', title_en: 'Sandwiches' },

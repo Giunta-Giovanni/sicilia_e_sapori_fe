@@ -6,6 +6,7 @@ import { formatSize } from "../../../utils/format";
 import { icons } from "../../../assets/svg/general/icons";
 
 export default function ProductCard({ lang, product, styles, allergens, selectedFilters }) {
+    console.log(product);
 
     // save icons
     const { spicy, vegetarian } = icons;
@@ -86,9 +87,9 @@ export default function ProductCard({ lang, product, styles, allergens, selected
                 {product.type === 'food' ?
                     <span>
                         {lang === 'it' ?
-                            'Standard'
+                            'Prezzo'
                             :
-                            'Standard'
+                            'Price'
                         }
                     </span>
                     :
@@ -115,9 +116,9 @@ export default function ProductCard({ lang, product, styles, allergens, selected
                 {product.type === 'food' ?
                     <span>
                         {lang === 'it' ?
-                            'Maxi/Scrocchiarella'
+                            'Maxi Scrocchiarella'
                             :
-                            'Maxi/Crispy'
+                            'Maxi Crispy '
                         }</span>
                     :
                     <>
