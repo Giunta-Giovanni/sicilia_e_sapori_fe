@@ -13,12 +13,14 @@ export default function useMenuSections() {
         buffaloPizzas: useRef(null),
         calzones: useRef(null),
         scaccioni: useRef(null),
-        sandwiches: useRef(null),
+        scrocchiaburger: useRef(null),
         dishes: useRef(null),
-        friedFood: useRef(null),
+        friedAndSide: useRef(null),
         desserts: useRef(null),
+        bar: useRef(null),
         beers: useRef(null),
         wines: useRef(null),
-        softDrinks: useRef(null),
+        drinks: useRef(null),
+        cocktails: useRef(null),
     };
 }
