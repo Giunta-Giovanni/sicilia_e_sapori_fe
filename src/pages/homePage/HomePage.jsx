@@ -1,55 +1,55 @@
 // import Hooks
 import { useContext } from 'react';
-
-//Component
-import Typewriter from '../../components/technical/TypeWriter';
-
+import { Link } from 'react-router-dom';
 
 // import Context
 import GlobalContext from "../../context/GlobalContext";
+
+// import Components
+import HeroSection from '../../sections/HeroSection';
 
 // import Styles
 import styles from './HomePage.module.css';
 
 //import assets
 import { icons } from '../../assets/svg/general/icons';
-
-//import content
-import jumboVideo from "../../../public/video/jumbo.mp4"
-import jumboPoster from "../../../public/video/poster.png"
-
-
+import pizzas from '/pizzas.png';
 
 
 export default function HomePage() {
-
-
     const { lang } = useContext(GlobalContext);
-    const { arrowDownWhite } = icons;
-
+    const { pizzaPeel } = icons;
     return (
         <>
-            {/* hero */}
-            <section className={styles.hero}>
-                <video
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    preload="none"
-                    poster={jumboPoster} //in caso di attesa del caricamento del video aggiungi un poster
-                    src={jumboVideo}
-                    className={styles.jumboVideo}
-                >
-                </video>
-                <div className={styles.textBox}>
-                    <Typewriter text={lang === 'it' ? "  Benvenuti da Sicilia e Sapori!" : "  Welcome to Sicilia e Sapori"} speed={100} pause={10000} />
-                </div>
-                <div className={styles.arrowBox}>
-                    <img src={arrowDownWhite} alt="Arrow Down" />
-                </div>
-            </section>
+            {/* hero section */}
+            <HeroSection styles={styles} />
 
+            {/* presentation section */}
+            <section className={styles.presentation}>
+
+
+                {/* box contenente immagine a sinistra e testo a destra */}
+                <div className={styles.welcome}>
+                    <div className={styles.imgBox}>
+                        <img src={pizzas} alt="" />
+                    </div>
+                    <div className={styles.textBox}>
+                        <p>
+                            Sicilia e Sapori vi invita a scoprire l'anima culinaria dell'isola e del Mediterraneo. Un omaggio ai sapori autentici, con la creatività del nostro chef. Tra la brezza marina e l'eco storico della torre Cabrera, assaporate la vera Sicilia.
+                        </p>
+                    </div>
+                </div>
+                <div className={styles.boxLink}>
+
+                    <button>
+                        <img className={styles.peel} src={pizzaPeel} alt="" />
+                        <img className={styles.peel} src={pizzaPeel} alt="" />
+                        <Link to={lang === 'en' ? '/en/menu' : '/it/menu'}>ESPLORA IL NOSTRO MENU</Link>
+                    </button>
+                </div>
+                {/* da mostrare solo a schermo tablet mobile */}
+                <div className={styles.imgBox}>3</div>
+            </section>
         </>
     )
 }
