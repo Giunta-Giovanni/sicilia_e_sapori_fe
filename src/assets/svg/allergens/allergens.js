@@ -12,6 +12,8 @@ import nut from './nut.svg';
 import peanuts from './peanuts.svg';
 import sesame from './sesame.svg';
 import sulphites from './sulphites.svg';
+import soy from './soy.svg';
+
 
 // allergens
 export const allergens = [
@@ -92,5 +94,12 @@ export const allergens = [
         key: 'lupins',
         icon: lupins,
         label: { it: 'Lupini', en: 'Lupins' }
+    },
+    {
+        id: 14,
+        key: 'soy',
+        icon: soy,
+        label: { it: 'Semi di soia', en: 'Soy bean' }
     }
+
 ];
