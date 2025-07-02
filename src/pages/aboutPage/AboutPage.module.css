@@ -1,38 +1,247 @@
-/* jumbotron-header */
+/* jumbotronHeader */
 .jumbotronHeader {
     display: flex;
     justify-content: center;
-    padding: 40px 0;
+    align-items: center;
+    padding: 2rem 0 0 0;
+}
 
-    /* debug */
-    /* background-color: aqua; */
+.jumbotronHeader h2 {
+    font-weight: bold;
 }
 
 .jumbotronHeader h2,
-.jumbotronHeader h3 {
+.jumbotronHeader h5,
+.jumbotronHeader h6 {
     text-align: center;
 }
 
 .sx,
 .dx {
-    margin: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 10rem;
+    width: 10rem;
+}
+
+.center {
+    margin: 0 6rem;
+}
+
+@media (max-width: 1024px) {
+    .center {
+        margin: 0 2rem
+    }
+}
+
+.sx img,
+.dx img {
+    height: 100%;
 }
 
 @media (max-width: 768px) {
     .jumbotronHeader {
         flex-wrap: wrap;
+        justify-content: space-around;
     }
 
     .sx {
         order: 2;
+        height: 8rem;
+        width: 8rem;
     }
 
     .center {
         order: 1;
         width: 100%;
+        margin: 0 0 1rem 0;
     }
 
     .dx {
         order: 3;
+        height: 8rem;
+        width: 8rem;
+    }
+}
+
+/* jumbotronMain */
+.jumbotronMain {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 0;
+}
+
+/* jumbotronSwiper */
+.jumbotronSwiper {
+    width: 768px;
+    aspect-ratio: 3 / 2;
+}
+
+@media (max-width: 768px) {
+    .jumbotronSwiper {
+        width: 100%;
+    }
+}
+
+.jumbotronSwiper img {
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+    display: block;
+}
+
+/* presentarionDiv */
+.presentationTitle {
+    text-align: center;
+    font-weight: bold;
+}
+
+.presentationDivWrapper {
+    margin-top: 2rem;
+    border-top: 1px solid var(--primary-white);
+    border-bottom: 1px solid var(--primary-white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .presentationDivWrapper {
+        padding-top: 1rem;
+        border: 0;
+    }
+
+    .nopadding {
+        padding: 0;
+    }
+}
+
+.presentationDiv {
+    margin: 0 40px;
+    border-left: 1px solid var(--primary-white);
+    border-right: 1px solid var(--primary-white);
+    overflow: hidden;
+    width: 100%;
+    display: flex;
+    position: relative;
+}
+
+@media (max-width: 768px) {
+    .presentationDiv {
+        flex-direction: column-reverse;
+        align-items: center;
+        border: 0;
+    }
+}
+
+@media (max-width: 992px) {
+    .presentationDiv {
+        margin: 0;
+        border: 0;
+    }
+}
+
+.inverted {
+    flex-direction: row-reverse;
+}
+
+@media (max-width: 768px) {
+    .inverted {
+        flex-direction: column-reverse;
+    }
+}
+
+.line {
+    border-right: 1px solid var(--primary-white);
+}
+
+@media (max-width: 768px) {
+    .line {
+        border: 0;
+    }
+}
+
+.presentationDiv img,
+.presentationDiv video {
+    width: 50%;
+    object-fit: cover;
+    aspect-ratio: 3 / 2;
+    display: block;
+}
+
+@media (max-width: 768px) {
+
+    .presentationDiv img,
+    .presentationDiv video {
+        margin-top: 1rem;
+    }
+
+    .presentationDiv img {
+        width: 100%;
+    }
+
+    .presentationDiv video {
+        height: 80vh;
+        width: 100%;
+    }
+}
+
+.description {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+@media (max-width: 768px) {
+    .description {
+        width: 100%;
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .descriptionOverlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100% !important;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        padding: 0 3rem;
+    }
+}
+
+.description h4 {
+    font-size: 1.95rem;
+    font-weight: bold;
+}
+
+.description p {
+    padding: 0 3rem;
+    text-align: center;
+}
+
+/* swiper */
+.swiper {
+    width: 50%;
+}
+
+.swiper img {
+    width: 100%;
+    object-fit: cover;
+    aspect-ratio: 3 / 2;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .swiper {
+        margin-top: 1rem;
+        width: 100%;
     }
 }
