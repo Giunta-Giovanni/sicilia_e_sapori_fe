@@ -47,28 +47,28 @@
 
 /* traditional */
 .boxProducts .dough#traditional {
-    background-image: url(../../../public/doughts/impasto_tradizionale.png);
+    background-image: url(../../../doughts/impasto_tradizionale.png);
 
 }
 
 /* wholeWheat */
 .boxProducts .dough#wholeWheat {
-    background-image: url(../../../public/doughts/impasto_integrale.png);
+    background-image: url(../../../doughts/impasto_integrale.png);
 }
 
 /* glutenFree */
 .boxProducts .dough#glutenFree {
-    background-image: url(../../../public/doughts/impasto_gluten_free.png);
+    background-image: url(../../../doughts/impasto_gluten_free.png);
 }
 
 /* rustic */
 .boxProducts .dough#rustic {
-    background-image: url(../../../public/doughts/impasto_rustico.png);
+    background-image: url(../../../doughts/impasto_rustico.png);
 }
 
 /* crispy */
 .boxProducts .dough#crispy {
-    background-image: url(../../../public/doughts/impasto_scrocchiarella.png);
+    background-image: url(../../../doughts/impasto_scrocchiarella.png);
 }
 
 .boxProducts .dough h5 {
