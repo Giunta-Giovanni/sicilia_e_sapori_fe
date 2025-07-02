@@ -31,7 +31,7 @@ export default function Header() {
     const aboutUs = location.pathname == "/it/about-us" || location.pathname == "/en/about-us";
     const home = location.pathname == "/it/" || location.pathname == "/en/";
 
-    console.log(home);
+    // console.log(home);
 
     // switch lang function
     const switchLang = (targetLang) => {
