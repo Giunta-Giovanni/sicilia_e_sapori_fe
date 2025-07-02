@@ -32,7 +32,7 @@ export default function HeroSection({ styles }) {
                     playsInline
                     preload="none"
                     poster={jumboPoster} //in caso di attesa del caricamento del video aggiungi un poster
-                    // src={jumboVideo}
+                    src={jumboVideo}
                     className={styles.jumboVideo}
                 >
                 </video>
