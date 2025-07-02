@@ -119,3 +119,31 @@ button {
     height: 0;
     width: 0;
 } */
+
+/* SWIPER LIBRARY */
+/* dots position */
+.swiper-pagination {
+    position: relative !important;
+    margin-top: 10px;
+    text-align: center;
+}
+
+/* dot */
+.swiper-pagination-bullet {
+    width: 0.5rem !important;
+    height: 0.5rem !important;
+    background: lightgray !important;
+    opacity: 0.5 !important;
+    margin: 0 0.2rem !important;
+    border-radius: 50% !important;
+    transition: 0.3s ease !important;
+    display: inline-block !important;
+    vertical-align: middle !important;
+}
+
+/* active dot */
+.swiper-pagination-bullet-active {
+    width: 0.8rem !important;
+    height: 0.8rem !important;
+    opacity: 1 !important;
+}
