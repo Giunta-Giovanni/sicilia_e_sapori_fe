@@ -19,6 +19,8 @@ import spicy from './pepper.svg';
 import tripAdvisorBrown from './trip-advisor-brown.svg';
 import tripAdvisorWhite from './trip-advisor-white.svg';
 import vegetarian from './leaf.svg';
+import pizzaBox from './pizza-box.svg';
+
 
 // export object
 export const icons = {
@@ -41,5 +43,6 @@ export const icons = {
     spicy,
     tripAdvisorBrown,
     tripAdvisorWhite,
-    vegetarian
+    vegetarian,
+    pizzaBox
 };
