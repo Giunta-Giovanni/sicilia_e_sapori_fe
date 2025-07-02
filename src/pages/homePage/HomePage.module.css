@@ -1,3 +1,14 @@
+.title {
+    padding: 1rem;
+    font-weight: 300;
+}
+
+.presentation,
+.infoBox,
+.maps {
+    text-align: center;
+}
+
 /* hero */
 .hero {
     position: relative;
@@ -10,23 +21,20 @@
     object-fit: cover;
 }
 
-/* textBox */
 .hero .textBox {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 90%;
-    /* debug */
-    /* background-color: red; */
 }
 
 .hero .textBox p {
     color: var(--primary-white);
     font-size: 1.5rem;
     line-height: 2rem;
-    text-align: center;
     text-transform: uppercase;
+    text-align: center;
 }
 
 .hero .arrowBox {
@@ -35,174 +43,170 @@
     left: 50%;
     transform: translate(-50%, -5%);
     animation: moveUpDown 3s infinite;
-    /* debug */
-    /* background-color: red; */
 }
 
 .arrowBox img {
     height: 5rem;
-
 }
 
 @keyframes moveUpDown {
-    0% {
+
+    0%,
+    100% {
         bottom: 4%;
     }
 
     50% {
         bottom: 0%;
     }
-
-    100% {
-        bottom: 4%;
-    }
 }
 
-/* presentation */
-.presentation {
-    text-align: center;
-    /* debug */
-    /* background-color: rgb(0, 195, 255); */
-}
-
-/* welcome */
-.presentation .welcome {
+/* layout containers */
+.boxLayout {
     display: flex;
     border-top: 1px solid var(--primary-brown);
     border-bottom: 1px solid var(--primary-brown);
     padding: 0 40px;
-
-    /* debug */
-    /* height: 200px; */
-    /* background-color: red; */
 }
 
-.presentation .welcome div {
-    width: 100%;
-    object-fit: fill;
-    border-left: 1px solid var(--primary-brown);
-    border-right: 0.5px solid var(--primary-brown);
 
-    /* debug */
-    /* background-color: purple; */
-}
-
-/* imgBox */
-.presentation .welcome .imgBox img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* textBox */
-.presentation .welcome .textBox {
-    display: flex;
-    align-items: center;
-    line-height: 1.8rem;
-    /* debug */
-    /* background-color: purple; */
-}
-
-.welcome .textBox p {
-    padding: 2rem;
-
-    /* debug */
-    /* background-color: green; */
-}
-
-@media (max-width:768px) {
-    .presentation .welcome {
-        border: none;
-    }
-
-    .presentation .welcome div {
-        border: none;
-    }
-
-    .presentation .welcome .imgBox {
-        display: none;
-    }
-
-    .welcome .textBox p {
+@media (max-width: 992px) {
+    .boxLayout {
         padding: 0;
     }
 }
 
+@media (max-width:768px) {
+    .boxLayout {
+        display: block;
+        padding: 0 20px;
+    }
+
+    .boxLayout div {
+        margin-bottom: 1rem;
+    }
+
+    .boxLayout,
+    .boxLayout div,
+    .boxLayout .textBox p {
+        border: none !important;
+        padding: 0;
+    }
+}
+
+.boxLayout div {
+    flex: 1;
+    width: 100%;
+    object-fit: fill;
+}
+
+.boxLayout div p {
+    padding: 0.5rem 0;
+}
+
+.presentation .boxLayout div {
+    border-left: 1px solid var(--primary-brown);
+    border-right: 0.5px solid var(--primary-brown);
+}
+
+
+/* imgBox */
+.imgBox {
+    display: none;
+}
+
+.presentation .boxLayout .imgBox {
+    display: block;
+}
+
+
+@media (max-width:768px) {
+    .imgBox {
+        display: block;
+    }
+
+    .presentation .boxLayout .imgBox {
+        display: none;
+    }
+
+}
+
+.imgBox img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 3/2;
+    object-fit: cover;
+}
+
+
+/* textBox */
+.presentation .boxLayout .textBox {
+    display: flex;
+    align-items: center;
+    line-height: 1.8rem;
+}
+
+.boxLayout .textBox p {
+    padding: 0 3rem;
+}
+
+
+
+
+
 /* boxLink */
-.presentation .boxLink {
+.boxLink {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    /* altezza elemento */
-    min-height: 500px;
-
-    /* debug */
-    /* background-color: rgba(187, 208, 82, 0.495); */
+    min-height: 25rem;
 }
 
-@media (max-width:567px) {
-    .presentation .boxLink {
-        margin: 0;
-        min-height: 320px;
-    }
-}
-
-.presentation .boxLink button {
-    position: relative;
-}
-
-.presentation .boxLink a {
-    position: relative;
-    font-weight: 600;
+/* btnStyle */
+.btnStyle {
+    cursor: pointer;
+    padding: 0.7rem 3rem;
     border: 1px solid var(--primary-brown);
     background-color: var(--secondary-white);
-    color: var(--primary-brown);
-    text-decoration: none;
-
-
-
-    -webkit-box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.5);
+    transition: background-color 0.3s ease;
     box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.5);
-    padding: 1rem 2rem;
-
     z-index: 2;
-    /* debug */
 }
 
+.btnStyle:hover {
+    background-color: #fefdfcc9;
+}
 
-@media (max-width:567px) {
-    .presentation .boxLink a {
-        font-size: 0.8rem;
-        padding: 1rem 1.5rem;
-    }
+.btnStyle:active {
+    background-color: var(--secondary-white);
+}
+
+.btnStyle a {
+    text-decoration: none;
+    font-weight: 600;
+    color: var(--primary-brown);
 }
 
 /* peel */
-.presentation .boxLink .peel {
+.peel {
     position: absolute;
-    width: 15rem;
-    z-index: 0;
     top: 50%;
-    left: 5%;
-    transition: transform 1s ease-in-out;
-
+    width: 14rem;
+    z-index: 0;
+    /* transition: transform 1s ease-in-out; */
 }
 
-@media (max-width:567px) {
-    .presentation .boxLink .peel {
-        width: 12rem;
-    }
+.boxLink .peel:nth-child(2) {
+    transform: rotateZ(60deg) translateX(-40%) translateY(70%);
 }
 
-.presentation .boxLink .peel:nth-child(1) {
-    transform: rotateZ(60deg) rotateX(180deg) translate(-40%, -75%);
-
+.boxLink .peel:nth-child(3) {
+    transform: rotateZ(120deg) translateX(-40%) translateY(-70%);
 }
 
-.presentation .boxLink .peel:nth-child(2) {
-    transform: rotateZ(120deg) translate(-40%, -75%);
-}
 
+/*  
 .boxLink button:hover .peel:nth-child(1) {
     transform: rotateZ(90deg) rotateX(0deg) translate(-30%, 0%);
     animation: pellForward1 forwards 2s;
@@ -215,9 +219,10 @@
     animation-delay: 1s;
 }
 
-/* animation peel left */
 @keyframes pellForward1 {
-    0% {
+
+    0%,
+    100% {
         top: 50%;
     }
 
@@ -228,17 +233,14 @@
 
     50% {
         top: 30%;
-        transform: rotateZ(90deg) rotateX(0deg) rotateY(40deg)translate3d(0, 0, -50px) translate(-30%, 0%);
-    }
-
-    100% {
-        top: 50%;
+        transform: rotateZ(90deg) rotateX(0deg) rotateY(40deg) translate3d(0, 0, -50px) translate(-30%, 0%);
     }
 }
 
-/* animation peel right */
 @keyframes pellForward2 {
-    0% {
+
+    0%,
+    100% {
         top: 50%;
     }
 
@@ -249,10 +251,114 @@
 
     50% {
         top: 30%;
-        transform: rotateZ(90deg) rotateX(180deg) rotateY(40deg)translate3d(0, 0, -50px) translate(-30%, 0%);
+        transform: rotateZ(90deg) rotateX(180deg) rotateY(40deg) translate3d(0, 0, -50px) translate(-30%, 0%);
+    }
+}
+
+ */
+
+
+
+
+
+
+
+
+
+/* infoBox */
+.infoBox .where {
+    flex: 2;
+    order: 2;
+    border-left: 1px solid var(--primary-brown);
+    border-right: 1px solid var(--primary-brown);
+}
+
+.where .types {
+    display: flex;
+}
+
+.types .typeBox {
+    width: 100%;
+}
+
+.types .typeBox img {
+    width: 100%;
+    max-width: 3rem;
+    min-height: 3rem;
+}
+
+.infoBox .when {
+    order: 1;
+    border-left: 1px solid var(--primary-brown);
+}
+
+.infoBox .when p:nth-child(2) {
+    font-weight: 500;
+}
+
+.infoBox .contact {
+    order: 3;
+    border-right: 1px solid var(--primary-brown);
+}
+
+@media (max-width: 992px) {
+
+    .infoBox .when,
+    .infoBox .contact {
+        border: none;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .infoBox .where {
+        border: none;
     }
 
-    100% {
-        top: 50%;
+    .where .types {
+        margin: 0;
+    }
+}
+
+/* maps */
+.maps {
+    margin: 1rem 0 4rem 0;
+}
+
+@media (max-width: 768px) {
+    .maps {
+        margin: 0;
+    }
+}
+
+
+
+/* mapBox */
+.mapBox {
+    position: relative;
+    width: 70%;
+    padding: 1rem;
+    margin: 0 auto;
+    background-color: var(--secondary-white);
+    border: 1px solid var(--primary-brown);
+}
+
+.mapBox img {
+    width: 100%;
+}
+
+.mapBox button {
+    background-color: #fefdfc98;
+    position: absolute;
+    bottom: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+@media (max-width: 768px) {
+    .mapBox {
+        width: 100%;
+        padding: 0;
+        border: none;
     }
 }
