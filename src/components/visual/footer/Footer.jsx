@@ -18,7 +18,7 @@ export default function Footer() {
     const location = useLocation();
 
     // save aboutUs Pages
-    const aboutUs = location.pathname == "/it/chi-siamo" || location.pathname == "/en/about-us";
+    const aboutUs = location.pathname == "/it/about-us" || location.pathname == "/en/about-us";
 
     // save Lang
     const lang = useLang();

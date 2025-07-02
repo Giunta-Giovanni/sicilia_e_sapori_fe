@@ -28,11 +28,10 @@ export default function Header() {
     const navigate = useNavigate();
 
     // save location
-    const aboutUs = location.pathname == "/it/chi-siamo" || location.pathname == "/en/about-us";
-    const home = location.pathname == "/it" || location.pathname == "/en";
+    const aboutUs = location.pathname == "/it/about-us" || location.pathname == "/en/about-us";
+    const home = location.pathname == "/it/" || location.pathname == "/en/";
 
-
-    console.log(home)
+    console.log(home);
 
     // switch lang function
     const switchLang = (targetLang) => {
@@ -83,7 +82,7 @@ export default function Header() {
             {/* left */}
             {/* headerLogo */}
             <div className={styles.headerLogo}>
-                <Link to={lang === 'en' ? '/en/' : '/'}>
+                <Link to={lang === 'en' ? '/en/' : '/it/'}>
                     <img src={isOpen || aboutUs || (home && !scrolled) ? linearLogoWhite : linearLogoBrown} alt="logo" />
                 </Link>
             </div>
@@ -101,9 +100,9 @@ export default function Header() {
 
                 {/* headerMenuSection */}
                 <section className={`${styles.headerMenuSection} ${styles.hoverAnimation}`}>
-                    <Link to={lang === 'en' ? '/en/' : '/'} onClick={toggleMenu}>HOME</Link>
+                    <Link to={lang === 'en' ? '/en/' : '/it/'} onClick={toggleMenu}>HOME</Link>
                     <Link to={lang === 'en' ? '/en/menu' : '/it/menu'} onClick={toggleMenu}>MENÙ</Link>
-                    <Link to={lang === 'en' ? '/en/about-us' : '/it/chi-siamo'} onClick={toggleMenu}>CHI SIAMO</Link>
+                    <Link to={lang === 'en' ? '/en/about-us' : '/it/about-us'} onClick={toggleMenu}>CHI SIAMO</Link>
                 </section>
 
                 {/* headerMenuSectionSecondary */}
@@ -130,7 +129,7 @@ export default function Header() {
                 {/* headerMenuSection secondary */}
                 <section className={`${styles.headerMenuSection} ${styles.secondary}`}>
                     <a href="https://www.facebook.com/siciliaesaporipozzallo" target="_blank" rel="noopener noreferrer">
-                        <img className={styles.socialLogo} src={facebookWhite} alt=" facebook" />
+                        <img className={styles.socialLogo} src={facebookWhite} alt="facebook" />
                     </a>
                     <a href="https://www.instagram.com/siciliaesapori" target="_blank" rel="noopener noreferrer">
                         <img className={styles.socialLogo} src={instagramWhite} alt="instagram" />

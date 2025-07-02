@@ -27,16 +27,7 @@ export default function App() {
         <Routes>
 
           {/* it Routes */}
-          <Route path="/it" element={<DefaultLayout />}>
-            <Route index element={<HomePage />} />
-            <Route path="menu" element={<MenuPage />} />
-            <Route path="chi-siamo" element={<AboutPage />} />
-            <Route path="privacy-policy" element={<PrivacyPolicyPage />} />
-            <Route path="*" element={<NotfoundPage />} />
-          </Route>
-
-          {/* en Routes */}
-          <Route path="/en" element={<DefaultLayout />}>
+          <Route path="/it/" element={<DefaultLayout />}>
             <Route index element={<HomePage />} />
             <Route path="menu" element={<MenuPage />} />
             <Route path="about-us" element={<AboutPage />} />
@@ -44,7 +35,16 @@ export default function App() {
             <Route path="*" element={<NotfoundPage />} />
           </Route>
 
-          <Route path="*" element={<Navigate to="/it" />} />
+          {/* en Routes */}
+          <Route path="/en/" element={<DefaultLayout />}>
+            <Route index element={<HomePage />} />
+            <Route path="menu" element={<MenuPage />} />
+            <Route path="about-us" element={<AboutPage />} />
+            <Route path="privacy-policy" element={<PrivacyPolicyPage />} />
+            <Route path="*" element={<NotfoundPage />} />
+          </Route>
+
+          <Route path="*" element={<Navigate to="/it/" />} />
 
         </Routes>
       </GlobalContextProvider >
