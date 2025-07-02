@@ -1,6 +1,6 @@
 // import Hooks
-import { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { useContext, useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
 // import Context
 import GlobalContext from "../../context/GlobalContext";
@@ -18,8 +18,37 @@ import mappa from '/mappa.png';
 
 
 export default function HomePage() {
+
+    // context
     const { lang } = useContext(GlobalContext);
+    // icons
     const { pizzaPeel, onPlace, delivery, pizzaBox } = icons;
+
+    // animation
+    const [animation, setAnimation] = useState(false);
+    const navigate = useNavigate();
+
+
+    // handleClick
+    const handleclick = () => {
+        setAnimation(true);
+    }
+
+    useEffect(() => {
+        if (animation) {
+            setTimeout(() => {
+                navigate(`${lang === 'it' ? '/it/menu/' : '/en/menu'}`)
+            }, 2100)
+        }
+
+    }, [animation])
+
+
+    useEffect(() => {
+        console.log(animation);
+
+    }, [animation])
+
     return (
         <>
             {/* hero section */}
@@ -52,13 +81,21 @@ export default function HomePage() {
 
                 {/* boxLink */}
                 <div className={styles.boxLink}>
-                    <button className={styles.btnStyle}>
+                    <button className={styles.btnStyle} onClick={handleclick}>
                         {/* BtnStyle */}
-                        <Link to={lang === 'en' ? '/en/menu' : '/it/menu'}>{lang === 'it' ? 'ESPLORA IL NOSTRO MENU' : "EXPLORE OUR MENU"}</Link>
+                        {lang === 'it' ? 'ESPLORA IL NOSTRO MENU' : "EXPLORE OUR MENU"}
                     </button>
-                    {/* peel */}
-                    <img className={styles.peel} src={pizzaPeel} alt="button decoration" />
-                    <img className={styles.peel} src={pizzaPeel} alt="button decoration" />
+                    {/* peel -> leftPeel*/}
+                    <img
+                        className={`${styles.peel} ${styles.leftPeelStatic} ${animation ? styles.leftPeelDinamic : ''}`}
+                        src={pizzaPeel}
+                        alt="button decoration"
+                    />
+                    {/* peel -> rigthPeel*/}
+                    <img
+                        className={`${styles.peel} ${styles.rightPeelStatic} ${animation ? styles.rightPeelDinamic : ''}`}
+                        src={pizzaPeel}
+                        alt="button decoration" />
                 </div>
 
                 {/* imgBox */}

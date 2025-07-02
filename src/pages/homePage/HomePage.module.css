@@ -166,6 +166,7 @@
 /* btnStyle */
 .btnStyle {
     cursor: pointer;
+    font-weight: 600;
     padding: 0.7rem 3rem;
     border: 1px solid var(--primary-brown);
     background-color: var(--secondary-white);
@@ -175,7 +176,7 @@
 }
 
 .btnStyle:hover {
-    background-color: #fefdfcc9;
+    background-color: #fefdfc;
 }
 
 .btnStyle:active {
@@ -183,8 +184,6 @@
 }
 
 .btnStyle a {
-    text-decoration: none;
-    font-weight: 600;
     color: var(--primary-brown);
 }
 
@@ -194,75 +193,83 @@
     top: 50%;
     width: 14rem;
     z-index: 0;
-    /* transition: transform 1s ease-in-out; */
 }
 
-.boxLink .peel:nth-child(2) {
+/* leftPeel */
+.leftPeelStatic {
     transform: rotateZ(60deg) translateX(-40%) translateY(70%);
 }
 
-.boxLink .peel:nth-child(3) {
+/* rightPeel */
+.rightPeelStatic {
     transform: rotateZ(120deg) translateX(-40%) translateY(-70%);
 }
 
-
-/*  
-.boxLink button:hover .peel:nth-child(1) {
-    transform: rotateZ(90deg) rotateX(0deg) translate(-30%, 0%);
-    animation: pellForward1 forwards 2s;
-    animation-delay: 1s;
+.leftPeelDinamic {
+    animation: animationPeelLeft 3s ease-in-out;
 }
 
-.boxLink button:hover .peel:nth-child(2) {
-    transform: rotateZ(90deg) rotateX(180deg) translate(-30%, 0%);
-    animation: pellForward2 forwards 2s;
-    animation-delay: 1s;
+.rightPeelDinamic {
+    animation: animationPeelRight 3s ease-in-out;
 }
 
-@keyframes pellForward1 {
+@keyframes animationPeelLeft {
 
-    0%,
-    100% {
-        top: 50%;
+    0% {
+        transform: rotateZ(60deg) translateX(-40%) translateY(70%);
     }
 
     25% {
-        top: 40%;
-        transform: rotateZ(90deg) rotateX(0deg) rotateY(40deg) translate(-30%, 0%);
+        transform: rotateZ(90deg) translateX(-20%);
     }
 
-    50% {
-        top: 30%;
-        transform: rotateZ(90deg) rotateX(0deg) rotateY(40deg) translate3d(0, 0, -50px) translate(-30%, 0%);
+    40% {
+        transform: rotateZ(90deg) translateX(-20%) rotateY(50deg);
+    }
+
+    60% {
+        transform: rotateZ(90deg) translateX(-20%) rotateY(50deg) translate3d(0, 0, 10px);
+    }
+
+    70% {
+
+        transform: rotateZ(90deg) translateX(-20%) rotateY(50deg) translate3d(0, 0, -20px);
+    }
+
+    100% {
+        transform: rotateZ(90deg) translateX(-25%);
     }
 }
 
-@keyframes pellForward2 {
+@keyframes animationPeelRight {
 
-    0%,
-    100% {
-        top: 50%;
+    0% {
+        transform: rotateZ(120deg) translateX(-40%) translateY(-70%);
     }
 
     25% {
-        top: 40%;
-        transform: rotateZ(90deg) rotateX(180deg) rotateY(40deg) translate(-30%, 0%);
+        transform: rotateZ(90deg) translateX(-20%);
+
     }
 
-    50% {
-        top: 30%;
-        transform: rotateZ(90deg) rotateX(180deg) rotateY(40deg) translate3d(0, 0, -50px) translate(-30%, 0%);
+    40% {
+        transform: rotateZ(90deg) translateX(-20%) rotateY(50deg);
+    }
+
+    60% {
+
+        transform: rotateZ(90deg) translateX(-20%) rotateY(50deg) translate3d(0, 0, 10px);
+    }
+
+    70% {
+
+        transform: rotateZ(90deg) translateX(-20%) rotateY(50deg) translate3d(0, 0, -20px);
+    }
+
+    100% {
+        transform: rotateZ(90deg) translateX(-25%);
     }
 }
-
- */
-
-
-
-
-
-
-
 
 
 /* infoBox */
