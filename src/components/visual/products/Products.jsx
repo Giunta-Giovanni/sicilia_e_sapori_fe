@@ -28,14 +28,9 @@ export default function Products({ selectedFilters }) {
                 <div className={styles.dough} id={styles.traditional}>
                     <h5>
                         {lang === 'it'
-                            ? 'Tradizionale a lunga maturazione'
-                            : 'Traditional long-fermented dough'}
-                    </h5>
-                    <p>
-                        {lang === 'it'
                             ? 'Tutti i nostri impasti sono fatti con lievito madre a lunga maturazione'
-                            : 'Made with sourdough starter and rested for 36 hours'}
-                    </p>
+                            : 'All our doughs are made with long-fermentation sourdough.'}
+                    </h5>
                 </div>
 
                 {/* wholeWheat */}
@@ -51,7 +46,7 @@ export default function Products({ selectedFilters }) {
                             : 'A fibre-rich dough made with whole wheat flour and native Sicilian grain varieties. Wholesome, aromatic, and bold.'}
                     </p>
                     <p className={styles.price}>
-                        {lang === 'it' ? 'Supplemento: 1.00€' : 'Extra: 1.00€'}
+                        {lang === 'it' ? 'Supplemento: 1.50€' : 'Extra: 1.50€'}
                     </p>
                 </div>
 

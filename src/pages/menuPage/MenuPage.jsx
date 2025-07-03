@@ -79,10 +79,8 @@ export default function MenuPage() {
                 value={{
                     sections,
                     productCategories,
-
                     navCategories,
                     currentSection,
-
                     allergens,
                 }}>
 

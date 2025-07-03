@@ -35,7 +35,7 @@ export default function GlobalContextProvider({ children }) {
         // start Loader
         setIsLoading(true);
 
-        axios.get('http://127.0.0.1:8000/api/products')
+        axios.get(`${import.meta.env.VITE_API_URL}/products`)
             .then(res => {
                 setProducts(res.data.data);
             })

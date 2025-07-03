@@ -73,22 +73,16 @@
 
 
 # Milestone 2 -> home page
-<!-- per domani -->
+<!-- cose da sistemare -->
+
+
+- mostrare la show al click di una pizza
+- creare un menuContext provider per pulire la menu page
 - sistemare sticky header 
-- ricordare in pagina chi siamo di cambiare il background del root in primary brown
-- rendere condizione di path per inserimento stili meno rigida 
--  cambiare di nuovo svg header con quelle corrette con la 'e' corretta
-
-
-
-
-
-
-
-__z-index__
-- Header = 1100
-- Pop Up Close button = 1002
-- Pop Up = 1001
-- PopUpWrapper = 1000
-- overlay menupage = 1000
-- Scroll to Top Button = 998
+<!-- - ricordare in pagina chi siamo di cambiare il background del root in primary brown -->
+- cambiare di nuovo svg header con quelle corrette con la 'e' corretta
+- modificare sezione impasti per eccentuare i prezzi
+- modificare layout pizze per renderlo piu semplice e pulito 
+- organizzare i prezzi in ordine di vendità (se possibile)
+- aggiungi -Coperto: 2,00€ | Supplementi: salumi 2€; formaggi 2€; verdure 1,50€; pesce 3€.
+*in mancanza di prodotti freschi verranno usati prodotti surgelati e abbattuti. sempre visibile sticky in pagina in basso 
