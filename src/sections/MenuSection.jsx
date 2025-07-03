@@ -15,6 +15,9 @@ import { icons } from '../assets/svg/general/icons';
 
 export default function MenuSection({ styles }) {
 
+    //menuContext
+    const { openProductId } = useContext(MenuContext);
+
     // Icons
     const { arrowDownBrown } = icons;
 
@@ -55,7 +58,7 @@ export default function MenuSection({ styles }) {
 
     // add no scroll to body when pop up is open
     useEffect(() => {
-        if (isAllergenOpen || isFilterOpen) {
+        if (isAllergenOpen || isFilterOpen || openProductId) {
             document.documentElement?.classList.add('noScroll');
             document.body?.classList.add('noScroll');
         } else {
@@ -63,7 +66,7 @@ export default function MenuSection({ styles }) {
             document.body?.classList.remove('noScroll');
         }
 
-    }, [isAllergenOpen, isFilterOpen])
+    }, [isAllergenOpen, isFilterOpen, openProductId])
     // console.log(counter(selectedFilters))
 
     // RENDER
@@ -129,6 +132,15 @@ export default function MenuSection({ styles }) {
                             selectedFilters={selectedFilters}
                             setSelectedFilters={setSelectedFilters}
                         />
+                    </>
+                    : null
+            }
+
+            {
+                openProductId !== null ?
+                    <>
+                        {/* overlay */}
+                        < div className={styles.overlay}></div>
                     </>
                     : null
             }

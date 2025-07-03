@@ -1,5 +1,5 @@
 // import Hooks
-import { useMemo, useContext } from "react";
+import { useMemo, useContext, useState } from "react";
 import useLang from '../../hooks/useLang';
 import useMenuSections from "../../hooks/useMenuSections";
 import { useViewport } from "../../hooks/useViewport";
@@ -27,6 +27,9 @@ export default function MenuPage() {
 
     // save sections
     const sections = useMenuSections();
+
+    // save popUp state
+    const [openProductId, setOpenProductId] = useState(null);
 
     // save Dinamic ViewPort
     const { isMobile, isTablet } = useViewport()
@@ -79,11 +82,11 @@ export default function MenuPage() {
                 value={{
                     sections,
                     productCategories,
-
                     navCategories,
                     currentSection,
-
                     allergens,
+                    openProductId,
+                    setOpenProductId
                 }}>
 
                 <>
