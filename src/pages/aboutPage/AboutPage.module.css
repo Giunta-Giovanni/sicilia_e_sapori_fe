@@ -241,7 +241,6 @@
 
 @media (max-width: 768px) {
     .swiper {
-        margin-top: 1rem;
         width: 100%;
     }
 }
