@@ -99,6 +99,7 @@
 /* product -> title */
 .products .product {
     margin: 2rem 0;
+    cursor: pointer;
 }
 
 .products .product.disabled {
