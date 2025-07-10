@@ -89,6 +89,8 @@ export default function MenuContextProvider({ children }) {
             navCategories,
             currentSection,
             allergens,
+            openProductId,
+            setOpenProductId
         }}>
             {children}
         </MenuContext.Provider>
