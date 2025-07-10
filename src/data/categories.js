@@ -1,7 +1,11 @@
+// WARNING: If categories are added or modified, 
+// also update the useMenuSection hook to keep references consistent!
+
+
 // create categorie for next rendering
 const categories = [
     { id: 1, key: 'gourmet', title_it: 'Pizze Gourmet', title_en: 'Gourmet Pizzas' },
-    { id: 2, key: 'stuffed', title_it: 'Pizze Baciate Impasto Scrocchiarella', title_en: 'Kissed Pizzas Crunchy Dough' },
+    { id: 2, key: 'baciate', title_it: 'Pizze Baciate', title_en: 'Baciate Pizzas' },
     { id: 3, key: 'naples', title_it: 'Pizze da Napoli', title_en: 'Pizzas from Naples' },
     { id: 4, key: 'redPizzas', title_it: 'Pizze Rosse', title_en: 'Red Pizzas', subtitle_it: null, subtitle_en: null },
     { id: 5, key: 'whitePizzas', title_it: 'Pizze Bianche', title_en: 'White Pizzas', subtitle_it: null, subtitle_en: null },
@@ -22,5 +26,4 @@ const categories = [
 
     { id: 13, key: 'bar', title_it: 'Bar', title_en: 'Bar' },
 ];
-
 export { categories };
