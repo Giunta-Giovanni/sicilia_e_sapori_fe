@@ -19,6 +19,9 @@ export default function MenuContextProvider({ children }) {
     // save lang
     const lang = useLang();
 
+    // save popUp state
+    const [openProductId, setOpenProductId] = useState(null);
+
     // save sections
     const sections = useMenuSections();
 
