@@ -1,4 +1,5 @@
 // import hooks
+import React from 'react';
 import useLang from '../../../hooks/useLang';
 
 // import context
@@ -121,13 +122,12 @@ export default function ProductPopUp({ openProductId, setOpenProductId, id, prim
                                             {allergens
                                                 .filter(allergen => product.allergens.includes(allergen.key))
                                                 .map(allergen => (
-                                                    <>
-                                                        <span key={allergen.key}>
+                                                    <React.Fragment key={allergen.key}>
+                                                        <span>
                                                             <img src={allergen.icon} alt={allergen.key} />
                                                         </span>
                                                         {lang === 'it' ? allergen.label.it : allergen.label.en}
-                                                    </>
-
+                                                    </React.Fragment>
                                                 ))}
                                         </div>
                                     </>
