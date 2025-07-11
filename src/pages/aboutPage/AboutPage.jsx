@@ -1,12 +1,18 @@
-// style
-import styles from './AboutPage.module.css';
-// assets
-import { icons } from '../../assets/svg/general/icons';
-import test1 from '/pizzas.png';
-import test2 from '/mappa.png';
 // context
 import GlobalContext from '../../context/GlobalContext';
 import { useContext } from 'react';
+
+// import image
+import { tournaments } from '../../assets/torneo/tournaments.js';
+import { location } from '../../assets/location/location.js';
+import lievito from '../../assets/lievito.jpg';
+
+// import assets
+import { icons } from '../../assets/svg/general/icons';
+
+// import style
+import styles from './AboutPage.module.css';
+
 // swiper
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination, EffectFade } from 'swiper/modules';
@@ -16,15 +22,24 @@ import 'swiper/css/effect-fade';
 
 export default function AboutPage() {
 
+
+    // image
+    const { img1, img2, img3, img5, img6, img7, img8 } = tournaments
+    const { bancone, dettagli, esterno, forno, ingresso, veranda } = location
+
+    // icons
     const { numb1, numb2 } = icons;
+
     const { lang } = useContext(GlobalContext)
 
-    const images = [
-        test1,
-        test2,
-        test1,
-        test2
+    const jumboSwiper = [
+        img1, img2, img3, img5, img6, img7, img8
     ];
+
+    const locationSwiper = [
+        bancone, dettagli, esterno, forno, ingresso, veranda
+    ];
+
 
     // RENDER
     return (<>
@@ -69,7 +84,7 @@ export default function AboutPage() {
                         else swiper.slideNext();
                     }}
                 >
-                    {images.map((img, i) => (
+                    {jumboSwiper.map((img, i) => (
                         <SwiperSlide key={i}>
                             <img
                                 src={img}
@@ -97,8 +112,8 @@ export default function AboutPage() {
                     muted
                     playsInline
                     className={styles.line}
-                    poster={test1}
-                    src="/video/jumbo.mp4"></video>
+                    // poster={test1}
+                    src="/video/forno.mp4" ></video>
                 {/* description */}
                 <div class={styles.description}>
                     <h4>{lang === 'it' ? "Il forno rotante" : "The rotating oven"}</h4>
@@ -109,28 +124,29 @@ export default function AboutPage() {
                     </p>
                 </div>
             </div>
-        </div>
+        </div >
 
         {/* section2 */}
-        <div class={styles.presentationDivWrapper}>
+        < div class={styles.presentationDivWrapper}>
             {/* inverted */}
-            <div className={`${styles.presentationDiv} ${styles.inverted}`}>
+            < div className={`${styles.presentationDiv} ${styles.inverted}`
+            }>
                 {/* img */}
-                <img src={test2} />
+                < img src={lievito} />
                 {/* description + line*/}
-                <div className={`${styles.description} ${styles.line}`}>
+                < div className={`${styles.description} ${styles.line}`}>
                     <h4>{lang === 'it' ? "Il lievito madre" : "Sourdough starter"}</h4>
                     <p>{lang === 'it'
                         ? "Il nostro lievito madre è il segreto della pizza artigianale, capace di donare una lievitazione lenta e naturale. Questo processo esalta il gusto e la digeribilità, regalando una pasta soffice e fragrante."
                         : "Our natural sourdough starter is the secret behind our artisan pizza, enabling a slow and natural fermentation. This process enhances flavor and digestibility, delivering a soft and fragrant dough."
                     }
                     </p>
-                </div>
-            </div>
-        </div>
+                </div >
+            </div >
+        </div >
 
         {/* section3 */}
-        <div class={`${styles.presentationDivWrapper} ${styles.margin}`}>
+        < div class={`${styles.presentationDivWrapper} ${styles.margin}`}>
             <div class={styles.presentationDiv}>
                 {/* swiper + line */}
                 <div className={`${styles.swiper} ${styles.line}`}>
@@ -156,7 +172,7 @@ export default function AboutPage() {
                             }
                         }}
                     >
-                        {images.map((img, i) => (
+                        {locationSwiper.map((img, i) => (
                             <SwiperSlide key={i}>
                                 <img src={img} alt={`slide-${i}`} />
                             </SwiperSlide>
@@ -174,10 +190,10 @@ export default function AboutPage() {
                     </p>
                 </div>
             </div>
-        </div>
+        </div >
 
         {/* spacer */}
-        <div style={{ height: '5rem' }}></div>
+        < div style={{ height: '5rem' }}></div >
     </>
     )
 }
