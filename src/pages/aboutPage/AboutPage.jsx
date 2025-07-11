@@ -3,9 +3,9 @@ import GlobalContext from '../../context/GlobalContext';
 import { useContext } from 'react';
 
 // import image
-import { tournaments } from '../../assets/torneo/tournaments.js';
-import { location } from '../../assets/location/location.js';
-import lievito from '../../assets/lievito.jpg';
+import { tournaments } from '../../assets/jpg/torneo/tournaments.js';
+import { location } from '../../assets/jpg/location/location.js';
+import lievito from '../../assets/jpg/lievito.jpg';
 
 // import assets
 import { icons } from '../../assets/svg/general/icons';
@@ -24,7 +24,7 @@ export default function AboutPage() {
 
 
     // image
-    const { img1, img2, img3, img5, img6, img7, img8 } = tournaments
+    const { img1, img2, img5, img6, img7, img8 } = tournaments
     const { bancone, dettagli, esterno, forno, ingresso, veranda } = location
 
     // icons
@@ -33,7 +33,7 @@ export default function AboutPage() {
     const { lang } = useContext(GlobalContext)
 
     const jumboSwiper = [
-        img1, img2, img3, img5, img6, img7, img8
+        img1, img2, img5, img6, img7, img8
     ];
 
     const locationSwiper = [
