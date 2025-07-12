@@ -12,7 +12,7 @@
 
 .textBox {
     position: absolute;
-    width: 100%;
+    width: 98%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -80%);
@@ -24,12 +24,9 @@ h1 {
     margin: 1rem;
 }
 
-
 .textBox p {
     margin: 1rem;
 }
-
-
 
 .btnStyle {
     padding: 0.6rem 2rem;

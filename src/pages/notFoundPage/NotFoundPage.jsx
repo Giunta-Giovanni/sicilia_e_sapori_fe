@@ -20,12 +20,16 @@ export default function NotFoundPage() {
         <div className={styles.wrapper}>
             <video
                 autoPlay
-                loop
                 muted
+                loop
                 playsInline
+                preload="auto"
                 className={styles.videoBox}
                 // poster={test1}
-                src="/video/forno_vuoto.mp4" >
+                src="/video/forno_vuoto.mp4"
+                onPlay={() => console.log('video is playing')}
+                onError={() => console.log('video failed to load')}
+            >
             </video>
             <div className={styles.textBox}>
                 <h1>{lang === 'it' ? 'Non abbiamo trovato la tua pizza!' : 'We couldn’t find your pizza!'}</h1>
