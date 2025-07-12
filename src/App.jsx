@@ -11,7 +11,7 @@ import DefaultLayout from "./layouts/DefaultLayout.jsx";
 import AboutPage from "./pages/aboutPage/AboutPage.jsx";
 import HomePage from "./pages/homePage/HomePage.jsx";
 import MenuPage from "./pages/menuPage/MenuPage.jsx";
-import NotfoundPage from "./pages/NotfoundPage.jsx";
+import NotFoundPage from "./pages/notFoundPage/NotFoundPage.jsx";
 import PrivacyPolicyPage from "./pages/PrivacyPolicyPage.jsx";
 
 // import Utilities
@@ -32,7 +32,7 @@ export default function App() {
             <Route path="menu" element={<MenuPage />} />
             <Route path="about-us" element={<AboutPage />} />
             <Route path="privacy-policy" element={<PrivacyPolicyPage />} />
-            <Route path="*" element={<NotfoundPage />} />
+            <Route path="*" element={<NotFoundPage />} />
           </Route>
 
           {/* en Routes */}
@@ -41,7 +41,7 @@ export default function App() {
             <Route path="menu" element={<MenuPage />} />
             <Route path="about-us" element={<AboutPage />} />
             <Route path="privacy-policy" element={<PrivacyPolicyPage />} />
-            <Route path="*" element={<NotfoundPage />} />
+            <Route path="*" element={<NotFoundPage />} />
           </Route>
 
           <Route path="*" element={<Navigate to="/it/" />} />
