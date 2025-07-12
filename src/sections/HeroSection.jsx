@@ -9,7 +9,7 @@ import Typewriter from "../components/technical/Typewriter";
 
 //import content
 import jumboVideo from "/video/jumbo2.mp4";
-import jumboPoster from "/video/poster.png";
+import jumboPoster from "/video/poster2.png";
 
 //import assets
 import { icons } from '../assets/svg/general/icons';
@@ -27,11 +27,11 @@ export default function HeroSection({ styles }) {
             <section className={styles.hero}>
                 <video
                     autoPlay
-                    loop
                     muted
+                    loop
                     playsInline
-                    preload="none"
-                    poster={jumboPoster} //in caso di attesa del caricamento del video aggiungi un poster
+                    preload="auto"
+                    poster={jumboPoster}
                     src={jumboVideo}
                     className={styles.jumboVideo}
                 >
