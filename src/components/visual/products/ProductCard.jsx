@@ -93,7 +93,10 @@ export default function ProductCard({ lang, product, styles, allergens, selected
 
                 {/* productPrice -> primaryPrice */}
                 <div className={`${styles.productPrice}`}>
-                    <div className={styles.price}>{product.primary_price}</div>
+
+                    <p>{product.primary_price}</p>
+                    {product.secondary_price === null || product.secondary_price === '' ? null : <p className={styles.text}>(Normale)</p>}
+
                 </div>
 
                 {/* <div className={styles.productPrice}>
@@ -125,7 +128,8 @@ export default function ProductCard({ lang, product, styles, allergens, selected
                     display: product.secondary_price === null || product.secondary_price === '' ? 'none' : ''
                 }}>
 
-                    <div className={styles.price}>{product.secondary_price}</div>
+                    <p>{product.secondary_price}</p>
+                    <p className={styles.text}>(Scrocchiarella)</p>
 
                 </div>
 

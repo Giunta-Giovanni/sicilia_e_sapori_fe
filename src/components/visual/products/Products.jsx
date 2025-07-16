@@ -113,12 +113,12 @@ export default function Products({ selectedFilters }) {
                                 <span></span>
                             </div>
                         }
-                        <div className={styles.boxDetails}>
+                        {/* <div className={styles.boxDetails}>
                             <div className={styles.details}>
                                 <div>Normale</div>
                                 <div>Scrocchiarella</div>
                             </div>
-                        </div>
+                        </div> */}
                         {products.map(product => (
                             <ProductCard
                                 key={product.id}
