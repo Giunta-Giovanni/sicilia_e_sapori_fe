@@ -91,6 +91,44 @@
     }
 }
 
+.products .boxDetails {
+    display: flex;
+    justify-content: end;
+
+    padding-top: 0.5rem;
+    position: sticky;
+    top: 70px;
+    z-index: 999;
+    background-color: var(--primary-white);
+
+    /* debug */
+}
+
+@media (max-width:768px) {
+    .products .boxDetails {
+        top: 114px;
+
+    }
+}
+
+
+.products .details {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    /* debug */
+    /* background-color: rgb(0, 128, 45); */
+}
+
+.products .details div {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    /* debug */
+    /* background-color: rgb(0, 128, 45); */
+}
+
+
 /* .boxProducts .product { */
 /* debug */
 /* background-color: coral; */
@@ -98,6 +136,7 @@
 /* } */
 /* product -> title */
 .products .product {
+    display: flex;
     margin: 2rem 0;
 }
 
@@ -112,8 +151,24 @@
     text-align: center;
 }
 
+
+/* leftCol */
+.products .leftCol {
+    width: 60%;
+    /* background-color: red; */
+}
+
+
+/* rightCol */
+.products .rightCol {
+    display: flex;
+    width: 40%;
+    /* background-color: rgb(81, 0, 255); */
+}
+
 .products .title {
     display: flex;
+    align-items: center;
     gap: 0.5rem;
     margin-bottom: 0.5rem;
 }
@@ -145,7 +200,6 @@
 
 /* product -> allergens */
 .products .allergens {
-    margin-top: 0.5rem;
     display: flex;
     gap: 0.3rem;
 }
@@ -164,22 +218,31 @@
 }
 
 /* product -> productPrice */
-.products .productPrice {
-    margin-top: 0.5rem;
-    font-weight: 350;
-    display: flex;
-    align-items: center;
+
+
+.product .productPrice {
+    flex: 1;
+    min-height: 50px;
+    text-align: center;
+    position: relative;
+    /* background-color: grey; */
 }
 
-.productPrice :nth-child(2) {
-    flex-grow: 1;
-    height: 0.07rem;
-    border-bottom: 0.07rem dotted var(--primary-brown);
-    position: relative;
-    bottom: -0.35rem;
-    margin: 0 0.2rem;
-    /* background-color: rgb(136, 0, 255); */
+.product .productPrice .details {
+    font-size: 0.9rem;
 }
+
+.productPrice .price {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* background-color: red; */
+}
+
+
+
+
 
 .products .subtitle {
     display: flex;
