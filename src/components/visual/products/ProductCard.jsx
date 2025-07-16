@@ -17,6 +17,12 @@ export default function ProductCard({ lang, product, styles, allergens, selected
     let primarySize = formatSize(product.primary_size);
     let secondarySize = formatSize(product.secondary_size);
 
+    const specificCat = [4, 5, 6, 14, 18, 19];
+    const hasSecondaryPrice = product.secondary_price !== null && product.secondary_price !== '';
+    const isFood = product.type === 'food';
+    const isDrink = product.type === 'drink';
+
+    console.log(product);
     // RENDER
     return (
         //product
@@ -26,7 +32,7 @@ export default function ProductCard({ lang, product, styles, allergens, selected
             {/* leftCol  */}
             <div className={styles.leftCol}>
                 {/* title */}
-                < div className={styles.title} >
+                <div className={styles.title} >
                     <h6>{lang === 'it' ? product.name_it : product.name_en}</h6>
                     {
                         product.type == 'food' ?
@@ -89,76 +95,40 @@ export default function ProductCard({ lang, product, styles, allergens, selected
             </div>
 
 
-            <div className={styles.rightCol}>
+            <div className={`${styles.rightCol} ${isDrink ? styles.flexBox : null}`}>
 
-                {/* productPrice -> primaryPrice */}
-                <div className={`${styles.productPrice}`}>
+                {/* Primary price */}
+                <div className={`${styles.productPrice} ${specificCat.includes(product.category_id) ? '' : styles.textEnd}`}>
+                    <p>{product.primary_price}€</p>
 
-                    <p>{product.primary_price}</p>
-                    {product.secondary_price === null || product.secondary_price === '' ? null : <p className={styles.text}>(Normale)</p>}
-
-                </div>
-
-                {/* <div className={styles.productPrice}>
-                    {product.type === 'food' ?
-                        <span>
-                            {lang === 'it' ?
-                                'Prezzo'
-                                :
-                                'Price'
+                    {(product.id === 68 || product.category_id === 18 || hasSecondaryPrice) && (
+                        <p className={styles.text}>
+                            {isFood
+                                ? lang === 'it' ? 'Normale' : 'Standard'
+                                : lang === 'it' ? 'Piccola' : 'Small'
                             }
-                        </span>
-                        :
-                        <>
-                            <span>
-                                {lang === 'it' ?
-                                    ` ${product.primary_size != 0 ? primarySize : 'Prezzo'}`
-                                    :
-                                    ` ${product.primary_size != 0 ? primarySize : 'Price'}`
-                                }
-                            </span>
-                        </>
-                    }
-                    <span></span>
-                    <span>{product.primary_price}€</span>
-                </div> */}
-
-                {/* productPrice -> secondaryPrice */}
-                <div className={`${styles.productPrice}`} style={{
-                    display: product.secondary_price === null || product.secondary_price === '' ? 'none' : ''
-                }}>
-
-                    <p>{product.secondary_price}</p>
-                    <p className={styles.text}>(Scrocchiarella)</p>
-
+                        </p>
+                    )}
                 </div>
 
-                {/* <div
-                    className={styles.productPrice}
-                    style={{
-                        display: product.secondary_price === null || product.secondary_price === '' ? 'none' : ''
-                    }}>
-                    {product.type === 'food' ?
-                        <span>
-                            {lang === 'it' ?
-                                'Maxi Scrocchiarella'
-                                :
-                                'Maxi Crispy '
-                            }</span>
-                        :
-                        <>
-                            <span>
-                                {lang === 'it' ?
-                                    ` ${product.secondary_size != 0 ? secondarySize : 'Prezzo'}`
-                                    :
-                                    ` ${product.secondary_size != 0 ? secondarySize : 'Price'}`
-                                }
-                            </span>
-                        </>
-                    }
-                    <span></span>
-                    <span>{product.secondary_price}€</span>
-                </div> */}
+                {/* Secondary price */}
+                {specificCat.includes(product.category_id) && (
+                    < div className={`${styles.productPrice} `}>
+                        {hasSecondaryPrice && (
+                            <>
+                                <p>{product.secondary_price}€</p>
+                                <p className={styles.text}>
+                                    {isFood
+                                        ? 'Scrocchiarella'
+                                        : lang === 'it' ? 'Grande' : 'Large'
+                                    }
+                                </p>
+                            </>
+
+                        )}
+                    </div>
+                )}
+
             </div>
 
         </div >

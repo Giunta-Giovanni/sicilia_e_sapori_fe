@@ -150,7 +150,7 @@
 /* product -> description */
 .products .description {
     font-weight: 150;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
 }
 
 /* product -> alcoholVolume */
@@ -189,6 +189,7 @@
     /* background-color: rgb(154, 153, 157); */
 }
 
+
 @media (max-width:576px) {
     .products .leftCol {
         width: 85%;
@@ -202,8 +203,20 @@
         flex-direction: column;
         gap: 0.3rem;
         width: 15%;
+        align-items: center;
+    }
+
+    .flexBox {
+        flex-direction: row !important;
+        align-items: start !important;
+        width: 30% !important;
     }
 }
+
+
+
+
+
 
 .product .productPrice {
     flex: 1;
@@ -213,12 +226,15 @@
     /* background-color: grey; */
 }
 
-.productPrice .text {
-    font-size: 0.5rem;
-    font-weight: 200;
+.textEnd {
+    text-align: end !important;
 }
 
 
+.productPrice .text {
+    font-size: 0.55rem;
+    font-weight: 200;
+}
 
 
 .products .subtitle {
