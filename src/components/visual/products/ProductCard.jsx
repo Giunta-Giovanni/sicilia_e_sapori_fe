@@ -31,6 +31,7 @@ export default function ProductCard({ lang, product, styles, allergens, selected
 
             {/* leftCol  */}
             <div className={styles.leftCol}>
+
                 {/* title */}
                 <div className={styles.title} >
                     <h6>{lang === 'it' ? product.name_it : product.name_en}</h6>
@@ -54,22 +55,9 @@ export default function ProductCard({ lang, product, styles, allergens, selected
                             : null
                     }
 
-                    {/* allergens */}
-                    {
-                        product.allergens ?
-                            <div className={styles.allergens}>
-                                {allergens
-                                    .filter(allergen => product.allergens.includes(allergen.key))
-                                    .map(allergen => (
-                                        <span key={allergen.key}>
-                                            <img src={allergen.icon} alt={allergen.key} />
-                                        </span>
-                                    ))}
-                            </div>
-                            :
-                            null
-                    }
+
                 </div >
+
 
 
 
@@ -88,6 +76,21 @@ export default function ProductCard({ lang, product, styles, allergens, selected
                         <p className={styles.alcoholVolume}>
                             {`${product.alcohol_volume} % vol`}
                         </p>
+                        :
+                        null
+                }
+                {/* allergens */}
+                {
+                    product.allergens ?
+                        <div className={styles.allergens}>
+                            {allergens
+                                .filter(allergen => product.allergens.includes(allergen.key))
+                                .map(allergen => (
+                                    <span key={allergen.key}>
+                                        <img src={allergen.icon} alt={allergen.key} />
+                                    </span>
+                                ))}
+                        </div>
                         :
                         null
                 }

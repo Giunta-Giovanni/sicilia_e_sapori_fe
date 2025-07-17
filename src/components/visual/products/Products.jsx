@@ -98,41 +98,60 @@ export default function Products({ selectedFilters }) {
                 </div>
             </section>
 
-            {/* products */}
-            {productCategories.map(productCategory => {
-                const { id, title, subtitle, products, ref } = productCategory;
-                return (
-                    // products
-                    <section key={id} className={styles.products} ref={ref ? ref : undefined}>
-                        {title && <h4>{title}</h4>}
-                        {subtitle &&
-                            // subtitle
-                            <div className={styles.subtitle}>
-                                <span></span>
-                                <h5>{subtitle}</h5>
-                                <span></span>
-                            </div>
-                        }
-                        {/* <div className={styles.boxDetails}>
-                            <div className={styles.details}>
-                                <div>Normale</div>
-                                <div>Scrocchiarella</div>
-                            </div>
-                        </div> */}
-                        {products.map(product => (
-                            <ProductCard
-                                key={product.id}
-                                product={product}
-                                styles={styles}
-                                allergens={allergens}
-                                selectedFilters={selectedFilters}
-                                lang={lang}
-                            />
-                        ))}
-                    </section>
-                )
-            })}
-        </div>
+            <div>
+                {/* products */}
+                {productCategories.map(productCategory => {
+                    const { id, title, subtitle, products, ref } = productCategory;
+                    return (
+                        // products
+                        <section key={id} className={styles.products} ref={ref ? ref : undefined}>
+                            {title && <h4>{title}</h4>}
+                            {subtitle &&
+                                // subtitle
+                                <div className={styles.subtitle}>
+                                    <span aria-hidden="true"></span>
+                                    <h5>{subtitle}</h5>
+                                    <span aria-hidden="true"></span>
+                                </div>
+                            }
+
+                            {products.map(product => (
+                                <ProductCard
+                                    key={product.id}
+                                    product={product}
+                                    styles={styles}
+                                    allergens={allergens}
+                                    selectedFilters={selectedFilters}
+                                    lang={lang}
+                                />
+                            ))}
+
+                        </section>
+                    )
+                })}
+
+                <div className={styles.extraInfo}>
+                    <p>
+                        {lang === 'it' ? (
+                            <>
+                                Coperto 2,00€ | Supplementi da 1€ a 3€, in base al tipo di prodotto.
+                                <br />
+                                *in mancanza di prodotti freschi verranno usati prodotti surgelati o abbattuti
+                            </>
+                        ) : (
+                            <>
+                                Cover charge €2.00 | Extras from €1 to €3, depending on the type of product.
+                                <br />
+                                *In case of lack of fresh ingredients, frozen or blast-chilled products will be used
+                            </>
+                        )}
+                    </p>
+
+
+                </div>
+            </div>
+
+        </div >
     )
 }
 
