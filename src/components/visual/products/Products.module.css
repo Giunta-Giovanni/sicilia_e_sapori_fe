@@ -1,3 +1,27 @@
+/* GENERAL */
+/* leftCol */
+.leftCol {
+    flex: 0.7;
+    /* background-color: red; */
+}
+
+/* rightCol */
+.rightCol {
+    display: flex;
+    align-items: center;
+    flex: 0.3;
+    /* background-color: rgb(154, 153, 157); */
+}
+
+@media (max-width:576px) {
+    .rightCol {
+        gap: 0.3rem;
+        align-items: center;
+    }
+}
+
+
+
 .boxProducts {
     flex: 1;
     margin: 0 0 1rem 1rem;
@@ -12,7 +36,13 @@
     }
 }
 
-.boxProducts h4 {
+
+
+
+
+
+.boxProducts h4,
+.boxProducts h5 {
     text-align: center;
     padding: 1rem;
 
@@ -20,67 +50,58 @@
     /* background-color: red; */
 }
 
+
+
 /* doughs */
-.boxProducts .dough {
+.dough {
     display: flex;
-    justify-content: center;
-    flex-direction: column;
     align-items: center;
-    color: var(--primary-white);
-    text-align: center;
-    padding: 0 2rem;
-    min-height: 25rem;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    border-bottom: 0.5px solid var(--primary-brown);
+    margin: 2rem 0;
 
     /* debug */
     /* background-color: plum; */
 }
 
+
+.dough .leftCol {
+    display: flex;
+}
+
+.dough h6 {
+    font-weight: 350;
+}
+
+.dough .rightCol {
+    justify-content: end;
+}
+
+
 @media (max-width:768px) {
-    .boxProducts .dough {
-        min-height: 20rem;
+
+
+    /* debug */
+    /* background-color: red; */
+    .dough {
+        margin: 2rem 1rem;
     }
-}
 
-/* traditional */
-.boxProducts .dough#traditional {
-    background-image: url(../../../doughts/impasto_tradizionale.png);
 
 }
 
-/* wholeWheat */
-.boxProducts .dough#wholeWheat {
-    background-image: url(../../../doughts/impasto_integrale.png);
+
+.boxProducts img {
+    width: 1.5rem;
+    margin-right: 1rem;
 }
 
-/* glutenFree */
-.boxProducts .dough#glutenFree {
-    background-image: url(../../../doughts/impasto_gluten_free.png);
-}
 
-/* rustic */
-.boxProducts .dough#rustic {
-    background-image: url(../../../doughts/impasto_rustico.png);
-}
-
-/* crispy */
-.boxProducts .dough#crispy {
-    background-image: url(../../../doughts/impasto_scrocchiarella.png);
-}
-
-.boxProducts .dough h5 {
-    font-size: 2rem;
-    font-weight: 700;
-    padding-bottom: 1rem;
-}
 
 /* price */
-.boxProducts .dough .price {
-    padding-top: 1.5rem;
+.dough .price {
+    width: 50%;
     font-size: 1.2rem;
+    text-align: center;
+    font-size: 0.9rem;
 }
 
 /* products */
@@ -121,11 +142,7 @@
 }
 
 
-/* leftCol */
-.products .leftCol {
-    flex: 0.7;
-    /* background-color: red; */
-}
+
 
 .products .title {
     display: flex;
@@ -184,14 +201,6 @@
 /* product -> productPrice */
 
 
-/* rightCol */
-.products .rightCol {
-    display: flex;
-    align-items: center;
-    flex: 0.3;
-
-    /* background-color: rgb(154, 153, 157); */
-}
 
 
 @media (max-width:576px) {
@@ -201,10 +210,6 @@
         padding-right: 1rem;
     }
 
-    .products .rightCol {
-        gap: 0.3rem;
-        align-items: center;
-    }
 
     .flexBox {
         flex-direction: row !important;
