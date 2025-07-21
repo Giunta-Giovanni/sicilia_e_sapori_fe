@@ -104,11 +104,13 @@ export default function ProductCard({ lang, product, styles, allergens, selected
                 <div className={`${styles.productPrice} ${specificCat.includes(product.category_id) ? '' : styles.textEnd}`}>
                     <p>{product.primary_price}€</p>
 
-                    {(product.id === 68 || product.category_id === 18 || hasSecondaryPrice) && (
+                    {/* condition for specific id or specific category */}
+                    {(product.id === 5 || product.id === 68 || product.category_id === 18 || hasSecondaryPrice) && (
                         <p className={styles.text}>
                             {isFood
-                                ? lang === 'it' ? 'Normale' : 'Standard'
-                                : lang === 'it' ? 'Piccola' : 'Small'
+                                ? lang === 'it' ? 'Normale' : 'Standard' :
+                                product.category_id === 14 ? primarySize
+                                    : lang === 'it' ? 'Piccola' : 'Small'
                             }
                         </p>
                     )}
@@ -117,13 +119,15 @@ export default function ProductCard({ lang, product, styles, allergens, selected
                 {/* Secondary price */}
                 {specificCat.includes(product.category_id) && (
                     < div className={`${styles.productPrice} `}>
+                        {/* if has secondary price */}
                         {hasSecondaryPrice && (
                             <>
                                 <p>{product.secondary_price}€</p>
                                 <p className={styles.text}>
                                     {isFood
                                         ? 'Scrocchiarella'
-                                        : lang === 'it' ? 'Grande' : 'Large'
+                                        : product.category_id === 14 ? secondarySize
+                                            : lang === 'it' ? 'Grande' : 'Large'
                                     }
                                 </p>
                             </>
