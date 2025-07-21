@@ -30,7 +30,7 @@ export default function MenuContextProvider({ children }) {
     // Call all products
     const { products } = useContext(GlobalContext);
 
-    // creates a "categorizedProducts" object from 'products', memoized and recalculated only when 'products' changes
+    // creates a "categorizedProducts" object from 'products', memorized and recalculated only when 'products' changes
     const categorizedProducts = useMemo(() => {
         // if 'products' is not an array (e.g., null or undefined), return an empty object as a safe fallback
         if (!Array.isArray(products)) return {};
@@ -59,6 +59,7 @@ export default function MenuContextProvider({ children }) {
     const productCategories = categories.map(category => ({
         id: category.id,
         key: category.key,
+        takeout: category.takeout,
         title: lang === 'it' ? category.title_it : category.title_en,
         subtitle: lang === 'it' ? category.subtitle_it : category.subtitle_en,
         products: categorizedProducts[category.key] ?? [],
@@ -70,6 +71,7 @@ export default function MenuContextProvider({ children }) {
     const navCategories = [{
         id: 0,
         key: 'doughts',
+        takeout: true,
         title: lang === 'it' ? 'Impasti' : 'Doughts',
         subtitle: undefined,
         ref: sections.doughs ? sections.doughs : undefined

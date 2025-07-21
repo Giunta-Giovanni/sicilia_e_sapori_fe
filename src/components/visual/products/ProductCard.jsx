@@ -17,122 +17,127 @@ export default function ProductCard({ lang, product, styles, allergens, selected
     let primarySize = formatSize(product.primary_size);
     let secondarySize = formatSize(product.secondary_size);
 
+    const specificCat = [4, 5, 6, 14, 18, 19];
+    const hasSecondaryPrice = product.secondary_price !== null && product.secondary_price !== '';
+    const isFood = product.type === 'food';
+    const isDrink = product.type === 'drink';
+
+    console.log(product);
     // RENDER
     return (
         //product
         <div key={product.id} className={`${styles.product} ${isDisabled ? styles.disabled : undefined}`} >
-            {/* title */}
-            < div className={styles.title} >
-                <h6>{lang === 'it' ? product.name_it : product.name_en}</h6>
+
+
+            {/* leftCol  */}
+            <div className={styles.leftCol}>
+
+                {/* title */}
+                <div className={styles.title} >
+                    <h6>{lang === 'it' ? product.name_it : product.name_en}</h6>
+                    {
+                        isFood ?
+                            <>
+                                {product.is_spicy === 1 && (
+                                    <img
+                                        src={spicy}
+                                        id={styles.spicy}
+                                        alt="spicy"
+                                    />
+                                )}
+                                {product.is_vegetarian === 1 && (
+                                    <img
+                                        src={vegetarian}
+                                        alt="vegetarian"
+                                    />
+                                )}
+                            </>
+                            : null
+                    }
+
+
+                </div >
+
+
+
+
+                {/* description */}
+                < p className={styles.description} >
+                    {lang === 'it' ?
+                        product.description_it
+                        :
+                        product.description_en
+                    }
+                </p >
+
+                {/* alcohol volume */}
                 {
-                    product.type == 'food' ?
-                        <>
-                            {product.is_spicy === 1 && (
-                                <img
-                                    src={spicy}
-                                    id={styles.spicy}
-                                    alt="spicy"
-                                />
-                            )}
-                            {product.is_vegetarian === 1 && (
-                                <img
-                                    src={vegetarian}
-                                    alt="vegetarian"
-                                />
-                            )}
-                        </>
-                        : null
+                    isDrink && product.is_alcholic === 1 ?
+                        <p className={styles.alcoholVolume}>
+                            {`${product.alcohol_volume} % vol`}
+                        </p>
+                        :
+                        null
                 }
-            </div >
-
-            {/* description */}
-            < p className={styles.description} >
-                {lang === 'it' ?
-                    product.description_it
-                    :
-                    product.description_en
+                {/* allergens */}
+                {
+                    product.allergens ?
+                        <div className={styles.allergens}>
+                            {allergens
+                                .filter(allergen => product.allergens.includes(allergen.key))
+                                .map(allergen => (
+                                    <span key={allergen.key}>
+                                        <img src={allergen.icon} alt={allergen.key} />
+                                    </span>
+                                ))}
+                        </div>
+                        :
+                        null
                 }
-            </p >
 
-            {/* alcohol volume */}
-            {
-                product.type === 'drink' && product.is_alcholic === 1 ?
-                    <p className={styles.alcoholVolume}>
-                        {`${product.alcohol_volume} % vol`}
-                    </p>
-                    :
-                    null
-            }
+            </div>
 
-            {/* allergens */}
-            {
-                product.allergens ?
-                    <div className={styles.allergens}>
-                        {allergens
-                            .filter(allergen => product.allergens.includes(allergen.key))
-                            .map(allergen => (
-                                <span key={allergen.key}>
-                                    <img src={allergen.icon} alt={allergen.key} />
-                                </span>
-                            ))}
+
+            <div className={`${styles.rightCol} ${isDrink ? styles.flexBox : null}`}>
+
+                {/* Primary price */}
+                <div className={`${styles.productPrice} ${specificCat.includes(product.category_id) ? '' : styles.textEnd}`}>
+                    <p>{product.primary_price}€</p>
+
+                    {/* condition for specific id or specific category */}
+                    {(product.id === 5 || product.id === 68 || product.category_id === 18 || hasSecondaryPrice) && (
+                        <p className={styles.text}>
+                            {isFood
+                                ? lang === 'it' ? 'Normale' : 'Standard' :
+                                product.category_id === 14 ? primarySize
+                                    : lang === 'it' ? 'Piccola' : 'Small'
+                            }
+                        </p>
+                    )}
+                </div>
+
+                {/* Secondary price */}
+                {specificCat.includes(product.category_id) && (
+                    < div className={`${styles.productPrice} `}>
+                        {/* if has secondary price */}
+                        {hasSecondaryPrice && (
+                            <>
+                                <p>{product.secondary_price}€</p>
+                                <p className={styles.text}>
+                                    {isFood
+                                        ? 'Scrocchiarella'
+                                        : product.category_id === 14 ? secondarySize
+                                            : lang === 'it' ? 'Grande' : 'Large'
+                                    }
+                                </p>
+                            </>
+
+                        )}
                     </div>
-                    :
-                    null
-            }
+                )}
 
-
-            {/* productPrice -> primaryPrice */}
-            <div className={styles.productPrice}>
-                {product.type === 'food' ?
-                    <span>
-                        {lang === 'it' ?
-                            'Prezzo'
-                            :
-                            'Price'
-                        }
-                    </span>
-                    :
-                    <>
-                        <span>
-                            {lang === 'it' ?
-                                ` ${product.primary_size != 0 ? primarySize : 'Prezzo'}`
-                                :
-                                ` ${product.primary_size != 0 ? primarySize : 'Price'}`
-                            }
-                        </span>
-                    </>
-                }
-                <span></span>
-                <span>{product.primary_price}€</span>
             </div>
 
-            {/* productPrice -> secondaryPrice */}
-            <div
-                className={styles.productPrice}
-                style={{
-                    display: product.secondary_price === null || product.secondary_price === '' ? 'none' : ''
-                }}>
-                {product.type === 'food' ?
-                    <span>
-                        {lang === 'it' ?
-                            'Maxi Scrocchiarella'
-                            :
-                            'Maxi Crispy '
-                        }</span>
-                    :
-                    <>
-                        <span>
-                            {lang === 'it' ?
-                                ` ${product.secondary_size != 0 ? secondarySize : 'Prezzo'}`
-                                :
-                                ` ${product.secondary_size != 0 ? secondarySize : 'Price'}`
-                            }
-                        </span>
-                    </>
-                }
-                <span></span>
-                <span>{product.secondary_price}€</span>
-            </div>
         </div >
     )
 }

@@ -1,3 +1,27 @@
+/* GENERAL */
+/* leftCol */
+.leftCol {
+    flex: 0.7;
+    /* background-color: red; */
+}
+
+/* rightCol */
+.rightCol {
+    display: flex;
+    align-items: center;
+    flex: 0.3;
+    /* background-color: rgb(154, 153, 157); */
+}
+
+@media (max-width:576px) {
+    .rightCol {
+        gap: 0.3rem;
+        align-items: center;
+    }
+}
+
+
+
 .boxProducts {
     flex: 1;
     margin: 0 0 1rem 1rem;
@@ -12,75 +36,92 @@
     }
 }
 
-.boxProducts h4 {
+.boxProducts h4,
+.boxProducts h5 {
     text-align: center;
     padding: 1rem;
-
     /* debug */
     /* background-color: red; */
 }
 
+.boxProducts h6 {
+    font-size: 1.2rem;
+    font-weight: 350;
+}
+
+
 /* doughs */
-.boxProducts .dough {
+.dough {
     display: flex;
-    justify-content: center;
-    flex-direction: column;
     align-items: center;
-    color: var(--primary-white);
-    text-align: center;
-    padding: 0 2rem;
-    min-height: 25rem;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    border-bottom: 0.5px solid var(--primary-brown);
+    margin: 2rem 0;
 
     /* debug */
     /* background-color: plum; */
 }
 
+#wholeWheat {
+    margin: 1rem 0;
+}
+
 @media (max-width:768px) {
-    .boxProducts .dough {
-        min-height: 20rem;
+
+    .dough {
+        margin: 2rem 1rem;
+    }
+
+    #wholeWheat {
+        margin: 0.5rem 1rem;
     }
 }
 
-/* traditional */
-.boxProducts .dough#traditional {
-    background-image: url(../../../doughts/impasto_tradizionale.png);
+.extra {
+    display: flex;
+    justify-content: end;
 
 }
 
-/* wholeWheat */
-.boxProducts .dough#wholeWheat {
-    background-image: url(../../../doughts/impasto_integrale.png);
+.extra p {
+    text-align: center;
+    font-size: 0.8rem;
+    flex: 0.15;
 }
 
-/* glutenFree */
-.boxProducts .dough#glutenFree {
-    background-image: url(../../../doughts/impasto_gluten_free.png);
+
+
+@media (max-width:768px) {
+    .extra p {
+        padding: 1rem 1rem 0 0;
+
+    }
+
 }
 
-/* rustic */
-.boxProducts .dough#rustic {
-    background-image: url(../../../doughts/impasto_rustico.png);
+
+
+.dough .leftCol {
+    display: flex;
+    align-items: center;
 }
 
-/* crispy */
-.boxProducts .dough#crispy {
-    background-image: url(../../../doughts/impasto_scrocchiarella.png);
+.dough .rightCol {
+    justify-content: end;
 }
 
-.boxProducts .dough h5 {
-    font-size: 2rem;
-    font-weight: 700;
-    padding-bottom: 1rem;
+
+
+
+.boxProducts img {
+    width: 2rem;
+    margin-right: 1rem;
 }
 
 /* price */
-.boxProducts .dough .price {
-    padding-top: 1.5rem;
+.dough .price {
+    width: 50%;
     font-size: 1.2rem;
+    text-align: center;
+    font-size: 0.9rem;
 }
 
 /* products */
@@ -91,6 +132,13 @@
     }
 }
 
+
+
+
+
+
+
+
 /* .boxProducts .product { */
 /* debug */
 /* background-color: coral; */
@@ -98,6 +146,7 @@
 /* } */
 /* product -> title */
 .products .product {
+    display: flex;
     margin: 2rem 0;
 }
 
@@ -112,19 +161,20 @@
     text-align: center;
 }
 
+
+
+
 .products .title {
     display: flex;
+    align-items: center;
     gap: 0.5rem;
     margin-bottom: 0.5rem;
 }
 
-.products .title h6 {
-    font-size: 1.25rem;
-    font-weight: 350;
-}
+
 
 .products .title img {
-    width: 1.3rem;
+    width: 1rem;
 }
 
 .products .title img#spicy {
@@ -133,8 +183,10 @@
 
 /* product -> description */
 .products .description {
-    width: 80%;
     font-weight: 150;
+    font-size: 0.85rem;
+    padding-right: 0.5rem;
+
 }
 
 /* product -> alcoholVolume */
@@ -152,34 +204,64 @@
 
 .products .allergens span {
     display: flex;
-    width: 1.3rem;
-    height: 1.3rem;
+    width: 0.9rem;
+    height: 0.9rem;
     border: 1px solid var(--primary-gold);
     border-radius: 50%;
-    padding: 0.2rem;
+    padding: 0.1rem;
 }
 
 .products .allergens span img {
     width: 100%;
+    margin: 0;
 }
 
 /* product -> productPrice */
-.products .productPrice {
-    margin-top: 0.5rem;
-    font-weight: 350;
-    display: flex;
-    align-items: center;
+
+
+
+
+@media (max-width:576px) {
+
+
+    .products .description {
+        padding-right: 1rem;
+    }
+
+
+    .flexBox {
+        flex-direction: row !important;
+        align-items: start !important;
+        width: 30% !important;
+    }
 }
 
-.productPrice :nth-child(2) {
-    flex-grow: 1;
-    height: 0.07rem;
-    border-bottom: 0.07rem dotted var(--primary-brown);
-    position: relative;
-    bottom: -0.35rem;
-    margin: 0 0.2rem;
-    /* background-color: rgb(136, 0, 255); */
+
+/* productPrice */
+.product .productPrice {
+    flex: 1;
+    font-size: 0.9rem;
+    text-align: center;
+    align-content: center;
+    /* background-color: grey; */
 }
+
+/* textEnd */
+.textEnd {
+    display: flex;
+    justify-content: end;
+    /* text-align: end !important; */
+}
+
+.textEnd p {
+    width: 50%;
+}
+
+.productPrice .text {
+    font-size: 0.55rem;
+    font-weight: 200;
+}
+
 
 .products .subtitle {
     display: flex;
@@ -197,4 +279,25 @@
 .products .subtitle h5 {
     padding: 0 2rem;
     /* background-color: rgb(136, 0, 255); */
+}
+
+.extraInfo {
+    position: sticky;
+    bottom: 0;
+    background-color: var(--primary-white);
+    font-size: 0.5rem;
+    padding: 1rem 0;
+}
+
+
+@media (max-width:768px) {
+
+    .extraInfo {
+        position: sticky;
+        bottom: 0;
+        background-color: var(--primary-white);
+        font-size: 0.5rem;
+        padding: 0.5rem 1rem 1.5rem 1rem;
+        border: 0.1px solid var(--primary-brown);
+    }
 }
