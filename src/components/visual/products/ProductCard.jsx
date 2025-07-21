@@ -1,3 +1,11 @@
+// import Hooks
+import { useContext } from "react";
+
+
+// import Context
+import MenuContext from "../../../context/MenuContext";
+import GlobalContext from "../../../context/GlobalContext";
+
 // import Utilities
 import { shouldDisableProduct } from "../../../utils/filters";
 import { formatSize } from "../../../utils/format";
@@ -5,7 +13,11 @@ import { formatSize } from "../../../utils/format";
 // import Icons
 import { icons } from "../../../assets/svg/general/icons";
 
-export default function ProductCard({ lang, product, styles, allergens, selectedFilters }) {
+export default function ProductCard({ product, styles, allergens, selectedFilters }) {
+
+    // context
+    const { lang } = useContext(GlobalContext)
+    const { takeOut } = useContext(MenuContext);
 
     // save icons
     const { spicy, vegetarian } = icons;
@@ -19,14 +31,18 @@ export default function ProductCard({ lang, product, styles, allergens, selected
 
     const specificCat = [4, 5, 6, 14, 18, 19];
     const hasSecondaryPrice = product.secondary_price !== null && product.secondary_price !== '';
+    const isTakeOut = product.availability === 'takeaway';
+    const isDineIn = product.availability === 'dinein';
     const isFood = product.type === 'food';
     const isDrink = product.type === 'drink';
 
-    console.log(product);
+    console.log(takeOut)
+
+    // console.log(product);
     // RENDER
     return (
         //product
-        <div key={product.id} className={`${styles.product} ${isDisabled ? styles.disabled : undefined}`} >
+        <div key={product.id} className={`${styles.product} ${isDisabled ? styles.disabled : undefined} ${takeOut && isDineIn ? styles.unshow : !takeOut && isTakeOut ? styles.unshow : null}`} >
 
 
             {/* leftCol  */}

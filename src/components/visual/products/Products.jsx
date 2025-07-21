@@ -1,5 +1,5 @@
 // import hooks
-import { useContext } from 'react';
+import { useState, useContext } from 'react';
 
 // import Context
 import GlobalContext from '../../../context/GlobalContext';
@@ -14,10 +14,18 @@ import { icons } from '../../../assets/svg/general/icons';
 
 export default function Products({ selectedFilters }) {
 
-    // context
+    // Gloabl context
     const { lang } = useContext(GlobalContext);
-    const { productCategories, sections, allergens } = useContext(MenuContext);
+
+    // Menu context
+    const { productCategories, sections, allergens, takeOut } = useContext(MenuContext);
+
+    // icons
     const { oven, glutenFree, rustic, wholeWheat } = icons;
+
+    const filteredCategories = takeOut
+        ? productCategories.filter(cat => cat.takeOut)
+        : productCategories;
 
     // RENDER
     return (
@@ -39,7 +47,6 @@ export default function Products({ selectedFilters }) {
                             : 'Extra'}
                     </p>
                 </div>
-
 
                 {/* wholeWheat */}
                 <div className={styles.dough} id={styles.wholeWheat}>
@@ -118,7 +125,7 @@ export default function Products({ selectedFilters }) {
 
             <div>
                 {/* products */}
-                {productCategories.map(productCategory => {
+                {filteredCategories.map(productCategory => {
                     const { id, title, subtitle, products, ref } = productCategory;
                     return (
                         // products
@@ -140,25 +147,26 @@ export default function Products({ selectedFilters }) {
                                     styles={styles}
                                     allergens={allergens}
                                     selectedFilters={selectedFilters}
-                                    lang={lang}
                                 />
                             ))}
 
                         </section>
                     )
-                })}
+                })
+                }
 
-                <div className={styles.extraInfo}>
+                {/* extraInfo */}
+                < div className={styles.extraInfo}>
                     <p>
                         {lang === 'it' ? (
                             <>
-                                Coperto 2,00€ | Supplementi da 1€ a 3€, in base al tipo di prodotto.
+                                {takeOut ? "Asporto 1,00€" : "Coperto 2,00€"} | Supplementi da 1€ a 3€, in base al tipo di prodotto.
                                 <br />
                                 *in mancanza di prodotti freschi verranno usati prodotti surgelati o abbattuti
                             </>
                         ) : (
                             <>
-                                Cover charge €2.00 | Extras from €1 to €3, depending on the type of product.
+                                {takeOut ? "take_out charge €1,00" : " Cover charge €2.00"} | Extras from €1 to €3, depending on the type of product.
                                 <br />
                                 *In case of lack of fresh ingredients, frozen or blast-chilled products will be used
                             </>
@@ -167,7 +175,10 @@ export default function Products({ selectedFilters }) {
 
 
                 </div>
+                <></>
+
             </div>
+
 
         </div >
     )
