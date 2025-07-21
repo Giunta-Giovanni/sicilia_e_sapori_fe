@@ -36,7 +36,7 @@ export default function ProductCard({ lang, product, styles, allergens, selected
                 <div className={styles.title} >
                     <h6>{lang === 'it' ? product.name_it : product.name_en}</h6>
                     {
-                        product.type == 'food' ?
+                        isFood ?
                             <>
                                 {product.is_spicy === 1 && (
                                     <img
@@ -72,7 +72,7 @@ export default function ProductCard({ lang, product, styles, allergens, selected
 
                 {/* alcohol volume */}
                 {
-                    product.type === 'drink' && product.is_alcholic === 1 ?
+                    isDrink && product.is_alcholic === 1 ?
                         <p className={styles.alcoholVolume}>
                             {`${product.alcohol_volume} % vol`}
                         </p>

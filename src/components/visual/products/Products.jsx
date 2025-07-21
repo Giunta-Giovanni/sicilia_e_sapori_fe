@@ -32,6 +32,14 @@ export default function Products({ selectedFilters }) {
                         : 'All our doughs are made using long-fermentation sourdough.'}
                 </h5>
 
+                <div className={styles.extra}>
+                    <p>
+                        {lang === 'it'
+                            ? 'Aggiunta'
+                            : 'Extra'}
+                    </p>
+                </div>
+
 
                 {/* wholeWheat */}
                 <div className={styles.dough} id={styles.wholeWheat}>

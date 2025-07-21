@@ -45,7 +45,7 @@
 }
 
 .boxProducts h6 {
-    font-size: 1.25rem;
+    font-size: 1.2rem;
     font-weight: 350;
 }
 
@@ -60,9 +60,48 @@
     /* background-color: plum; */
 }
 
+#wholeWheat {
+    margin: 1rem 0;
+}
+
+@media (max-width:768px) {
+
+    .dough {
+        margin: 2rem 1rem;
+    }
+
+    #wholeWheat {
+        margin: 0.5rem 1rem;
+    }
+}
+
+.extra {
+    display: flex;
+    justify-content: end;
+
+}
+
+.extra p {
+    text-align: center;
+    font-size: 0.8rem;
+    flex: 0.15;
+}
+
+
+
+@media (max-width:768px) {
+    .extra p {
+        padding: 1rem 1rem 0 0;
+
+    }
+
+}
+
+
 
 .dough .leftCol {
     display: flex;
+    align-items: center;
 }
 
 .dough .rightCol {
@@ -70,17 +109,10 @@
 }
 
 
-@media (max-width:768px) {
 
-    /* debug */
-    /* background-color: red; */
-    .dough {
-        margin: 2rem 1rem;
-    }
-}
 
 .boxProducts img {
-    width: 1.5rem;
+    width: 2rem;
     margin-right: 1rem;
 }
 
@@ -172,15 +204,16 @@
 
 .products .allergens span {
     display: flex;
-    width: 2rem;
-    height: 2rem;
-    /* border: 1px solid var(--primary-gold); */
+    width: 0.9rem;
+    height: 0.9rem;
+    border: 1px solid var(--primary-gold);
     border-radius: 50%;
-    /* padding: 0.1rem; */
+    padding: 0.1rem;
 }
 
 .products .allergens span img {
     width: 100%;
+    margin: 0;
 }
 
 /* product -> productPrice */
