@@ -1,5 +1,5 @@
 // import Hooks
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import useLang from "../../../hooks/useLang";
 
 // import Styles
@@ -19,6 +19,10 @@ export default function Footer() {
 
     // save aboutUs Pages
     const aboutUs = location.pathname == "/it/about-us" || location.pathname == "/en/about-us";
+    const privacyPolicyIt = "/it/privacy-policy";
+    const privacyPolicyEn = "/en/privacy-policy";
+    const cookiePolicyIt = "/it/cookies-policy";
+    const cookiePolicyEn = "/it/cookies-policy";
 
     // save Lang
     const lang = useLang();
@@ -57,10 +61,15 @@ export default function Footer() {
             </div>
 
             {/* p.iva */}
-            <p className={styles.pIva}>©2022 Baariha Srl. P.IVA 06405370823</p>
+            <p className={styles.pIva}>Sicilia e Sapori 2 Srls P.IVA 01862840889</p>
+
+            <Link to={lang === 'it' ? privacyPolicyIt : privacyPolicyEn}>Privacy policy</Link >
+            <span>|</span>
+            <Link to={lang === 'it' ? cookiePolicyIt : cookiePolicyEn}>Cookie policy</Link >
+
 
             {/* made by */}
-            <p className={styles.madeBy}>MADE BY - JUNSO</p>
+            < p className={styles.madeBy}>MADE BY - JUNSO</p>
 
         </footer >
     </>)
