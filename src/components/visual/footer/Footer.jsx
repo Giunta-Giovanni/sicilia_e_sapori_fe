@@ -21,8 +21,8 @@ export default function Footer() {
     const aboutUs = location.pathname == "/it/about-us" || location.pathname == "/en/about-us";
     const privacyPolicyIt = "/it/privacy-policy";
     const privacyPolicyEn = "/en/privacy-policy";
-    const cookiePolicyIt = "/it/cookies-policy";
-    const cookiePolicyEn = "/it/cookies-policy";
+    const cookiePolicyIt = "/it/cookie-policy";
+    const cookiePolicyEn = "/it/cookie-policy";
 
     // save Lang
     const lang = useLang();
@@ -64,7 +64,7 @@ export default function Footer() {
             <p className={styles.pIva}>Sicilia e Sapori 2 Srls P.IVA 01862840889</p>
 
             <Link to={lang === 'it' ? privacyPolicyIt : privacyPolicyEn}>Privacy policy</Link >
-            <span>|</span>
+            <span> | </span>
             <Link to={lang === 'it' ? cookiePolicyIt : cookiePolicyEn}>Cookie policy</Link >
 
 
