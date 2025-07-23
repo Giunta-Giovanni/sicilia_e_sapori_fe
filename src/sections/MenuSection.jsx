@@ -83,13 +83,13 @@ export default function MenuSection({ styles }) {
                     className={`${styles.chooseMenu} 
                 ${takeOut ? null : styles.active}`}
                 >
-                    {lang === "it" ? "Al tavolo" : "Dine-in"}
+                    {lang === "it" ? "AL TAVOLO" : "DINE-IN"}
                 </button>
                 <button
                     onClick={() => setTakeOut(true)}
                     className={`${styles.chooseMenu} ${takeOut ? styles.active : null}`}
                 >
-                    {lang === "it" ? "D'asporto" : "Take-out"}
+                    {lang === "it" ? "D'ASPORTO" : "TAKE-OUT"}
                 </button>
             </div>
 
