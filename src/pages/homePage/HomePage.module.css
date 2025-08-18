@@ -308,6 +308,11 @@
     border-right: 1px solid var(--primary-brown);
 }
 
+.infoBox .contact a{
+    color: var(--primary-brown);
+    border-bottom: 1px solid var(--primary-brown);
+}
+
 @media (max-width: 992px) {
 
     .infoBox .when,

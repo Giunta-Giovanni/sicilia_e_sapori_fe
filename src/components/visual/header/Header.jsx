@@ -19,7 +19,7 @@ import linearLogoWhite from "../../../assets/svg/logo/logo-header-white.svg"
 export default function Header() {
 
     // Save
-    const { facebookWhite, instagramWhite } = icons;
+    const { facebookWhite, instagramWhite, phoneBrown } = icons;
     // Save Language
     const lang = useLang();
     // Save Location
@@ -29,7 +29,6 @@ export default function Header() {
 
     // save location
     const aboutUs = location.pathname == "/it/about-us" || location.pathname == "/en/about-us";
-    const menu = location.pathname == "/it/menu" || location.pathname == "/en/menu";
     const home = location.pathname == "/it/" || location.pathname == "/en/";
 
     // console.log(home);
@@ -101,9 +100,9 @@ export default function Header() {
 
                 {/* headerMenuSection */}
                 <section className={`${styles.headerMenuSection} ${styles.hoverAnimation}`}>
-                    <Link className={home? styles.active:""} to={lang === 'en' ? '/en/' : '/it/'} onClick={toggleMenu}>HOME</Link>
-                    <Link className={menu? styles.active:""} to={lang === 'en' ? '/en/menu' : '/it/menu'} onClick={toggleMenu}>MENÙ</Link>
-                    <Link className={aboutUs? styles.active:""}to={lang === 'en' ? '/en/about-us' : '/it/about-us'} onClick={toggleMenu}>{lang === 'it' ? "CHI SIAMO":"ABOUT US"}</Link>
+                    <Link to={lang === 'en' ? '/en/' : '/it/'} onClick={toggleMenu}>HOME</Link>
+                    <Link to={lang === 'en' ? '/en/menu' : '/it/menu'} onClick={toggleMenu}>MENÙ</Link>
+                    <Link to={lang === 'en' ? '/en/about-us' : '/it/about-us'} onClick={toggleMenu}>{lang === 'it' ? "CHI SIAMO":"ABOUT US"}</Link>
                 </section>
 
                 {/* headerMenuSectionSecondary */}
@@ -135,6 +134,9 @@ export default function Header() {
                     <a href="https://www.instagram.com/siciliaesapori" target="_blank" rel="noopener noreferrer">
                         <img className={styles.socialLogo} src={instagramWhite} alt="instagram" />
                     </a>
+                    <a href='tel:+39 3311754757'>
+                    <img className={styles.socialLogo} src={phoneBrown} alt="Phone Number" />
+                </a>
                 </section>
             </nav>
         </header >
