@@ -48,8 +48,9 @@
 
     .sx {
         order: 2;
-        height: 7rem;
+        height: 8rem;
         width: 8rem;
+        margin: 1rem;
     }
 
     .center {
@@ -60,8 +61,10 @@
 
     .dx {
         order: 3;
-        height: 7rem;
+        height: 8rem;
         width: 8rem;
+        margin: 1rem;
+
     }
 }
 

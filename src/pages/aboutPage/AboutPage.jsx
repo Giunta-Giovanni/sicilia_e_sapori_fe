@@ -1,6 +1,6 @@
 // context
 import GlobalContext from '../../context/GlobalContext';
-import { useContext } from 'react';
+import { useContext, useEffect, useRef } from 'react';
 
 // import image
 import { images } from '../../assets/jpg/image.js';
@@ -36,6 +36,20 @@ export default function AboutPage() {
     const locationSwiper = [
       insegna, esterno, ingresso, dettagli, saletta, veranda, veranda2
     ];
+
+        const videoRef = useRef(null);
+    
+        useEffect(() => {
+            const video = videoRef.current;
+            if (video) {
+            const playPromise = video.play();
+            if (playPromise !== undefined) {
+                playPromise.catch(err => {
+                console.log("Autoplay bloccato:", err);
+                });
+            }
+            }
+        }, []);
 
 
     // RENDER
@@ -104,10 +118,12 @@ export default function AboutPage() {
             <div className={styles.presentationDiv}>
                 {/* img + line */}
                 <video
+                    ref={videoRef}
                     autoPlay
-                    loop
                     muted
+                    loop
                     playsInline
+                    preload="auto"
                     className={styles.line}
                     // poster={test1}
                     src="/video/forno.mp4" ></video>
