@@ -20,6 +20,7 @@ import pizzaPeel from './pizza-peel.svg';
 import plate from './plate.svg';
 import rustic from './rustic.svg';
 import spicy from './pepper.svg';
+import takeAway from './take-away.svg'
 import tripAdvisorBrown from './trip-advisor-brown.svg';
 import tripAdvisorWhite from './trip-advisor-white.svg';
 import vegetarian from './leaf.svg';
@@ -48,6 +49,7 @@ export const icons = {
     plate,
     rustic,
     spicy,
+    takeAway,
     tripAdvisorBrown,
     tripAdvisorWhite,
     vegetarian,

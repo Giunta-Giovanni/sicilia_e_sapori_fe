@@ -1,4 +1,5 @@
 /* GENERAL */
+
 /* leftCol */
 .leftCol {
     flex: 0.7;
@@ -21,7 +22,7 @@
 }
 
 
-
+/* boxProducts */
 .boxProducts {
     flex: 1;
     margin: 0 0 1rem 1rem;
@@ -75,10 +76,10 @@
     }
 }
 
+/* extra */
 .extra {
     display: flex;
     justify-content: end;
-
 }
 
 .extra p {
@@ -149,6 +150,11 @@
     display: flex;
     margin: 2rem 0;
 }
+
+.product.unshow {
+    display: none;
+}
+
 
 .products .product.disabled {
     /* background-color: red; */
@@ -281,6 +287,7 @@
     /* background-color: rgb(136, 0, 255); */
 }
 
+/* extraInfo */
 .extraInfo {
     position: sticky;
     bottom: 0;
@@ -289,14 +296,13 @@
     padding: 1rem 0;
 }
 
-
 @media (max-width:768px) {
 
     .extraInfo {
         position: sticky;
         bottom: 0;
         background-color: var(--primary-white);
-        font-size: 0.5rem;
+        font-size: 0.6rem;
         padding: 0.5rem 1rem 1.5rem 1rem;
         border: 0.1px solid var(--primary-brown);
     }

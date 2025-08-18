@@ -12,7 +12,8 @@ import AboutPage from "./pages/aboutPage/AboutPage.jsx";
 import HomePage from "./pages/homePage/HomePage.jsx";
 import MenuPage from "./pages/menuPage/MenuPage.jsx";
 import NotFoundPage from "./pages/notFoundPage/NotFoundPage.jsx";
-import PrivacyPolicyPage from "./pages/PrivacyPolicyPage.jsx";
+import PrivacyPolicyPage from "./pages/privacyPolicyPage/PrivacyPolicyPage.jsx";
+import CookiePolicyPage from "./pages/cookiePolicyPage/CookiePolicyPage.jsx";
 
 // import Utilities
 import ScrollToTop from "./components/technical/ScrollToTop.jsx";
@@ -32,6 +33,8 @@ export default function App() {
             <Route path="menu" element={<MenuPage />} />
             <Route path="about-us" element={<AboutPage />} />
             <Route path="privacy-policy" element={<PrivacyPolicyPage />} />
+            <Route path="cookie-policy" element={<CookiePolicyPage />} />
+
             <Route path="*" element={<NotFoundPage />} />
           </Route>
 
@@ -40,7 +43,7 @@ export default function App() {
             <Route index element={<HomePage />} />
             <Route path="menu" element={<MenuPage />} />
             <Route path="about-us" element={<AboutPage />} />
-            <Route path="privacy-policy" element={<PrivacyPolicyPage />} />
+            <Route path="cookie-policy" element={<CookiePolicyPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Route>
 

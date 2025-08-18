@@ -2,7 +2,7 @@
 import MenuContext from './MenuContext.jsx';
 
 // import Hooks
-import { useMemo, useContext } from "react";
+import { useMemo, useState, useContext } from "react";
 import useLang from '../hooks/useLang';
 import useMenuSections from "../hooks/useMenuSections";
 import { useViewport } from "../hooks/useViewport";
@@ -18,6 +18,9 @@ export default function MenuContextProvider({ children }) {
 
     // save lang
     const lang = useLang();
+
+    // takeOut menu state
+    const [takeOut, setTakeOut] = useState(false);
 
     // save sections
     const sections = useMenuSections();
@@ -59,7 +62,7 @@ export default function MenuContextProvider({ children }) {
     const productCategories = categories.map(category => ({
         id: category.id,
         key: category.key,
-        takeout: category.takeout,
+        takeOut: category.takeOut,
         title: lang === 'it' ? category.title_it : category.title_en,
         subtitle: lang === 'it' ? category.subtitle_it : category.subtitle_en,
         products: categorizedProducts[category.key] ?? [],
@@ -71,7 +74,7 @@ export default function MenuContextProvider({ children }) {
     const navCategories = [{
         id: 0,
         key: 'doughts',
-        takeout: true,
+        takeOut: true,
         title: lang === 'it' ? 'Impasti' : 'Doughts',
         subtitle: undefined,
         ref: sections.doughs ? sections.doughs : undefined
@@ -91,6 +94,7 @@ export default function MenuContextProvider({ children }) {
             navCategories,
             currentSection,
             allergens,
+            takeOut, setTakeOut
         }}>
             {children}
         </MenuContext.Provider>

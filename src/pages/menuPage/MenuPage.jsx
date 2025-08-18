@@ -14,11 +14,11 @@ export default function MenuPage() {
         <>
             <MenuContextProvider>
                 {/* menuJumbo */}
-                <section className={styles.menuJumbo}>
+                {/* <section className={styles.menuJumbo}>
                     <p>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem obcaecati nihil similique, iusto tempore, nisi temporibus pariatur vel ad maxime, accusamus non neque consectetur? Aliquam porro inventore sit fugit voluptatibus?
                     </p>
-                </section>
+                </section> */}
 
                 {/* menuSection */}
                 <MenuSection styles={styles} />

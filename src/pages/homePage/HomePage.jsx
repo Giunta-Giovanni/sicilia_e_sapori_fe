@@ -13,7 +13,7 @@ import styles from './HomePage.module.css';
 
 //import assets
 import { icons } from '../../assets/svg/general/icons';
-import pizzas from '/pizzas.png';
+import pizzas from '/pizza.jpg';
 import mappa from '/mappa.png';
 
 

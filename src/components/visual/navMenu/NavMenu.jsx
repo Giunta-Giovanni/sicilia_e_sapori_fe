@@ -19,11 +19,16 @@ export default function NavMenu({ isMenuOpen, setIsMenuOpen, hasMenuInteracted, 
 
     // save context
     const { handleClick, SlowScrollTo, lang, isMobile, isTablet } = useContext(GlobalContext);
-    const { navCategories, currentSection } = useContext(MenuContext);
+    const { navCategories, currentSection, takeOut } = useContext(MenuContext);
 
     // save icons
-    const { allergensDoc, plate, filterIcon } = icons;
+    const { allergensDoc, plate, filterIcon, takeAway } = icons;
 
+    const filteredCategories = takeOut
+        ? navCategories.filter(cat => cat.takeOut)
+        : navCategories;
+
+    const menutitle = takeOut ? lang === "it" ? "Menù d'asporto" : "Take-Out Menù" : lang === "it" ? "Menù al Tavolo" : "Dine-In Menù"
     // RENDER
     return (
 
@@ -34,7 +39,7 @@ export default function NavMenu({ isMenuOpen, setIsMenuOpen, hasMenuInteracted, 
             <nav className={styles.navbar}>
 
                 {/* pcTitle */}
-                <h4 className={styles.pcTitle}>Menù</h4>
+                <h4 className={styles.pcTitle}> {menutitle}</h4>
 
                 {/* navBarItems */}
                 <div className={styles.navbarItems}>
@@ -52,7 +57,7 @@ export default function NavMenu({ isMenuOpen, setIsMenuOpen, hasMenuInteracted, 
                     <div className={styles.col} >
                         {/*item, navMenu */}
                         <div className={`${styles.item} ${styles.navMenu}`} onClick={() => handleClick(isMenuOpen, setIsMenuOpen, setHasMenuInteracted)}>
-                            <img src={plate} alt="plate" />
+                            <img src={takeOut ? takeAway : plate} alt="plate" />
                             <span>Menù</span>
                         </div>
                     </div>
@@ -84,7 +89,7 @@ export default function NavMenu({ isMenuOpen, setIsMenuOpen, hasMenuInteracted, 
                 <div className={`${styles.boxNavList} ${isMenuOpen ? styles.isOpen : ''}`}>
                     {/* navList */}
                     <ul className={`${styles.navList} ${isMenuOpen ? styles.isOpen : ''} ${!isMenuOpen && hasMenuInteracted ? styles.isClosed : ''}`}>
-                        {navCategories.map(category =>
+                        {filteredCategories.map(category =>
                             <li
                                 key={category.id}
                                 className={currentSection === category.key ? styles.active : ''}

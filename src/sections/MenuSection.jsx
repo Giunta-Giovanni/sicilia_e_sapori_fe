@@ -2,6 +2,7 @@
 import { useState, useEffect, useContext } from 'react';
 
 // import Context
+import GlobalContext from '../context/GlobalContext';
 import MenuContext from '../context/MenuContext';
 
 // import Components
@@ -14,6 +15,11 @@ import FiltersPopUp from '../components/visual/filtersPopUp/FiltersPopUp';
 import { icons } from '../assets/svg/general/icons';
 
 export default function MenuSection({ styles }) {
+
+
+    const { lang } = useContext(GlobalContext)
+    // Menu context 
+    const { takeOut, setTakeOut } = useContext(MenuContext)
 
     // Icons
     const { arrowDownBrown } = icons;
@@ -52,7 +58,6 @@ export default function MenuSection({ styles }) {
     // Filters state
     const [selectedFilters, setSelectedFilters] = useState(initialSelectedFilters);
 
-
     // add no scroll to body when pop up is open
     useEffect(() => {
         if (isAllergenOpen || isFilterOpen) {
@@ -72,10 +77,27 @@ export default function MenuSection({ styles }) {
         // menuSection
         <section className={styles.menuSection}>
 
+            <div className={styles.boxChooseMenu}>
+                <button
+                    onClick={() => setTakeOut(false)}
+                    className={`${styles.chooseMenu} 
+                ${takeOut ? null : styles.active}`}
+                >
+                    {lang === "it" ? "AL TAVOLO" : "DINE-IN"}
+                </button>
+                <button
+                    onClick={() => setTakeOut(true)}
+                    className={`${styles.chooseMenu} ${takeOut ? styles.active : null}`}
+                >
+                    {lang === "it" ? "D'ASPORTO" : "TAKE-OUT"}
+                </button>
+            </div>
+
             {/* introduction */}
             <div className={styles.introduction}>
-                <h2>MENÚ</h2>
-                <img src={arrowDownBrown} alt="arrow down" />
+
+                <h2>{takeOut ? lang === "it" ? "MENÚ D'ASPORTO" : "TAKE-OUT MENÚ" : lang === "it" ? "MENÚ AL TAVOLO" : "DINE-IN MENÚ"}</h2>
+                {/* <img src={arrowDownBrown} alt="arrow down" /> */}
             </div>
 
             {/* menu */}

@@ -8,7 +8,7 @@ import GlobalContext from '../context/GlobalContext';
 import Typewriter from "../components/technical/Typewriter";
 
 //import content
-import jumboVideo from "/video/jumbo2.mp4";
+import jumboVideo from "/video/jumbo.mp4";
 import jumboPoster from "/video/poster2.png";
 
 //import assets

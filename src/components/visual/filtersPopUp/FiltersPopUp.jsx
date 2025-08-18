@@ -122,7 +122,7 @@ export default function FiltersPopUp({ isFilterOpen, setIsFilterOpen, selectedFi
                                     />
 
                                     {/* icon */}
-                                    <span className={`${styles.icon} ${styles.checkmark}`}>
+                                    <span className={`${styles.icon} ${styles.checkmark} ${styles.preferences}`}>
 
                                         {/* spicy */}
                                         <img id={styles.spicy} src={spicy} alt="" />
@@ -141,7 +141,7 @@ export default function FiltersPopUp({ isFilterOpen, setIsFilterOpen, selectedFi
                                     />
 
                                     {/* icon */}
-                                    <span className={`${styles.icon} ${styles.checkmark}`}>
+                                    <span className={`${styles.icon} ${styles.checkmark} ${styles.preferences}`}>
 
                                         <img src={vegetarian} alt="" />
                                     </span>
