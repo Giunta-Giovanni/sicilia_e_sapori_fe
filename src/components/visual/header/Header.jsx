@@ -1,6 +1,6 @@
 // import Hooks
 import { useState, useEffect } from "react";
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import { Link, useNavigate, useLocation, NavLink } from "react-router-dom";
 import useLang from "../../../hooks/useLang";
 
 // import Styles
@@ -29,6 +29,7 @@ export default function Header() {
 
     // save location
     const aboutUs = location.pathname == "/it/about-us" || location.pathname == "/en/about-us";
+    const menu = location.pathname == "/it/menu" || location.pathname == "/en/menu";
     const home = location.pathname == "/it/" || location.pathname == "/en/";
 
     // console.log(home);
@@ -100,14 +101,14 @@ export default function Header() {
 
                 {/* headerMenuSection */}
                 <section className={`${styles.headerMenuSection} ${styles.hoverAnimation}`}>
-                    <Link to={lang === 'en' ? '/en/' : '/it/'} onClick={toggleMenu}>HOME</Link>
-                    <Link to={lang === 'en' ? '/en/menu' : '/it/menu'} onClick={toggleMenu}>MENÙ</Link>
-                    <Link to={lang === 'en' ? '/en/about-us' : '/it/about-us'} onClick={toggleMenu}>CHI SIAMO</Link>
+                    <Link className={home? styles.active:""} to={lang === 'en' ? '/en/' : '/it/'} onClick={toggleMenu}>HOME</Link>
+                    <Link className={menu? styles.active:""} to={lang === 'en' ? '/en/menu' : '/it/menu'} onClick={toggleMenu}>MENÙ</Link>
+                    <Link className={aboutUs? styles.active:""}to={lang === 'en' ? '/en/about-us' : '/it/about-us'} onClick={toggleMenu}>{lang === 'it' ? "CHI SIAMO":"ABOUT US"}</Link>
                 </section>
 
                 {/* headerMenuSectionSecondary */}
                 <section className={`${styles.headerMenuSection} ${styles.secondary}`}>
-                    <button
+                    <button className={lang === 'it'? styles.active: ""}
                         onClick={() => {
                             switchLang('it');
                             toggleMenu();
@@ -116,7 +117,7 @@ export default function Header() {
                         <Flag code="it" className={styles.flagIcon} />
                     </button>
 
-                    <button
+                    <button className={lang === 'en'? styles.active: ""}
                         onClick={() => {
                             switchLang('en');
                             toggleMenu();
