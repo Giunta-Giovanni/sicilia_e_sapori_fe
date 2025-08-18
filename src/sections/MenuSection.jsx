@@ -22,7 +22,7 @@ export default function MenuSection({ styles }) {
     const { takeOut, setTakeOut } = useContext(MenuContext)
 
     // Icons
-    const { arrowDownBrown } = icons;
+    // const { arrowDownBrown } = icons;
 
     // Initial Selected Filters
     const initialSelectedFilters = {
@@ -89,7 +89,7 @@ export default function MenuSection({ styles }) {
                     onClick={() => setTakeOut(true)}
                     className={`${styles.chooseMenu} ${takeOut ? styles.active : null}`}
                 >
-                    {lang === "it" ? "D'ASPORTO" : "TAKE-OUT"}
+                    {lang === "it" ? "D'ASPORTO" : "TAKE-AWAY"}
                 </button>
             </div>
 
