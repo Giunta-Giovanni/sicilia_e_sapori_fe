@@ -12,7 +12,8 @@
 /* hero */
 .hero {
     position: relative;
-    top: -60px;
+    /* top: -60px; */
+    margin-bottom: 3rem;
 }
 
 .hero video {
