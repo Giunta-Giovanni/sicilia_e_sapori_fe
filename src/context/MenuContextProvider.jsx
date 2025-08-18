@@ -73,9 +73,9 @@ export default function MenuContextProvider({ children }) {
     // add dought categories
     const navCategories = [{
         id: 0,
-        key: 'doughts',
+        key: 'doughs',
         takeOut: true,
-        title: lang === 'it' ? 'Impasti' : 'Doughts',
+        title: lang === 'it' ? 'Impasti' : 'Doughs',
         subtitle: undefined,
         ref: sections.doughs ? sections.doughs : undefined
     }, ...productCategories];

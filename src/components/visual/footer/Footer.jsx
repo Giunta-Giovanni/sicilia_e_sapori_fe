@@ -40,7 +40,7 @@ export default function Footer() {
             <img className={styles.logo} src={aboutUs ? logoBrown : logoWhite} alt='sicilia e sapori' />
 
             {/* review */}
-            <h6>{lang === 'it' ? 'Se la pizza ti è piaciuta' : 'If you enjoyed the pizza'}</h6>
+            <h6>{lang === 'it' ? 'Se la pizza ti è piaciuta' : 'If you enjoyed your pizza'}</h6>
             <h4>{lang === 'it' ? 'Lascia una recensione' : 'Leave us a review'}</h4>
             <div className={styles.channels}>
                 {/* trip advisor */}
@@ -54,7 +54,7 @@ export default function Footer() {
             </div>
 
             {/* social*/}
-            <h6>{lang === 'it' ? 'Seguici sui Social' : 'Follow us on socials'}</h6>
+            <h6>{lang === 'it' ? 'Seguici sui Social' : 'Follow us on Social Networks'}</h6>
             <div className={`${styles.socials} ${styles.channels}`}>
                 <a href="https://www.facebook.com/siciliaesaporipozzallo" target="_blank" rel="noopener noreferrer">FACEBOOK</a>
                 <a href="https://www.instagram.com/siciliaesapori" target="_blank" rel="noopener noreferrer">INSTAGRAM</a>

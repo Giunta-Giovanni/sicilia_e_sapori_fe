@@ -57,7 +57,7 @@ export default function AllergenPopUp({ isAllergenOpen, setIsAllergenOpen }) {
                     {/* regulation */}
                     <p className={styles.regulation}>
                         {lang === 'it'
-                            ? "In ottemperanza al Regolamento UE 1169/2011, informiamo la gentile clientela che alcuni piatti possono contenere allergeni. Al di sopra è riportata la legenda degli allergeni rappresentati con icone."
+                            ? "In ottemperanza al Regolamento UE 1169/2011, informiamo la gentile clientela che alcuni piatti possono contenere allergeni. Qui sopra è riportata la legenda degli allergeni."
                             : "In compliance with EU Regulation 1169/2011, we inform our valued customers that some dishes may contain allergens. The icons above represent the allergen legend."
                         }
                     </p>

@@ -51,8 +51,8 @@ export default function AboutPage() {
             </div>
 
             <div class={styles.center}>
-                <h2>{lang === 'it' ? 'Tecnica e Gusto' : 'Craftmanship and Flavour'}</h2>
-                <h5>{lang === 'it' ? 'Campionati mondiali di Pizza' : 'World Pizza Championships'}</h5>
+                {/* <h2>{lang === 'it' ? 'Tecnica e Gusto' : 'Craftmanship and Flavour'}</h2> */}
+                <h2>{lang === 'it' ? 'Campionati mondiali di Pizza' : 'World Pizza Championships'}</h2>
             </div>
 
             <div class={styles.dx}>
@@ -97,7 +97,7 @@ export default function AboutPage() {
         {/* presentationDiv */}
 
 
-        <h3 class={styles.presentationTitle}>{lang === 'it' ? 'Dentro la nostra cucina' : "In the heart of our kitchen"}</h3>
+        {/* <h3 class={styles.presentationTitle}>{lang === 'it' ? 'Dentro la nostra cucina' : "In the heart of our kitchen"}</h3> */}
 
         {/* section1 + noline*/}
         <div class={`${styles.presentationDivWrapper} ${styles.nopadding}`}>
@@ -179,7 +179,7 @@ export default function AboutPage() {
                 </div>
                 {/* description */}
                 <div class={styles.description}>
-                    <h4>{lang === 'it' ? "Il nostro locale" : "Our place"}</h4>
+                    <h4>{lang === 'it' ? "Il nostro locale" : "Our pizzeria"}</h4>
                     <p>{lang === 'it'
                         ? "Il nostro locale, che nasce dalla passione e dalla tradizione, ti aspetta PROPRIO QUI per regalarti un'esperienza autentica. Ogni dettaglio è pensato per farti sentire come a casa."
                         : "Our place, born from passion and tradition, is waiting for you RIGHT HERE to offer an authentic experience. Every detail is designed to make you feel right at home."
