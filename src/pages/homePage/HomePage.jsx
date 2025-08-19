@@ -70,9 +70,9 @@ export default function HomePage() {
                         <p>
                             {lang === 'it'
                                 ?
-                                "Sicilia e Sapori vi invita a scoprire l'anima culinaria dell'isola e del Mediterraneo. Un omaggio ai sapori autentici, con la creatività del nostro chef. Tra la brezza marina e l'eco storico della torre Cabrera, assaporate la vera Sicilia."
+                                "I nostri impasti a lunga lievitazione, preparati con lievito madre e disponibili anche senza glutine, danno vita a pizze, scrocchiarelle, scrocchiapanini e dolci che raccontano la Sicilia in ogni morso. E se vuoi provare qualcosa di unico, lasciati conquistare dalla vera scrocchiarella: croccante, leggera e irresistibile."
                                 :
-                                "Sicilia e Sapori invites you to discover the culinary soul of Sicily and the Mediterranean. We pay homage to authentic flavors, brought to life by the creativity of our chef. Amidst the sea breeze and the historical echo of the Cabrera Tower, savor the true taste of Sicily."
+                                "Technique and passion come together at Sicilia e Sapori. Our long-rising doughs, made with sourdough starter and also available gluten-free, bring to life pizzas, scrocchiarelle, scrocchiapanini, and desserts that tell the story of Sicily in every bite. And if you want to try something truly unique, let yourself be won over by the authentic scrocchiarella: crispy, light, and irresistible."
                             }
 
                         </p>

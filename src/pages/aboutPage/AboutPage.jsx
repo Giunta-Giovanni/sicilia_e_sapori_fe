@@ -131,8 +131,10 @@ export default function AboutPage() {
                 <div class={styles.description}>
                     <h4>{lang === 'it' ? "Il forno rotante" : "The rotating oven"}</h4>
                     <p className={styles.descriptionOverlay}>{lang === 'it'
-                        ? "Il nostro forno rotante è il cuore pulsante della pizzeria, garantendo una cottura uniforme e perfetta per ogni pizza. Grazie al movimento continuo della pietra refrattaria, la temperatura si distribuisce in modo ottimale, esaltando sapori e consistenze uniche."
-                        : "Our rotating oven is the beating heart of the pizzeria, ensuring an even and perfect bake for every pizza. Thanks to the continuous movement of the refractory stone, heat is distributed optimally, enhancing unique flavors and textures."
+                        ? 
+                        "Il forno rotante è il cuore pulsante della nostra pizzeria. Grazie al movimento continuo della pietra refrattaria, la temperatura si distribuisce in modo ottimale, garantendo una cottura uniforme e perfetta per ogni pizza."
+                        :
+                        "The beating heart of our pizzeria: the rotating oven. Thanks to the continuous movement of the refractory stone, the heat is evenly distributed, ensuring perfect, uniform baking for every pizza."
                     }
                     </p>
                 </div>
@@ -150,8 +152,10 @@ export default function AboutPage() {
                 < div className={`${styles.description} ${styles.line}`}>
                     <h4>{lang === 'it' ? "Il lievito madre" : "Sourdough starter"}</h4>
                     <p>{lang === 'it'
-                        ? "Il nostro lievito madre è il segreto della pizza artigianale, capace di donare una lievitazione lenta e naturale. Questo processo esalta il gusto e la digeribilità, regalando una pasta soffice e fragrante."
-                        : "Our natural sourdough starter is the secret behind our artisan pizza, enabling a slow and natural fermentation. This process enhances flavor and digestibility, delivering a soft and fragrant dough."
+                        ? 
+                        "Il segreto della pizza artigianale sta tutto nel lievito madre. Il nostro dona agli impasti una lievitazione lenta e naturale. Questo processo esalta il gusto e la digeribilità e regala una pasta soffice e fragrante."
+                        : 
+                        "The secret of artisanal pizza lies in the sourdough starter. Ours gives the dough a slow, natural rise that enhances flavor and digestibility, resulting in a soft, fragrant crust."
                     }
                     </p>
                 </div >
@@ -197,8 +201,10 @@ export default function AboutPage() {
                 <div class={styles.description}>
                     <h4>{lang === 'it' ? "Il nostro locale" : "Our pizzeria"}</h4>
                     <p>{lang === 'it'
-                        ? "Il nostro locale, che nasce dalla passione e dalla tradizione, ti aspetta PROPRIO QUI per regalarti un'esperienza autentica. Ogni dettaglio è pensato per farti sentire come a casa."
-                        : "Our place, born from passion and tradition, is waiting for you RIGHT HERE to offer an authentic experience. Every detail is designed to make you feel right at home."
+                        ? 
+                        "Inaugurato nel 2015, Sicilia e Sapori torna sotto la gestione originale nel 2025, portando tante novità sia al locale che sul menù.L’ispirazione arriva dalla Sicilia antica e genuina, fatta di pietra e grano che ondeggia al sole, e decorata dai colori vivaci delle carte siciliane. Un omaggio alle nostre radici, da assaporare ogni giorno.
+                        : 
+                        "Founded in 2015, Sicilia e Sapori returned to its original management in 2025, bringing many new ideas to both the restaurant and the menu.Our inspiration comes from the ancient, authentic Sicily: stone walls, golden fields of grain swaying under the sun, and the vibrant colors of traditional Sicilian cards. A tribute to our roots, to be savored every day."
                     }
                     </p>
                 </div>
