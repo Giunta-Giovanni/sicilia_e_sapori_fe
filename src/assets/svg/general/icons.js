@@ -15,6 +15,8 @@ import numb1 from './1.svg';
 import numb2 from './2.svg';
 import onPlace from './on-place.svg';
 import oven from './oven.svg';
+import phoneBrown from './phone-brown.svg';
+import phoneWhite from './phone-white.svg'
 import pizzaBox from './pizza-box.svg';
 import pizzaPeel from './pizza-peel.svg';
 import plate from './plate.svg';
@@ -44,6 +46,8 @@ export const icons = {
     numb2,
     onPlace,
     oven,
+    phoneBrown,
+    phoneWhite,
     pizzaBox,
     pizzaPeel,
     plate,

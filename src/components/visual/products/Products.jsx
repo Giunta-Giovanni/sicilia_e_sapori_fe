@@ -37,7 +37,7 @@ export default function Products({ selectedFilters }) {
                 <h5>
                     {lang === 'it'
                         ? 'Per tutti i nostri impasti usiamo lievito madre a lunga maturazione'
-                        : 'All our doughs are made using long-fermentation sourdough.'}
+                        : 'All of our doughs are made with long-fermentation sourdough.'}
                 </h5>
 
                 <div className={styles.extra}>
@@ -166,7 +166,7 @@ export default function Products({ selectedFilters }) {
                             </>
                         ) : (
                             <>
-                                {takeOut ? "take_out charge €1,00" : " Cover charge €2.00"} | Extras from €1 to €3, depending on the type of product.
+                                {takeOut ? "Take-Away charge €1,00" : "Service charge €2.00"} | Extras from €1 to €3, depending on the product.
                                 <br />
                                 *In case of lack of fresh ingredients, frozen or blast-chilled products will be used
                             </>

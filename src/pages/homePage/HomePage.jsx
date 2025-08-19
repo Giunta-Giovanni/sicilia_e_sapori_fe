@@ -114,12 +114,12 @@ export default function HomePage() {
                         {/* typeBox */}
                         <div className={styles.typeBox}>
                             <img src={onPlace} alt="on Place" />
-                            <p>{lang === 'it' ? 'Locale' : "On Place"}</p>
+                            <p>{lang === 'it' ? 'Locale' : "Dine-in"}</p>
                         </div>
                         {/* typeBox */}
                         <div className={styles.typeBox}>
                             <img src={pizzaBox} alt="on Place" />
-                            <p>{lang === 'it' ? 'Asporto' : "Take & Way"}</p>
+                            <p>{lang === 'it' ? 'Asporto' : "Take-Away"}</p>
                         </div>
                         {/* typeBox */}
                         <div className={styles.typeBox}>
@@ -132,15 +132,15 @@ export default function HomePage() {
                 < div className={styles.when} >
                     <h3 className={styles.title}>{lang === 'it' ? 'Orario' : "Hours"}</h3>
                     {/* days */}
-                    <p className={styles.days}>{lang === 'it' ? 'Mercoledì - Lunedì' : "Wednesday - Monday"}</p>
+                    <p className={styles.days}>{lang === 'it' ? 'Lunedì - Domenica' : "Monday - Sunday"}</p>
                     <p>18:00 - 24:00</p>
-                    <p>{lang === 'it' ? 'Martedì Chiuso' : "Closed Tuesday"}</p>
+                    <p>{lang === 'it' ? 'Martedì Chiuso' : "Closed on Tuesday"}</p>
                 </div >
                 {/* contact */}
                 < div className={styles.contact} >
                     <h3 className={styles.title}>{lang === 'it' ? 'Contattaci' : "Contacts"}</h3>
-                    <p>{lang === 'it' ? 'Per info e prenotazione chiamare' : "For information and reservations call"}</p>
-                    <p>+39 3311754757</p>
+                    <p>{lang === 'it' ? 'Per info e prenotazioni chiama' : "For informations and reservations call"}</p>
+                    <a href='tel:+39 3311754757'>+39 3311754757</a>
                 </div >
             </section >
 
@@ -152,7 +152,7 @@ export default function HomePage() {
                     <img src={mappa} alt="maps" />
                     {/* BtnStyle */}
                     <button className={styles.btnStyle}>
-                        <a href="https://maps.app.goo.gl/RBfYmm6kZDBRWpce8" target="_blank" rel="noopener noreferrer" >RAGGIUNGICI</a>
+                        <a href="https://maps.app.goo.gl/RBfYmm6kZDBRWpce8" target="_blank" rel="noopener noreferrer" >{lang === 'it' ?'RAGGIUNGICI':'WE ARE HERE'}</a>
                     </button>
                 </div>
             </section >

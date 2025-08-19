@@ -1,6 +1,6 @@
 // import Hooks
 import { useState, useEffect } from "react";
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import { Link, useNavigate, useLocation, NavLink } from "react-router-dom";
 import useLang from "../../../hooks/useLang";
 
 // import Styles
@@ -19,7 +19,7 @@ import linearLogoWhite from "../../../assets/svg/logo/logo-header-white.svg"
 export default function Header() {
 
     // Save
-    const { facebookWhite, instagramWhite } = icons;
+    const { facebookWhite, instagramWhite, phoneBrown } = icons;
     // Save Language
     const lang = useLang();
     // Save Location
@@ -76,7 +76,7 @@ export default function Header() {
         <header className={`
         ${styles.headerWrapper} 
         ${isOpen || aboutUs ? styles.inverted : null} 
-        ${home ? styles.noScroll : null} 
+        ${home || isOpen ? styles.noScroll : null} 
         ${home && scrolled ? styles.scroll : null}
          `}>
             {/* left */}
@@ -102,12 +102,12 @@ export default function Header() {
                 <section className={`${styles.headerMenuSection} ${styles.hoverAnimation}`}>
                     <Link to={lang === 'en' ? '/en/' : '/it/'} onClick={toggleMenu}>HOME</Link>
                     <Link to={lang === 'en' ? '/en/menu' : '/it/menu'} onClick={toggleMenu}>MENÙ</Link>
-                    <Link to={lang === 'en' ? '/en/about-us' : '/it/about-us'} onClick={toggleMenu}>CHI SIAMO</Link>
+                    <Link to={lang === 'en' ? '/en/about-us' : '/it/about-us'} onClick={toggleMenu}>{lang === 'it' ? "CHI SIAMO":"ABOUT US"}</Link>
                 </section>
 
                 {/* headerMenuSectionSecondary */}
                 <section className={`${styles.headerMenuSection} ${styles.secondary}`}>
-                    <button
+                    <button className={lang === 'it'? styles.active: ""}
                         onClick={() => {
                             switchLang('it');
                             toggleMenu();
@@ -116,7 +116,7 @@ export default function Header() {
                         <Flag code="it" className={styles.flagIcon} />
                     </button>
 
-                    <button
+                    <button className={lang === 'en'? styles.active: ""}
                         onClick={() => {
                             switchLang('en');
                             toggleMenu();
@@ -134,6 +134,9 @@ export default function Header() {
                     <a href="https://www.instagram.com/siciliaesapori" target="_blank" rel="noopener noreferrer">
                         <img className={styles.socialLogo} src={instagramWhite} alt="instagram" />
                     </a>
+                    <a href='tel:+39 3311754757'>
+                    <img className={styles.socialLogo} src={phoneBrown} alt="Phone Number" />
+                </a>
                 </section>
             </nav>
         </header >

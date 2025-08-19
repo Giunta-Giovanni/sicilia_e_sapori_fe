@@ -189,7 +189,7 @@
 
 /* product -> description */
 .products .description {
-    font-weight: 150;
+    font-weight: 250;
     font-size: 0.85rem;
     padding-right: 0.5rem;
 
@@ -303,7 +303,7 @@
         bottom: 0;
         background-color: var(--primary-white);
         font-size: 0.6rem;
-        padding: 0.5rem 1rem 1.5rem 1rem;
-        border: 0.1px solid var(--primary-brown);
+        padding: 0.5rem 1rem 4rem 1rem;
+        border-top: 0.5px solid var(--primary-brown);
     }
 }

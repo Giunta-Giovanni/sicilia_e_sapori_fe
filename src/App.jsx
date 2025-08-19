@@ -43,6 +43,7 @@ export default function App() {
             <Route index element={<HomePage />} />
             <Route path="menu" element={<MenuPage />} />
             <Route path="about-us" element={<AboutPage />} />
+            <Route path="privacy-policy" element={<PrivacyPolicyPage />} />
             <Route path="cookie-policy" element={<CookiePolicyPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Route>
