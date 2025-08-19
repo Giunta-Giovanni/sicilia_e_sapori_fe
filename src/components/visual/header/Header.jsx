@@ -76,7 +76,7 @@ export default function Header() {
         <header className={`
         ${styles.headerWrapper} 
         ${isOpen || aboutUs ? styles.inverted : null} 
-        ${home ? styles.noScroll : null} 
+        ${home || isOpen ? styles.noScroll : null} 
         ${home && scrolled ? styles.scroll : null}
          `}>
             {/* left */}
