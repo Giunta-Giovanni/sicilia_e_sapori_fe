@@ -100,26 +100,45 @@ export default function CookiePolicyPage() {
       <h5 className={style.title}>
         {lang === "it" ? "Tipi di cookie che utilizziamo" : "Types of Cookies we use"}
       </h5>
-      <div className={style.ckyAuditTableElement}></div>
+          {lang === "it" ? (
+            <>
+            <p className={style.cookiePolicyP}>
+              Utilizziamo solo cookie tecnici essenziali, necessari per:
+            </p>
+            <ul className={style.cookiePolicyul}>
+              <li>Recuperare i dati dal nostro backend per mostrare contenuti come le pizze;</li>
+              <li>Mantenere il corretto funzionamento del sito;</li>
+              <li>Garantire la sicurezza delle interazioni con il sito.</li>
+            </ul>
+            </>
+          ):(
+            <>
+            <p className={style.cookiePolicyP}>
+            Cookies are small text files stored on your device. They help the website function properly and enhance user experience.
+            </p>
+              We only use essential technical cookies necessary to:
+                <ul className={style.cookiePolicyul}>
+                <li>Fetch data from our backend to display content such as pizzas;</li>
+                <li>Keep the website functioning correctly;</li>
+                <li>Ensure secure interactions with the website.</li>
+                </ul>
+
+            </>
+          )}
 
       <h5 className={style.title} style={{ marginBottom: "20px" }}>
         {lang === "it" ? "Gestisci le preferenze sui cookie" : "Manage cookie preferences"}
       </h5>
 
-      <a className={style.ckyBannerElement}>
-        {lang === "it" ? "Impostazioni Cookie" : "Cookie Settings"}
-      </a>
-      <br />
+      <p className={style.cookiePolicyP}>
+        {lang === "it"
+          ? "Puoi modificare le tue preferenze sui cookie in qualsiasi momento cliccando sull’icona dedicata in pagina. Questo ti permetterà di rivedere le scelte o revocare il consenso."
+          : "You can change your cookie preferences at any time by clicking the dedicated icon on the page. This lets you review your choices or withdraw consent."}
+      </p>
 
       <div className={style.cookiePolicyP}>
         {lang === "it" ? (
           <>
-            <p>
-              Puoi modificare le tue preferenze sui cookie in qualsiasi momento 
-              cliccando sul pulsante qui sopra. Questo ti permetterà di rivedere 
-              il banner del consenso e modificare le scelte o revocare il consenso 
-              in qualsiasi momento.
-            </p>
             <p>
               Inoltre, i vari browser offrono metodi differenti per bloccare o 
               eliminare i cookie. Qui sotto trovi i link alle guide ufficiali dei 
@@ -128,11 +147,6 @@ export default function CookiePolicyPage() {
           </>
         ) : (
           <>
-            <p>
-              You can change your cookie preferences any time by clicking the above 
-              button. This will let you revisit the cookie consent banner and change 
-              your preferences or withdraw your consent right away.
-            </p>
             <p>
               In addition to this, different browsers provide different methods to 
               block and delete cookies used by websites. Listed below are the links 

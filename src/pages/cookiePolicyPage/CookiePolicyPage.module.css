@@ -27,6 +27,13 @@
   color: #444;
   margin-bottom: 1rem;
 }
+.cookiePolicyul{
+    margin: 1rem;
+}
+.cookiePolicyul li{
+  list-style:circle;
+}
+
 
 /* bottone "Cookie Settings" */
 .ckyBannerElement {
