@@ -1,5 +1,5 @@
 // import hooks
-import { useState, useContext } from 'react';
+import { useContext } from 'react';
 
 // import Context
 import GlobalContext from '../../../context/GlobalContext';
@@ -15,13 +15,13 @@ import { icons } from '../../../assets/svg/general/icons';
 export default function Products({ selectedFilters }) {
 
     // Gloabl context
-    const { lang } = useContext(GlobalContext);
+    const { lang, isDarkMode } = useContext(GlobalContext);
 
     // Menu context
     const { productCategories, sections, allergens, takeOut } = useContext(MenuContext);
 
     // icons
-    const { oven, glutenFree, rustic, wholeWheat } = icons;
+    const { ovenBrown, ovenWhite, glutenFreeBrown,glutenFreeWhite, rusticBrown, rusticWhite, wholeWheatBrown, wholeWheatWhite } = icons;
 
     const filteredCategories = takeOut
         ? productCategories.filter(cat => cat.takeOut)
@@ -51,7 +51,7 @@ export default function Products({ selectedFilters }) {
                 {/* wholeWheat */}
                 <div className={styles.dough} id={styles.wholeWheat}>
                     <div className={styles.leftCol}>
-                        <img src={wholeWheat} alt="" />
+                        <img src={isDarkMode? wholeWheatWhite : wholeWheatBrown} alt="" />
                         <h6>
                             {lang === 'it'
                                 ? 'Integrale ai grani antichi siciliani'
@@ -69,7 +69,7 @@ export default function Products({ selectedFilters }) {
                 {/* glutenFree */}
                 <div className={styles.dough} id={styles.glutenFree}>
                     <div className={styles.leftCol}>
-                        <img src={glutenFree} alt="" />
+                        <img src={isDarkMode? glutenFreeWhite : glutenFreeBrown} alt="" />
 
                         <h6>{lang === 'it' ? 'Senza glutine' : 'Gluten-free'}</h6>
                     </div>
@@ -85,7 +85,7 @@ export default function Products({ selectedFilters }) {
                 {/* rustic */}
                 <div className={styles.dough} id={styles.rustic}>
                     <div className={styles.leftCol}>
-                        <img src={rustic} alt="" />
+                        <img src={isDarkMode? rusticWhite : rusticBrown} alt="" />
 
                         <h6>
                             {lang === 'it'
@@ -103,7 +103,7 @@ export default function Products({ selectedFilters }) {
                 {/* crispy */}
                 <div className={styles.dough} id={styles.crispy}>
                     <div className={styles.leftCol}>
-                        <img src={oven} alt="" />
+                        <img src={isDarkMode? ovenWhite : ovenBrown} alt="" />
 
                         <h6>
                             {lang === 'it'

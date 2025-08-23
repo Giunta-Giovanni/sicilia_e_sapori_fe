@@ -11,9 +11,6 @@ import Products from '../components/visual/products/Products';
 import AllergensPopUp from '../components/visual/allergensPopUp/AllergensPopUp';
 import FiltersPopUp from '../components/visual/filtersPopUp/FiltersPopUp';
 
-// import assets
-import { icons } from '../assets/svg/general/icons';
-
 export default function MenuSection({ styles }) {
 
 
@@ -21,8 +18,6 @@ export default function MenuSection({ styles }) {
     // Menu context 
     const { takeOut, setTakeOut } = useContext(MenuContext)
 
-    // Icons
-    // const { arrowDownBrown } = icons;
 
     // Initial Selected Filters
     const initialSelectedFilters = {

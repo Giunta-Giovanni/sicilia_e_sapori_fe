@@ -10,11 +10,11 @@ export default function useDarkMode(){
         
         //imposta lo stato del dark mode
         setDarkMode(mediaQuery.matches);
-        console.log("questo è il match", mediaQuery.matches );
+        // console.log("questo è il match", mediaQuery.matches );
 
         //listener se l'utente cambia tema nel sistema
         const handleChange = (event) => setDarkMode (event.matches);
-        console.log("questo è l'evento match", event.matches );
+        // console.log("questo è l'evento match", event.matches );
 
         mediaQuery.addEventListener("change", handleChange);
 

@@ -14,14 +14,6 @@
     /* background-color: rgb(154, 153, 157); */
 }
 
-@media (max-width:576px) {
-    .rightCol {
-        gap: 0.3rem;
-        align-items: center;
-    }
-}
-
-
 /* boxProducts */
 .boxProducts {
     flex: 1;
@@ -29,12 +21,6 @@
     padding: 0;
     /* debug */
     /* background-color: rgb(45, 26, 115); */
-}
-
-@media (max-width:768px) {
-    .boxProducts {
-        margin: 0 auto;
-    }
 }
 
 .boxProducts h4,
@@ -65,17 +51,6 @@
     margin: 1rem 0;
 }
 
-@media (max-width:768px) {
-
-    .dough {
-        margin: 2rem 1rem;
-    }
-
-    #wholeWheat {
-        margin: 0.5rem 1rem;
-    }
-}
-
 /* extra */
 .extra {
     display: flex;
@@ -88,18 +63,6 @@
     flex: 0.15;
 }
 
-
-
-@media (max-width:768px) {
-    .extra p {
-        padding: 1rem 1rem 0 0;
-
-    }
-
-}
-
-
-
 .dough .leftCol {
     display: flex;
     align-items: center;
@@ -108,9 +71,6 @@
 .dough .rightCol {
     justify-content: end;
 }
-
-
-
 
 .boxProducts img {
     width: 2rem;
@@ -124,19 +84,6 @@
     text-align: center;
     font-size: 0.9rem;
 }
-
-/* products */
-
-@media (max-width:768px) {
-    .boxProducts .products {
-        margin: 0 1rem;
-    }
-}
-
-
-
-
-
 
 
 
@@ -167,17 +114,12 @@
     text-align: center;
 }
 
-
-
-
 .products .title {
     display: flex;
     align-items: center;
     gap: 0.5rem;
     margin-bottom: 0.5rem;
 }
-
-
 
 .products .title img {
     width: 1rem;
@@ -223,25 +165,6 @@
 }
 
 /* product -> productPrice */
-
-
-
-
-@media (max-width:576px) {
-
-
-    .products .description {
-        padding-right: 1rem;
-    }
-
-
-    .flexBox {
-        flex-direction: row !important;
-        align-items: start !important;
-        width: 30% !important;
-    }
-}
-
 
 /* productPrice */
 .product .productPrice {
@@ -296,14 +219,62 @@
     padding: 1rem 0;
 }
 
+/**+****************
+DARK THEME
+********************/
+@media (prefers-color-scheme: dark) {
+    .extraInfo {
+        background-color: var(--primary-brown);
+    }
+
+}
+
+/**+****************
+TABLET VIEW
+********************/
 @media (max-width:768px) {
+    .boxProducts {
+        margin: 0 auto;
+    }
+    .dough {
+        margin: 2rem 1rem;
+    }
+
+    #wholeWheat {
+        margin: 0.5rem 1rem;
+    }
+    .extra p {
+        padding: 1rem 1rem 0 0;
+
+    }
+    .boxProducts .products {
+        margin: 0 1rem;
+    }
 
     .extraInfo {
-        position: sticky;
-        bottom: 0;
-        background-color: var(--primary-white);
         font-size: 0.6rem;
         padding: 0.5rem 1rem 4rem 1rem;
         border-top: 0.5px solid var(--primary-brown);
+    }
+}
+
+/**+****************
+MOBILE VIEW
+********************/
+@media (max-width:576px) {
+    .rightCol {
+        gap: 0.3rem;
+        align-items: center;
+    }
+
+    .products .description {
+        padding-right: 1rem;
+    }
+
+
+    .flexBox {
+        flex-direction: row !important;
+        align-items: start !important;
+        width: 30% !important;
     }
 }
