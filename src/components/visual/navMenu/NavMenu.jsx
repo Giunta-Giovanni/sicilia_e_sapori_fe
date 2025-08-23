@@ -18,11 +18,11 @@ import styles from './NavMenu.module.css';
 export default function NavMenu({ isMenuOpen, setIsMenuOpen, hasMenuInteracted, setHasMenuInteracted, isFilterOpen, setIsFilterOpen, isAllergenOpen, setIsAllergenOpen, selectedFilters }) {
 
     // save context
-    const { handleClick, SlowScrollTo, lang, isMobile, isTablet } = useContext(GlobalContext);
+    const { handleClick, SlowScrollTo, lang, isDarkMode, isMobile, isTablet } = useContext(GlobalContext);
     const { navCategories, currentSection, takeOut } = useContext(MenuContext);
 
     // save icons
-    const { allergensDoc, plate, filterIcon, takeAway } = icons;
+    const { allergensDocBrown, allergensDocWhite, plateBrown, plateWhite, filterIconBrown, filterIconWhite, takeAwayBrown, takeAwayWhite } = icons;
 
     const filteredCategories = takeOut
         ? navCategories.filter(cat => cat.takeOut)
@@ -48,7 +48,7 @@ export default function NavMenu({ isMenuOpen, setIsMenuOpen, hasMenuInteracted, 
                     <div className={styles.col}>
                         {/* item, navDoc */}
                         <div className={`${styles.item} ${styles.navDoc} ${styles.hoverUnderlineAnimation}`} onClick={() => handleClick(isAllergenOpen, setIsAllergenOpen)}>
-                            <img src={allergensDoc} alt="Allergens document" />
+                            <img src={isDarkMode?allergensDocWhite:allergensDocBrown} alt="Allergens document" />
                             <span>{lang === 'it' ? 'Allergeni' : 'Allergens'}</span>
                         </div>
                     </div>
@@ -57,7 +57,13 @@ export default function NavMenu({ isMenuOpen, setIsMenuOpen, hasMenuInteracted, 
                     <div className={styles.col} >
                         {/*item, navMenu */}
                         <div className={`${styles.item} ${styles.navMenu}`} onClick={() => handleClick(isMenuOpen, setIsMenuOpen, setHasMenuInteracted)}>
-                            <img src={takeOut ? takeAway : plate} alt="plate" />
+                            <img 
+                                src={takeOut 
+                                    ? (isDarkMode ? takeAwayWhite : takeAwayBrown) 
+                                    :   (isDarkMode ? plateWhite : plateBrown) 
+                                    }
+                                alt="plate" 
+                            />
                             <span>Menù</span>
                         </div>
                     </div>
@@ -67,7 +73,7 @@ export default function NavMenu({ isMenuOpen, setIsMenuOpen, hasMenuInteracted, 
                         {/* item, navFilter */}
                         <div className={`${styles.item} ${styles.navFilter} ${styles.hoverUnderlineAnimation}`} onClick={() => handleClick(isFilterOpen, setIsFilterOpen)}>
                             <div>
-                                <img src={filterIcon} alt="filter" />
+                                <img src={isDarkMode?filterIconWhite:filterIconBrown} alt="filter" />
                                 <p
                                     className={styles.counter}
                                     style={counter(selectedFilters) === 0
