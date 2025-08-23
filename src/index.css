@@ -1,97 +1,92 @@
+/* ========================== */
 /* GENERAL RULES */
+/* ========================== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* <html>, <body> noScroll */
 html.noScroll,
 body.noScroll {
   overflow: hidden;
 }
 
+/* ========================== */
+/* ROOT VARIABLES */
+/* ========================== */
 :root {
-  /* font */
-  font-family: "Raleway", serif !important;
-  font-weight: 300 !important;
-  font-size: 18px !important;
+  /* fonts */
+  --font-family: "Raleway", serif;
+  --font-weight-regular: 300;
+  --font-weight-light: 150;
+  --font-size-base: 18px;
 
-  /* colours */
-  --primary-brown: #311B04 !important;
-  --secondary-brown: #612D06 !important;
-  --terziary-brown: #7A3907 !important;
+  /* colors */
+  --primary-brown: #311B04;
+  --secondary-brown: #612D06;
+  --terziary-brown: #7A3907;
 
-  --primary-white: #F7F1E7 !important;
-  --secondary-white: #FEFDFC !important;
+  --primary-white: #F7F1E7;
+  --secondary-white: #FEFDFC;
 
-  --primary-gold: #B8860B !important;
-  --primary-red: #C0392B !important;
+  --primary-gold: #B8860B;
+  --primary-red: #C0392B;
 
-  /* background */
-  background-color: var(--primary-white) !important;
+  /* dynamic colors for theme */
+  --bg-color: var(--primary-white);
+  --text-color: var(--primary-brown);
 
   /* scrollbar */
   -ms-overflow-style: none;
   scrollbar-width: none;
-
-  /* blocco dark mode forzata */
-  color-scheme: light !important;
-  forced-color-adjust: none !important;
 }
 
-/* forza sfondo chiaro e testo scuro */
-html,
-body,
-main {
-  background-color: var(--primary-white) !important;
-  color: var(--primary-brown) !important;
-  forced-color-adjust: none !important;
-}
-
-/* evita alterazioni su immagini/media */
-img,
-video,
-svg,
-picture {
-  filter: none !important;
-  forced-color-adjust: none !important;
-}
-
-/* scrollbar */
 :root::-webkit-scrollbar {
   display: none;
 }
 
-/* preferenze scure del browser ignorate */
+/* ========================== */
+/* BODY DEFAULT STYLES */
+/* ========================== */
+body {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-regular);
+  font-size: var(--font-size-base);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+
+}
+
+/* ========================== */
+/* DARK / LIGHT MODE AUTOMATIC */
+/* ========================== */
 @media (prefers-color-scheme: dark) {
-  :root,
-  html,
-  body,
-  main {
-    color-scheme: light !important;
-    background-color: var(--primary-white) !important;
-    color: var(--primary-brown) !important;
-    forced-color-adjust: none !important;
+  :root {
+    --bg-color: var(--primary-brown);
+    --text-color: var(--primary-white);
   }
 }
 
+/* ========================== */
+/* RESPONSIVE FONT SIZE */
+/* ========================== */
 @media (max-width: 576px) {
-  :root {
+  body {
     font-size: 16px;
   }
 }
 
-/* <main> */
+/* ========================== */
+/* MAIN ELEMENTS */
+/* ========================== */
 main {
   position: relative;
-  background-color: var(--primary-white) !important;
-  color: var(--primary-brown) !important;
 }
 
 main.inverted {
-  background-color: var(--primary-brown) !important;
-  color: var(--primary-white) !important;
+  background-color: var(--primary-brown);
+  color: var(--primary-white);
 }
 
 #pageWrapper.noScroll {
@@ -99,74 +94,44 @@ main.inverted {
   overflow: hidden;
 }
 
-/* <h1>,<h2>,<h3>,<h4>,<h5>,<h6> */
-h1 {
-  font-size: 3rem;
-}
-h2 {
-  font-size: 2.45rem;
-  font-weight: 150;
-}
-h3 {
-  font-size: 1.95rem;
-  font-weight: 150;
-}
-h4 {
-  font-size: 1.56rem;
-  font-weight: 300;
-}
-h5 {
-  font-size: 1.25rem;
-  font-weight: 300;
-}
-h6 {
-  font-size: 1rem;
-  font-weight: 150;
-}
+/* HEADINGS */
+h1 { font-size: 3rem; }
+h2 { font-size: 2.45rem; font-weight: var(--font-weight-light); }
+h3 { font-size: 1.95rem; font-weight: var(--font-weight-light); }
+h4 { font-size: 1.56rem; font-weight: var(--font-weight-regular); }
+h5 { font-size: 1.25rem; font-weight: var(--font-weight-regular); }
+h6 { font-size: 1rem; font-weight: var(--font-weight-light); }
 
-/* <ul> -> <li> */
-ul li {
-  list-style: none;
-}
+/* LISTS & LINKS */
+ul li { list-style: none; }
+li a, a { text-decoration: none; }
 
-/* <li> <a> */
-li a {
-  text-decoration: none;
-}
+/* BUTTONS */
+button { all: unset; }
 
-a {
-  text-decoration: none;
-}
-
-/* <button> */
-button {
-  all: unset;
-}
-
+/* ========================== */
 /* SWIPER LIBRARY */
-/* dots position */
+/* ========================== */
 .swiper-pagination {
-  position: relative !important;
+  position: relative;
   margin-top: 10px;
   text-align: center;
 }
 
-/* dot */
 .swiper-pagination-bullet {
-  width: 0.5rem !important;
-  height: 0.5rem !important;
-  background: lightgray !important;
-  opacity: 0.5 !important;
-  margin: 0 0.2rem !important;
-  border-radius: 50% !important;
-  transition: 0.3s ease !important;
-  display: inline-block !important;
-  vertical-align: middle !important;
+  width: 0.5rem;
+  height: 0.5rem;
+  background: lightgray;
+  opacity: 0.5;
+  margin: 0 0.2rem;
+  border-radius: 50%;
+  transition: 0.3s ease;
+  display: inline-block;
+  vertical-align: middle;
 }
 
-/* active dot */
 .swiper-pagination-bullet-active {
-  width: 0.8rem !important;
-  height: 0.8rem !important;
-  opacity: 1 !important;
+  width: 0.8rem;
+  height: 0.8rem;
+  opacity: 1;
 }
