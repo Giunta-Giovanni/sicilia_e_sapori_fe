@@ -2,7 +2,8 @@
 import allergensDoc from './doc.svg';
 import arrowDownBrown from './arrow-down-brown.svg';
 import arrowDownWhite from './arrow-down-white.svg';
-import delivery from './delivery.svg';
+import deliveryBrown from './delivery-brown.svg';
+import deliveryWhite from './delivery-white.svg';
 import facebookBrown from './facebook-brown.svg';
 import facebookWhite from './facebook-white.svg';
 import filterIcon from './filter.svg';
@@ -13,11 +14,14 @@ import mapsBrown from './maps-brown.svg';
 import mapsWhite from './maps-white.svg';
 import numb1 from './1.svg';
 import numb2 from './2.svg';
-import onPlace from './on-place.svg';
+import onPlaceBrown from './on-place-brown.svg';
+import onPlaceWhite from './on-place-white.svg';
 import oven from './oven.svg';
 import phoneBrown from './phone-brown.svg';
 import phoneWhite from './phone-white.svg'
-import pizzaBox from './pizza-box.svg';
+import pizzaBoxBrown from './pizza-box-brown.svg';
+import pizzaBoxWhite from './pizza-box-white.svg';
+
 import pizzaPeel from './pizza-peel.svg';
 import plate from './plate.svg';
 import rustic from './rustic.svg';
@@ -33,7 +37,8 @@ export const icons = {
     allergensDoc,
     arrowDownBrown,
     arrowDownWhite,
-    delivery,
+    deliveryBrown,
+    deliveryWhite,
     facebookBrown,
     facebookWhite,
     filterIcon,
@@ -44,11 +49,14 @@ export const icons = {
     mapsWhite,
     numb1,
     numb2,
-    onPlace,
+    onPlaceBrown,
+    onPlaceWhite,
+
     oven,
     phoneBrown,
     phoneWhite,
-    pizzaBox,
+    pizzaBoxBrown,
+    pizzaBoxWhite,
     pizzaPeel,
     plate,
     rustic,
