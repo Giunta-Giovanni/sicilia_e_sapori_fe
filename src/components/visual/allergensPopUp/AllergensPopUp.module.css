@@ -9,6 +9,7 @@
     z-index: 1000;
 }
 
+
 /* popUp */
 .popUp {
     max-height: 75vh;
@@ -17,6 +18,8 @@
     background-color: var(--primary-white);
     z-index: 1001;
 }
+
+
 
 /* header */
 .popUp .header {
@@ -74,7 +77,6 @@
     transform: rotate(0deg);
 }
 
-
 /* h6 legend*/
 .popUp h6 {
     background-color: var(--primary-white);
@@ -106,15 +108,6 @@
     /* background-color: grey; */
 }
 
-@media (max-width:576px) {
-    .popUp .legend ul {
-        justify-content: start;
-        align-items: center;
-        gap: 0.5rem;
-        margin: 0 auto;
-    }
-}
-
 .popUp .legend li {
     display: flex;
     align-items: center;
@@ -123,13 +116,6 @@
 
     /* debug */
     /* background-color: powderblue; */
-}
-
-@media (max-width:576px) {
-    .popUp .legend li {
-        margin: 0;
-        width: 45%;
-    }
 }
 
 .popUp .legend li span {
@@ -154,4 +140,46 @@
     height: 7rem;
     /* debug */
     /* background-color: green; */
+}
+
+
+/**+****************
+DARK THEME
+********************/
+@media (prefers-color-scheme: dark) {
+    .popUp {
+        background-color: var(--primary-brown);
+    }
+    .popUp .header{
+        background-color: var(--primary-brown); 
+    }
+    .closeButton::before,
+    .closeButton::after {
+    background-color: var(--primary-gold);
+    }
+    
+    /* h6 legend*/
+    .popUp h6 {
+        background-color: var(--primary-brown);
+    }
+
+    .popUp .regulation {
+        background-color: var(--primary-brown);
+    }
+}
+
+/**+****************
+MOBILE VIEW
+********************/
+@media (max-width:576px) {
+    .popUp .legend ul {
+        justify-content: start;
+        align-items: center;
+        gap: 0.5rem;
+        margin: 0 auto;
+    }
+        .popUp .legend li {
+        margin: 0;
+        width: 45%;
+    }
 }
