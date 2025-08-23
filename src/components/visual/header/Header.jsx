@@ -1,7 +1,7 @@
 // import Hooks
-import { useState, useEffect } from "react";
-import { Link, useNavigate, useLocation, NavLink } from "react-router-dom";
-import useLang from "../../../hooks/useLang";
+import { useState, useEffect, useContext } from "react";
+import { Link, useNavigate, useLocation} from "react-router-dom";
+// import useLang from "../../../hooks/useLang";
 
 // import Styles
 import styles from './Header.module.css';
@@ -15,23 +15,28 @@ import { icons } from '../../../assets/svg/general/icons';
 // Assets
 import linearLogoBrown from "../../../assets/svg/logo/logo-header-brown.svg"
 import linearLogoWhite from "../../../assets/svg/logo/logo-header-white.svg"
+import GlobalContext from "../../../context/GlobalContext";
 
 export default function Header() {
 
     // Save
     const { facebookWhite, instagramWhite, phoneBrown } = icons;
     // Save Language
-    const lang = useLang();
+    // const lang = useLang();
     // Save Location
     const location = useLocation();
     // Save Navigation
     const navigate = useNavigate();
-
+    // Save context
+    const {lang, isDarkMode} = useContext(GlobalContext)
     // save location
     const aboutUs = location.pathname == "/it/about-us" || location.pathname == "/en/about-us";
     const home = location.pathname == "/it/" || location.pathname == "/en/";
 
-    // console.log(home);
+    // ############## LOG ###############
+    // console.log(home)
+    // console.log('isDarkMode', isDarkMode);
+    // ##################################
 
     // switch lang function
     const switchLang = (targetLang) => {
@@ -83,7 +88,7 @@ export default function Header() {
             {/* headerLogo */}
             <div className={styles.headerLogo}>
                 <Link to={lang === 'en' ? '/en/' : '/it/'}>
-                    <img src={isOpen || aboutUs || (home && !scrolled) ? linearLogoWhite : linearLogoBrown} alt="logo" />
+                    <img src={isOpen || aboutUs || (home && !scrolled) || isDarkMode? linearLogoWhite : linearLogoBrown} alt="logo" />
                 </Link>
             </div>
 
