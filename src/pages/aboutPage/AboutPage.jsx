@@ -202,7 +202,7 @@ export default function AboutPage() {
                     <h4>{lang === 'it' ? "Il nostro locale" : "Our pizzeria"}</h4>
                     <p>{lang === 'it'
                         ? 
-                        "Inaugurato nel 2015, Sicilia e Sapori torna sotto la gestione originale nel 2025, portando tante novità sia al locale che sul menù.L’ispirazione arriva dalla Sicilia antica e genuina, fatta di pietra e grano che ondeggia al sole, e decorata dai colori vivaci delle carte siciliane. Un omaggio alle nostre radici, da assaporare ogni giorno.
+                        "Inaugurato nel 2015, Sicilia e Sapori torna sotto la gestione originale nel 2025, portando tante novità sia al locale che sul menù.L’ispirazione arriva dalla Sicilia antica e genuina, fatta di pietra e grano che ondeggia al sole, e decorata dai colori vivaci delle carte siciliane. Un omaggio alle nostre radici, da assaporare ogni giorno."
                         : 
                         "Founded in 2015, Sicilia e Sapori returned to its original management in 2025, bringing many new ideas to both the restaurant and the menu.Our inspiration comes from the ancient, authentic Sicily: stone walls, golden fields of grain swaying under the sun, and the vibrant colors of traditional Sicilian cards. A tribute to our roots, to be savored every day."
                     }
