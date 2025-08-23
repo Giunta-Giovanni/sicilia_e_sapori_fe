@@ -121,13 +121,6 @@
     /* background-color: lightcoral; */
 }
 
-@media (max-width:768px) {
-    .popUp .filter {
-        padding: 0 0 0 4rem;
-
-    }
-}
-
 .popUp .filter label {
     display: flex;
     align-items: center;
@@ -262,4 +255,51 @@
 .popUp .filtersApplyBtn button:active {
     background-color: var(--primary-brown);
     transform: translateY(1px);
+}
+
+/**+****************
+DARK THEME
+********************/
+@media (prefers-color-scheme: dark) {
+    .popUp {
+        background-color: var(--primary-brown);
+    }
+    .popUp .header{
+        background-color: var(--primary-brown); 
+    }
+    .closeButton::before,
+    .closeButton::after {
+    background-color: var(--primary-gold);
+    }
+    
+    /* h6 legend*/
+    .popUp h6 {
+        background-color: var(--primary-brown);
+    }
+    .popUp .filter:hover input~.checkmark {
+        background-color: var(--secondary-brown);
+    }
+    /* filtersApplyBtn */
+    .popUp .filtersApplyBtn {
+        position: sticky;
+        bottom: 0;
+        padding: 1rem;
+        background-color: var(--primary-brown);
+    }
+
+    .popUp .filtersApplyBtn button {
+
+    background-color: var(--primary-gold);
+    color: var(--primary-brown);
+    }
+}
+
+/**+****************
+TABLET
+********************/
+@media (max-width:768px) {
+    .popUp .filter {
+        padding: 0 0 0 4rem;
+
+    }
 }
