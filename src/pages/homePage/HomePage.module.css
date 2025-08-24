@@ -70,6 +70,12 @@
     padding: 0 40px;
 }
 
+@media (prefers-color-scheme: dark) {
+    .boxLayout{
+        border-color: var(--primary-white);
+    }
+}
+
 
 @media (max-width: 992px) {
     .boxLayout {
@@ -109,6 +115,13 @@
     border-left: 1px solid var(--primary-brown);
     border-right: 0.5px solid var(--primary-brown);
 }
+
+@media (prefers-color-scheme: dark) {
+    .presentation .boxLayout div {
+        border-color: var(--primary-white);
+    }
+}
+
 
 
 /* imgBox */
@@ -314,6 +327,24 @@
     border-bottom: 1px solid var(--primary-brown);
 }
 
+
+@media (prefers-color-scheme: dark) {
+    .infoBox .where {
+    border-color:var(--primary-white)
+}
+.infoBox .when {
+    border-color: var(--primary-white);
+}
+.infoBox .contact {
+    border-color: 1px solid var(--primary-white);
+}
+
+.infoBox .contact a{
+    color: var(--primary-white);
+    border-color:var(--primary-white);
+}
+}
+
 @media (max-width: 992px) {
 
     .infoBox .when,
@@ -368,10 +399,37 @@
     transform: translateX(-50%);
 }
 
+@media (prefers-color-scheme: dark) {
+
+    .mapBox button {
+        border: 1px solid var(--primary-brown);
+        background-color:#311b04da;
+    }
+        .mapBox button a{
+        color: var(--primary-white);
+    }
+
+}
+
 @media (max-width: 768px) {
     .mapBox {
         width: 100%;
         padding: 0;
         border: none;
     }
+}
+
+@media (prefers-color-scheme: dark) {
+    .btnStyle {
+    border: 1px solid var(--primary-white);
+    background-color: var(--primary-brown);
+}
+.btnStyle:hover {
+    background-color: var(--primary-gold);
+}
+
+.btnStyle:active {
+    background-color: var(--primary-gold);
+}
+
 }

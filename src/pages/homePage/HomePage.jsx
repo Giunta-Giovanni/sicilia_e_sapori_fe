@@ -20,9 +20,9 @@ import mappa from '/mappa.png';
 export default function HomePage() {
 
     // context
-    const { lang } = useContext(GlobalContext);
+    const { lang, isDarkMode } = useContext(GlobalContext);
     // icons
-    const { pizzaPeel, onPlace, delivery, pizzaBox } = icons;
+    const { pizzaPeel, onPlaceBrown,onPlaceWhite, deliveryBrown,deliveryWhite, pizzaBoxBrown, pizzaBoxWhite } = icons;
 
     // animation
     const [animation, setAnimation] = useState(false);
@@ -113,17 +113,17 @@ export default function HomePage() {
                     <div className={styles.types}>
                         {/* typeBox */}
                         <div className={styles.typeBox}>
-                            <img src={onPlace} alt="on Place" />
+                            <img src={isDarkMode?onPlaceWhite:onPlaceBrown} alt="on Place" />
                             <p>{lang === 'it' ? 'Locale' : "Dine-in"}</p>
                         </div>
                         {/* typeBox */}
                         <div className={styles.typeBox}>
-                            <img src={pizzaBox} alt="on Place" />
+                            <img src={isDarkMode?pizzaBoxWhite:pizzaBoxBrown} alt="on Place" />
                             <p>{lang === 'it' ? 'Asporto' : "Take-Away"}</p>
                         </div>
                         {/* typeBox */}
                         <div className={styles.typeBox}>
-                            <img src={delivery} alt="on Place" />
+                            <img src={isDarkMode?deliveryWhite:deliveryBrown} alt="on Place" />
                             <p>{lang === 'it' ? 'Domicilio' : "Delivery"}</p>
                         </div>
                     </div>

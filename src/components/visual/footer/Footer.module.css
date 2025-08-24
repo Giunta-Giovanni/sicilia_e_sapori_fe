@@ -27,6 +27,21 @@ footer.inverted a {
     color: var(--primary-brown);
 }
 
+@media (prefers-color-scheme: dark) {
+    footer{
+    border-top:0.5px solid var(--primary-white);
+
+    }
+    footer.inverted {
+    background-color: var(--primary-brown);
+    color: var(--primary-white);
+}
+footer.inverted a {
+    color: var(--primary-white);
+}
+}
+
+
 /* logo */
 .logo {
     max-width: 500px;

@@ -50,20 +50,13 @@
     z-index: 2;
 }
 
+
 @media (max-width:768px) {
-    .chooseMenu {
-        margin: 1rem;
-        padding: 0.7rem 1.3rem;
-    }
+
 }
 
 
-@media (max-width:320px) {
-    .chooseMenu {
-        font-size: 1.2rem;
-        margin: 0.3rem;
-    }
-}
+
 
 .chooseMenu:hover {
     background-color: #fefdfc7a;
@@ -81,6 +74,7 @@
 
 
 
+
 /* menu */
 .menu {
     display: flex;
@@ -88,12 +82,7 @@
     border: 0.5px solid var(--primary-brown);
 }
 
-@media (max-width:768px) {
-    .menu {
-        padding: 0.1rem;
-        display: block;
-    }
-}
+
 
 /* overlay */
 .overlay {
@@ -106,3 +95,54 @@
     opacity: 0.8;
     z-index: 1000;
 }
+
+/*************
+DARKMODE
+*************/
+@media (prefers-color-scheme: dark) {
+    .chooseMenu {
+        background-color: var(--primary-brown) ;
+        border: 1px solid var(--primary-white);
+    }
+
+    .chooseMenu:hover {
+        background-color: var(--primary-gold);
+    }   
+
+    .chooseMenu.active,
+    .chooseMenu:active {
+        color: var(--primary-brown);
+        background-color: var(--primary-gold);
+        border: 1px solid var(--primary-brown);
+    }   
+
+    .menu{
+     border: 0.5px solid var(--primary-white);   
+    }
+
+}
+
+/*************
+TABLET VIEW 
+*************/
+@media (max-width:768px) {
+    .chooseMenu {
+        margin: 1rem;
+        padding: 0.7rem 1rem;
+    }
+    .menu {
+        padding: 0.1rem;
+        display: block;
+    }
+
+}
+/*************
+MOBILE VIEW 
+*************/
+@media (max-width:320px) {
+    .chooseMenu {
+        font-size: 1.2rem;
+        margin: 0.3rem;
+    }
+}
+

@@ -7,8 +7,11 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "rsync -avz -e 'ssh -p 2222 -i ~/.ssh/netsons_key' dist/ ubuntu@81.28.9.14:/var/www/frontend"
   },
+
   "dependencies": {
     "axios": "^1.9.0",
     "react": "^19.1.0",

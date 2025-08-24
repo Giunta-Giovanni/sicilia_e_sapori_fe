@@ -8,6 +8,8 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useViewport } from "../hooks/useViewport.js";
 import useLang from "../hooks/useLang.js";
+import useDarkMode from "../hooks/useDarkmode.js";
+
 
 // import Components
 import SlowScrollTo from "../components/technical/SlowScrollTo.jsx";
@@ -19,6 +21,8 @@ import { handleClick } from "../utils/ui.js";
 export default function GlobalContextProvider({ children }) {
     // save lang
     const lang = useLang();
+
+    const isDarkMode = useDarkMode();
 
     // save dinamic view port
     const { isMobile, isTablet } = useViewport();
@@ -61,6 +65,8 @@ export default function GlobalContextProvider({ children }) {
         }
     }, [isLoading]);
 
+    
+
 
     // RENDER
     return (
@@ -69,6 +75,7 @@ export default function GlobalContextProvider({ children }) {
             SlowScrollTo,
             isMobile,
             isTablet,
+            isDarkMode,
             lang,
             isLoading,
             setIsLoading,

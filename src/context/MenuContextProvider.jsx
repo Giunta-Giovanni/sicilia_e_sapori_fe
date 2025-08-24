@@ -43,7 +43,7 @@ export default function MenuContextProvider({ children }) {
         // for each category, if it has a key (like "pizzas", "burgers", etc.)
         categories.forEach(({ id, key }) => {
 
-            console.log('questa è la chiave', key)
+            // console.log('questa è la chiave', key)
             if (key) {
                 // filter products that match the current category ID
                 // and assign them to the corresponding key in the map
