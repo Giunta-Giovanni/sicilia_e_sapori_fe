@@ -1,93 +1,104 @@
 # Sicilia e Sapori Front End
 
-# MIlestone 1 -> navbar menu
+Questo progetto è il frontend di un’applicazione per una pizzeria, sviluppato con React e Vite. L’app offre un'esperienza utente **moderna** e **responsive**, **interattiva** e **multilingue**, con funzionalità di filtro, gestione degli allergeni e selezione di prodotti.
 
-1. centralizzare navDoc navMenu e navFilter √
+---
 
-2. Implementare comportamento responsive per la navigazione delle categorie (nav list)√
+# Caratteristiche principali:
 
-   Obiettivo:
-   Adattare la visualizzazione della navList per dispositivi mobili in modo che:
-   • la lista delle categorie sia nascosta per schermi piccoli (es. < 768px),√
-   • venga mostrata al click su un’icona o bottone (es. “Menù”),
-   • il comportamento sia accessibile e fluido.
+    •	Temi chiaro e scuro, con supporto alla modalità preferita dal browser.
+    •	Gestione delle interne combinando una struttura modulare con il supporto multi-lingua
+    •	Menu interattivo con categorie e filtri per allergeni, piccantezza e vegetarianità.
+    •	Chiamata API al backend tramite Axios.
+    •	Loader Personalizzato mostrato solo al primo caricamento, per una UX fluida.
+    •	Gestione dei cookie con cookie-yes, conforme al GDPR.
+    •	Pagine aggiuntive: Privacy Policy, Cookies Policy e pagina 404.
+    •	Deploy automatico su VPS tramite script dedicato.
 
-   Cose da fare:
+# Tecnologie e Dipendenze [apri](/package.json)
 
-   1. Aggiungere media query per nascondere la nav list su schermi piccoli.√
-   2. Creare uno stato (setIsMenuOpen) per controllare la visibilità della lista.√
-   3. Associare un click handler al bottone “Menù” per mostrare/nascondere la nav list.√
-   4. Aggiungere eventuale animazione o transizione per rendere l’apertura/chiusura più fluida.√
-   5. Verificare che la nav list sia facilmente navigabile da mobile (accessibilità, tappabilità, ecc.).√
+    •	React e Vite per lo sviluppo front-end.
+    •	react-router-dom per la gestione delle rotte.
+    •	react-world-flags per la selezione della lingua.
+    •	Swiper per slider e caroselli.
+    •	CSS modulare per ciascuna pagina.
+    •	Contesti globali e custom hooks per gestione globale dello stato.
 
-3. Creare popup Allergeni√
+# Funzionalità aggiuntive
 
-   1. Creare componente <AllergensPopup /> con overlay e contenitore centrale.v
-   2. Gestire stato di apertura/chiusura (isAllergensOpen).√
-   3. Implementare overlay semi-trasparente che oscura lo schermo.v
-   4. Impostare popup responsivo (70-80% altezza, larghezza adattabile).v
-   5. Inserire contenuto informativo sugli allergeni.v
-   6. Abilitare chiusura con click su X o su overlay.√
+    •	Multi-lingua: Italiano e Inglese, con switch tramite react-world-flags.
+    •	Tema: Light e Dark mode, con rilevamento automatico del browser.
+    •	Utility: Funzioni di formattazione numeri, filtri per categorie e contatori dinamici.
+    •	Loader: Mostrato solo al primo caricamento durante le chiamate API, evitando rallentamenti successivi.
 
-   <!-- allergeni -->
+# Custom Hooks
 
-   - Per essere completamente a norma:
+- [useMenuSection]: Salva tutte le reference useRef delle singole categorie del menu.
+- [useTypeWriter]: Crea un effetto di scrittura automatica, visualizzando il testo lettera per lettera.
+- [useViewPort]: Determina se lo schermo è in modalità mobile o tablet.
+- [useLang]: Estrae e salva la lingua dall’URL (italiano o inglese).
+- [useDarkMode]: Rileva se il browser è in modalità dark o light.
+- [useActiveSection]: Tiene traccia della sezione attiva in quel momento.
 
-4. Creare popup Filtri
+# Contesti
 
-   1. Creare componente <FiltersPopup /> con overlay e contenitore.√
-   2. Gestire stato di apertura/chiusura (isFiltersOpen).√
-   3. Progettare UI con opzioni filtro (checkbox, dropdown, switch).√
-   4. Implementare logica di applicazione filtri sui prodotti.√
-   5. Permettere chiusura con click su X o overlay.√
-   6. Aggiungere animazioni fluide e gestione accessibilità (focus trap, esc).√
+- [GlobalContextProvider]: Contiene informazioni globali accessibili da tutti i componenti.
+- [MenuContextProvider]: Contiene informazioni specifiche per la pagina del menu.
 
-5. Gestire stato della sezione corrente in base allo scroll
+# Gestione delle Immagini
 
-   1. Creare gli anchor-point in pagina √
+Per semplificare il caricamento e l’uso delle immagini, sono stati creati diversi file JavaScript dedicati:
 
-      - Inserire ref o id corrispondenti ai nomi delle categorie (es. id="pizze") sulle sezioni dei prodotti nel menu.
+- [allergens]: contiene tutte le immagini relative agli allergeni.
+- [icons]: raccoglie icone in formato SVG utilizzate in varie parti dell’app.
+- [image]: include le immagini in formato JPG utilizzate in varie parti dell’app
 
-   2. Aggiungere gli observer o listener di scroll√
+# Stili Globali
 
-      - Usare IntersectionObserver o window.addEventListener('scroll') per rilevare la sezione visibile nella viewport.
+Nel file [index] sono stati inseriti gli stili di default dell’app, inclusa la palette di colori utilizzata in tutta la web app. Questo approccio garantisce coerenza visiva e facilita la gestione degli stili a livello globale.
 
-   3. Confrontare posizione scroll con i contenuti√
+# Struttura delle pagine
 
-      - Verificare quale sezione è attualmente visibile e aggiorna lo stato currentSection.
+- [HomePage]: Video introduttivo, presentazione della pizzeria.
+- [MenuPage]: Sezione interattiva con filtri, popup per allergeni e contatori per quantità.
+- [AboutPage]: Informazioni sull’attività.
+- [NotFoundPage]: redirect con video simpatico che rimanda alla homepage.
+- [PrivacyPolicyPage]: Privacy Policy per trasparenza utente.
+- [CookiePolicyPage]: Cookie Policy per trasparenza utente.
 
-   4. Aggiornare la UI in base allo stato
+---
 
-      - Applicare una classe attiva sulla categoria nel menu (es. opacità, colore diverso, underline…).
+**Shortcut ai file principali**
 
-   5. Ottimizzare la performance dello scroll listener x
+# Custom Hooks
 
-      - Usare throttle o debounce per evitare troppi aggiornamenti.
+[useMenuSection]: /src/hooks/useMenuSections.js
+[useTypeWriter]: /src/hooks/useTypewriter.js
+[useViewPort]: /src/hooks/useViewport.js
+[useLang]: /src/hooks/useLang.js
+[useDarkMode]: /src/hooks/useDarkMode.js
+[useActiveSection]: /src/hooks/useActiveSection.js
 
-   6. Testare su mobile e desktop √
+# Context
 
-      - Verificare che il comportamento sia coerente su diverse risoluzioni e che il menu evidenzi correttamente la sezione.
+[GlobalContextProvider]: /src/context/GlobalContextProvider.jsx
+[MenuContextProvider]: /src/context/MenuContextProvider.jsx
 
-   7. La normativa (Regolamento UE 1169/2011) richiede che:
-      • L’informazione sugli allergeni sia sempre disponibile al consumatore prima dell’acquisto.√
-      • Non bastano solo le icone → va indicato cosa rappresentano (quindi la tua legenda è fondamentale).√
-      • Deve esserci chiarezza visiva e linguistica: se usi simboli, devono essere accompagnati da una spiegazione visibile (non nascosta dietro un clic invisibile).√
+# Gestione Immagini
 
-   8. Best practice extra:
-      • Inserisci un piccolo testo in fondo o all’inizio del menu che dica:
-      “Per maggiori informazioni sugli allergeni consulta la sezione Allergeni o chiedi al personale.”
+[allergens]: /src/assets/svg/allergens/allergens.js
+[icons]: /src/assets/svg/general/icons.js
+[image]: /src/assets/jpg/image.js
 
-# Milestone 2 -> home page
+# Stili globali
 
-<!-- cose da sistemare -->
+[index]: /src/index.css
 
-<!-- - ricordare in pagina chi siamo di cambiare il background del root in primary brown -->
+# Pagine
 
-- cambiare di nuovo svg header con quelle corrette con la 'e' corretta
-- modificare sezione impasti per eccentuare i prezzi
-- modificare layout pizze per renderlo piu semplice e pulito
-- organizzare i prezzi in ordine di vendità (se possibile)
-- aggiungi -Coperto: 2,00€ | Supplementi: salumi 2€; formaggi 2€; verdure 1,50€; pesce 3€.
-  \*in mancanza di prodotti freschi verranno usati prodotti surgelati e abbattuti. sempre visibile sticky in pagina in basso
-
-<!-- inserisci forno video forno vuoto -->
+[HomePage]: /src/pages/homePage/HomePage.jsx
+[MenuPage]: /src/pages/menuPage/MenuPage.jsx
+[AboutPage]: /src/pages/aboutPage/AboutPage.jsx
+[NotFoundPage]: /src/pages/notFoundPage/NotFoundPage.jsx
+[PrivacyPolicyPage]: /src/pages/privacyPolicyPage/PrivacyPolicyPage.jsx
+[CookiePolicyPage]: /src/pages/cookiePolicyPage/CookiePolicyPage.jsx
