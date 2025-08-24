@@ -68,34 +68,18 @@ Nel file [index] sono stati inseriti gli stili di default dell’app, inclusa la
 
 ---
 
-**Shortcut ai file principali**
-
-# Custom Hooks
-
 [useMenuSection]: /src/hooks/useMenuSections.js
 [useTypeWriter]: /src/hooks/useTypewriter.js
 [useViewPort]: /src/hooks/useViewport.js
 [useLang]: /src/hooks/useLang.js
 [useDarkMode]: /src/hooks/useDarkMode.js
 [useActiveSection]: /src/hooks/useActiveSection.js
-
-# Context
-
 [GlobalContextProvider]: /src/context/GlobalContextProvider.jsx
 [MenuContextProvider]: /src/context/MenuContextProvider.jsx
-
-# Gestione Immagini
-
 [allergens]: /src/assets/svg/allergens/allergens.js
 [icons]: /src/assets/svg/general/icons.js
 [image]: /src/assets/jpg/image.js
-
-# Stili globali
-
 [index]: /src/index.css
-
-# Pagine
-
 [HomePage]: /src/pages/homePage/HomePage.jsx
 [MenuPage]: /src/pages/menuPage/MenuPage.jsx
 [AboutPage]: /src/pages/aboutPage/AboutPage.jsx
